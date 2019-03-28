@@ -1,0 +1,8 @@
+function group = getmultiplesites(site,userdata,siteID)
+% Function to ...
+group(1) = siteID;
+ss = find(site.([cell2mat(userdata.simulation(1).project)])...
+    .group) == siteID;
+if length(ss) > 1
+    group(2:length(ss)+1) = site.([cell2mat(userdata.simulation(1).project)]).ID;
+end

@@ -1,0 +1,64 @@
+function userdata = readconfRUNTIME(fullpath,filename)
+% This function takes the user configuration file and creates the
+% structured type userdata.
+warning off
+[num,str] = xlsread(filename);
+
+% Start and end date info
+% Start and end date info
+if strcmp(computer,'PCWIN64') > 0
+    userdata.startdate = datenum(str(16,2),'dd/mm/yy');
+    userdata.enddate = datenum(str(21,2),'dd/mm/yy');
+    userdata.datearray = [datenum(str(16,2),'dd/mm/yy'),...
+        datenum(str(21,2),'dd/mm/yy'),...
+        datenum(str(22,2),'dd/mm/yy'),...
+        datenum(str(23,2),'dd/mm/yy'),...
+        datenum(str(24,2),'dd/mm/yy'),...
+        datenum(str(25,2),'dd/mm/yy')];
+else
+    userdata.startdate = x2mdate(num(1,2));
+    userdata.enddate = x2mdate(num(2,2));
+end
+
+% Plot Type
+userdata.type = str(5,2);
+userdata.modeltype = str(6,2);
+userdata.directory = str(4,3);
+userdata.validation = str(4,4);
+% Set sheet defaults
+userdata.defaults.sheet.type = str(9,1);
+userdata.defaults.sheet.focus = str(9,2);
+userdata.defaults.sheet.background = str(9,3);
+userdata.defaults.sheet.show = str(9,4);
+userdata.defaults.sheet.region = str(9,5);
+userdata.defaults.sheet.plotint = num(end);
+
+% Set Line defaults
+userdata.defaults.line.type = str(13,1);
+userdata.defaults.line.validation = str(13,2);
+userdata.defaults.line.sitename = str{13,3};
+userdata.defaults.line.show = str(13,4);
+
+% Now import in the site information
+[num1] = xlsread([fullpath.confpth,'/plot/sitelist.xls']);
+userdata.defaults.line.site = num1;
+
+% Now the netcdf information
+numNETCDF = length(str) - 16;
+for ii = 1:numNETCDF
+    userdata.simulation(ii).project = str(16+ii,1);
+    userdata.simulation(ii).server = str(16+ii,2);
+    userdata.simulation(ii).folder = str(16+ii,3);
+    userdata.simulation(ii).grid = str(16+ii,4);
+    userdata.simulation(ii).colour = str(16+ii,5);
+    userdata.simulation(ii).legend = str(16+ii,6);
+end
+
+warning on
+
+
+
+
+
+
+

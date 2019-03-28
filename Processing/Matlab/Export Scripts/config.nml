@@ -1,0 +1,131 @@
+!Configuration file for the tfv_export Routine.
+!
+! Three section need to be configured: Model, Variables and Locations
+! Model Configuration sets up which model NETCDF is to be processed,
+!   Output directory location, Start and End time for the Plots, and a 
+!   smoothing factor(running average)
+!
+! Variable configuration has three fields that must be completed for each 
+!   variable. Name, Units and CAxis. The field name (e.g. TEMP, SAL) must
+!   match the variable name being exported.
+!
+! Location configuration consists of three fields, X, Y & full Name. The 
+!   field name is just an ID for directory creation. This must contain no
+!   spaces or symbols.
+!
+!
+! Written by Brendan Busch
+
+!__________________________________________________________________________
+
+!_________________________________________________________________________!
+!                                                                         !
+!   Model Configuration                                                   !
+!_________________________________________________________________________!
+
+&Configuration
+
+! Location of the model netcdf file
+model = 'V:\Busch\Studysites\Swan\Simulations\Swan Flood Modelling\Swan_2017_Flood_Event_v2\Output\swan.nc'
+! Output directory
+output_directory = 'Example_Output\tfv_export_flood\' 
+! Start time of Plot
+time_start = '31/12/2016' 
+! End time of Plot
+time_end = '31/03/2017' 
+! Running average (smooth) for figure
+smooth = 3 
+
+
+!_________________________________________________________________________!
+!                                                                         !
+!   Variable Configuration                                                !
+!_________________________________________________________________________!
+
+&Variables
+! Each variable to be exported must be configured with name, units & caxis
+! Base name must match the variable name coming out of TFV
+
+TEMP.name = 'Temperature';
+TEMP.units = 'C'
+TEMP.caxis = [0 30];
+
+SAL.name = 'Salinity';
+SAL.units = 'psu'
+SAL.caxis = [0 40];
+
+H.name = 'Height';
+H.units = 'm'
+H.caxis = [-1 2];
+
+
+!WQ_OXY_OXY.name = 'Oxygen';
+!WQ_OXY_OXY.units = 'mmol/m3';
+!WQ_OXY_OXY.caxis = [0 200];
+!
+!WQ_SIL_RSI.name = 'Silica';
+!WQ_SIL_RSI.units = 'mmol/m3';
+!WQ_SIL_RSI.caxis = [0 200];
+!
+!WQ_NIT_AMM.name = 'AMM';
+!WQ_NIT_AMM.units = 'mmol/m3';
+!WQ_NIT_AMM.caxis = [0 200];
+!
+!WQ_NIT_NIT.name = 'NIT';
+!WQ_NIT_NIT.units = 'mmol/m3';
+!WQ_NIT_NIT.caxis = [0 200];
+!
+!WQ_PHS_FRP.name = 'FRP';
+!WQ_PHS_FRP.units = 'mmol/m3';
+!WQ_PHS_FRP.caxis = [0 200];
+!
+!WQ_OGM_DON.name = 'DON';
+!WQ_OGM_DON.units = 'mmol/m3';
+!WQ_OGM_DON.caxis = [0 200];
+!
+!WQ_OGM_PON.name = 'PON';
+!WQ_OGM_PON.units = 'mmol/m3';
+!WQ_OGM_PON.caxis = [0 200];
+!
+!WQ_OGM_DOP.name = 'DOP';
+!WQ_OGM_DOP.units = 'mmol/m3';
+!WQ_OGM_DOP.caxis = [0 200];
+!
+!WQ_OGM_POP.name = 'POP';
+!WQ_OGM_POP.units = 'mmol/m3';
+!WQ_OGM_POP.caxis = [0 200];
+!
+!WQ_OGM_DOC.name = 'DOC';
+!WQ_OGM_DOC.units = 'mmol/m3';
+!WQ_OGM_DOC.caxis = [0 200];
+!
+!WQ_OGM_POC.name = 'POC';
+!WQ_OGM_POC.units = 'mmol/m3';
+!WQ_OGM_POC.caxis = [0 200];
+!
+!WQ_PHY_GRN.name = 'GRN';
+!WQ_PHY_GRN.units = 'mmol/m3';
+!WQ_PHY_GRN.caxis = [0 200];
+
+
+
+
+!_________________________________________________________________________!
+!                                                                         !
+!   Location Configuration                                                !
+!_________________________________________________________________________!
+
+&Sites
+! Each site needs an ID as it's base, X,Y and Full Name
+
+ Site1.X = 391366.25
+ Site1.Y = 6463072.05
+ Site1.name = 'Narrows'
+
+ Site2.X = 401953.32
+ Site2.Y = 6469699.15
+ Site2.name = 'Helena'
+
+ Site3.X = 401603.56
+ Site3.Y = 6470767.98
+ Site3.name = 'Guildford'

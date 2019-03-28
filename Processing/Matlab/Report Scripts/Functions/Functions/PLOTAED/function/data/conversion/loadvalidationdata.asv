@@ -1,0 +1,12 @@
+function val = loadvalidationdata(fullpath,userdata)
+% Function to ....
+load [fullpath.datapth,'/',cell2mat(userdata.simulation(1).project),'/mat/DWL.mat'];
+load([fullpath.datapth,'/',cell2mat(userdata.simulation(1).project),'/mat/EPA.mat']);
+load([fullpath.datapth,'/',cell2mat(userdata.simulation(1).project),'/mat/waterscope.mat']);
+load([fullpath.datapth,'/',cell2mat(userdata.simulation(1).project),'/mat/rivermurray.mat']);
+
+
+val.DWL = DWL;
+val.EPA = EPA;
+val.RM = RiverMurray;
+val.WS = WS;
