@@ -1,0 +1,241 @@
+ dPvTV1w2eojb9U1X
+9owzVaP8Xzq6WCxI             licence
+! --------------------------------------------------------------- !
+!  AEM3D Configuration file                                       !
+!  written to test Multi-Year simulations 2002-14 (LLeon)         !
+!                                                                 !
+! ----------------------------------------------------------------!
+!                                                                 !
+ 'Lake Erie'                     TITLE
+ 'Luis Leon'                     ANALYST
+ 'NWRI'                          ORGANIZATION
+ 'Prepared 09/11/2019'           COMMENT
+!                                                                     !
+! --------------------------------------------------------------------!
+! time controls                                                       !
+!      Short-run 2008-2014:                                           !
+ 2008100.0                      start_date_cwr  ! CWR Julian day
+ 300.0                          del_t           ! Time step (s)
+ 735000                         iter_max        ! Number of time steps
+!      Long-run 2002-2014:                                            !
+! 2002100.0                      start_date_cwr  ! CWR Julian day
+! 300.0                          del_t           ! Time step (s)
+! 1470000                        iter_max        ! Number of time steps
+! --------------------------------------------------------------------!
+! file directories (require quote marks around)                       !
+! (note that incomplete quotes can cause code to hang)                !
+!                                                                     !
+ 'ncfiles'                      outfile_nc_dir
+ 'infiles'                      infile_dir
+ 'unffiles'                     outfile_unf_dir
+ 'txtfiles'                     outfile_txt_dir
+! --------------------------------------------------------------------!
+! input file names (include exact file extension)                     !
+!                                                                     !
+ sparsedataerie3b.unf           3D_data_file
+ usedataerie3a.unf              preprocessor_file
+ Met_bc_WB.dat                        boundary_condition_file
+ Met_bc_CBne.dat                      boundary_condition_file
+ Met_bc_CBnw.dat                      boundary_condition_file
+ Met_bc_CBse.dat                      boundary_condition_file
+ Met_bc_CBsw.dat                      boundary_condition_file
+ Met_bc_EB.dat                        boundary_condition_file
+ 2002-14_flwi_Cuy-WQ.dat               	boundary_condition_file
+ 2002-14_flwi_Det.dat              	boundary_condition_file
+ 2002-14_flwi_Det-WQ.dat              	boundary_condition_file
+ 2002-14_flwi_Gra_ON-WQ.dat             boundary_condition_file
+ 2002-14_flwi_Mau-WQ.dat              	boundary_condition_file
+ 2002-14_flwo_Nia.dat                   boundary_condition_file
+ 2002-14_flwi_Snd-WQ.dat              	boundary_condition_file
+ !TracerRelease.dat              	update_file
+ datablock.xml                   datablock_file
+! --------------------------------------------------------------------!
+! initial confition file names (include exact file extension)         !
+! 2002                                                                !
+!init_profile_s1_970w.dat		initial_profile_file
+!init_profile_s2_968w.dat		initial_profile_file
+!init_profile_s3_965wc.dat		initial_profile_file
+!init_profile_s4_961c.dat		initial_profile_file
+!init_profile_s5_962c.dat		initial_profile_file
+!init_profile_s6_952c.dat		initial_profile_file
+!init_profile_s7_953c.dat		initial_profile_file
+!init_profile_s8_954c.dat		initial_profile_file
+!init_profile_s9_949c.dat		initial_profile_file
+!init_profile_s10_945c.dat		initial_profile_file
+!init_profile_s11_946c.dat		initial_profile_file
+!init_profile_s12_879e.dat		initial_profile_file
+!init_profile_s13_940e.dat		initial_profile_file
+!init_profile_s14_886e.dat		initial_profile_file
+!init_profile_s15_934e.dat		initial_profile_file
+!init_profile_s16_971w.dat		initial_profile_file
+!init_profile_s17_966w.dat		initial_profile_file
+!init_profile_s18_973w.dat		initial_profile_file
+!init_profile_s19_974w.dat		initial_profile_file
+!init_profile_s20_969w.dat		initial_profile_file
+! 2008                                                                !
+init_profile_2008_s1_er09e.dat		initial_profile_file
+init_profile_2008_s2_er10e.dat		initial_profile_file
+init_profile_2008_s3_er15e.dat		initial_profile_file
+init_profile_2008_s4_er63e.dat		initial_profile_file
+init_profile_2008_s5_er30c.dat		initial_profile_file
+init_profile_2008_s6_er31c.dat		initial_profile_file
+init_profile_2008_s7_er32c.dat		initial_profile_file
+init_profile_2008_s8_er36c.dat		initial_profile_file
+init_profile_2008_s9_er37c.dat		initial_profile_file
+init_profile_2008_s10_er38c.dat 	initial_profile_file
+init_profile_2008_s11_er42c.dat 	initial_profile_file
+init_profile_2008_s12_er43c.dat 	initial_profile_file
+init_profile_2008_s13_er73c.dat 	initial_profile_file
+init_profile_2008_s14_er78c.dat 	initial_profile_file
+init_profile_2008_s15_er58w.dat 	initial_profile_file
+init_profile_2008_s16_er59w.dat 	initial_profile_file
+init_profile_2008_s17_er60w.dat 	initial_profile_file
+init_profile_2008_s18_er61w.dat 	initial_profile_file
+init_profile_2008_s19_er91w.dat 	initial_profile_file
+init_profile_2008_s20_er92w.dat 	initial_profile_file
+ 2 IC_DIST_WEIGHTING    ! Inverse distance weighting used for multiple profile init
+!                                                                     !
+! --------------------------------------------------------------------!
+! simulation modules (0=OFF,1=ON)                                     !
+ 6              iclosure                ! closure model
+ 1              iheat_input             ! surface thermodynamics
+ 1              iatmstability           ! atmospheric stability 
+ 1              iflow                   ! inflow/outflow
+ 1              itemperature            ! temperature
+ 0              isalinity               ! salinity
+ 1              idensity                ! density (baroclinic forcing)
+ 0              irain                   ! rainfall input
+ 0              ibubbler                ! bubble plume destrat
+ 0              ijet                    ! jet destrat
+ 0              ifilter                 ! scalar diffusion filter
+ 1              iretention              ! track retention time
+ 1              ICAEDYM                 ! water quality module
+12              nthreads
+ 1		ice
+ 1              icoriolis               ! turn off/on coriolis forcing
+ 0              ntracer                 ! number of tracers
+!                                                                     !
+! --------------------------------------------------------------------!
+! default boundary conditions                                         !
+!                                                                     !
+!   1 = noslip all                                                    !
+!   2 = freeslip all                                                  !
+!   3 = drag all                                                      !
+!   4 = neumann all                                                   !
+!   5 = slip sides, noslip bottom                                     !
+!   6 = slip sides, drag bottom                                       !
+!   7 = slip sides, neumann bottom                                    !
+!   8 = header values                                                 !
+!   9 = turbulent benthic boundary layer                              !
+!                                                                     !
+ 9              DEFAULT_BC
+! --------------------------------------------------------------------!
+! bottom drag
+!                                                                     !
+ 0.005          drag_btm_cd
+ 0.0013         wind_cd
+ 0.0            time_zone
+ 1.0              model_grav_damp_x
+ 1.0               model_grav_damp_y
+! --------------------------------------------------------------------!
+! default values (superseded by inputs in elcom_setup.f90)            !
+!                                                                     !
+ 10.0            WIND_SPEED_HEIGHT        ! Wind sensor height
+ 5.0            SCALAR_HEIGHT            ! Met sensor height
+ 0.9            SEDIMENT_REFLECTIVITY
+ 0.0013         SURF_HEAT_TRANSF_COEFF
+! --------------------------------------------------------------------!
+! default values (superseded by inputs in elcom_setup.f90)            !
+!                                                                     !
+ 0.0            DEFAULT_HEIGHT           ! Initial uniform water level
+ 4.8            DEFAULT_WTR_TEMP         ! Initial uniform temperature
+ 0.0            DEFAULT_TRACER_1         ! Initial uniform tracer
+ 0.0            DEFAULT_WIND_SPEED       ! Uniform wind speed
+ 0.0            DEFAULT_WIND_DIR         ! Uniform wind direction
+ 0.25           DEFAULT_PAR_EXTINCTION   ! PAR extinction coefficient 45% of SW
+ 1.00           DEFAULT_NIR_EXTINCTION   ! NIR extinction coefficient 41% of SW
+ 1.00           DEFAULT_UVA_EXTINCTION   ! UVA extinction coefficient 3.5% of SW
+ 2.50           DEFAULT_UVB_EXTINCTION   ! UVB extinction coefficient 0.5% of SW
+ 0.08           mean_albedo              ! 
+!                                                                     !
+! --------------------------------------------------------------------!
+! horizontal diffusivities                                            !
+!                                                                     !
+ 0.0            DEFAULT_DIFFUSIVITY      ! Default horizontal diffusivity for all scalars
+!                                                                     !
+! --------------------------------------------------------------------!
+ 'NONE'         CASE_KEYWORD
+!                                                                     !
+! --------------------------------------------------------------------!
+! initialization options                                              !
+!                                                                     !
+ 0              irestart                !  start from restart file  (yes=1/no=0)
+ 0              user_init_u_vel         !  1 = use stub routine in elcom_user.f90
+ 0              user_init_v_vel
+ 0              user_init_w_vel
+ 0              user_init_temperature
+ 0              user_init_salinity
+ 0              user_init_tracer
+ 0              user_init_height
+ 0              user_init_extinction
+! --------------------------------------------------------------------!
+! user options                                                        !
+!                                                                     !
+ 0              user_update_data        ! 1 = use stub routine in elcom_user.f90
+ 0              gravity_angle           ! Use varying gravity angle
+ 3              idatablock              ! Datablock style (use 2)
+!                                                                     !
+! --------------------------------------------------------------------!
+! model settings and controls                                         !
+!                                                                     !
+ 1.0            model_grav_damp_x       ! damping of gravity for x baroclinic term
+ 1.0            model_grav_damp_y       ! damping of gravity for y baroclinic term
+!                                                                     !
+! --------------------------------------------------------------------!
+! debug output controls                                               !
+!                                                                     !
+ 1              debug_check             ! level of error checking
+ 0              debug_print             ! level of debug printing
+ 0              debug_point             ! point for debug output
+ 1              debug_baroclinic_x      ! error trapping on = 1, off = 0
+ 1              debug_baroclinic_y      ! error trapping on = 1, off = 0
+!                                                                     !
+! --------------------------------------------------------------------!
+! scalar max and min                                                  !
+!                                                                     !
+ 0              IHARDLIMIT              ! 1 = Limit scalars to min/max values
+ -1.0            min_WTR_TEMP
+ 40.0           max_WTR_TEMP
+ 0.0            min_TRACER_1
+ 500.0            max_TRACER_1
+!                                                                     0.00002       decay_TRACER_1
+! --------------------------------------------------------------------!
+! filter options                                                      !
+!                                                                     !
+ 0.0            DEFAULT_FILTER
+!                                                                     !
+! --------------------------------------------------------------------!
+! frequency of outputs                                                !
+!                                                                     !
+ 144            iter_out_monitor        ! monitoring output to screen
+ 8000           iter_out_save           ! saving separate restart files
+ 4000           iter_out_restart        ! overwriting restart output!
+!                                                                     !
+! --------------------------------------------------------------------!
+! start of outputs                                                    !
+!                                                                     !
+ 0              start_output_monitor    ! monitor output to screen
+ 0              start_output_save       ! saved restart files
+!                                                                     !
+! --------------------------------------------------------------------!
+! conjugate gradient iteration controls                               !
+!                                                                     !
+ 1.e-16         CGM_TOL                 ! CGM tolerance
+ 30             CGM_MIN                 ! minimum iterations of CGM
+ 1000           CGM_MAX                 ! maximum iterations of CGM
+!                                                                     !
+! --------------------------------------------------------------------!
+! restart file names (do not include file extension)                  !
+!                                                                     !
+ save           restart_save_file
+ restart_final  restart_out_file

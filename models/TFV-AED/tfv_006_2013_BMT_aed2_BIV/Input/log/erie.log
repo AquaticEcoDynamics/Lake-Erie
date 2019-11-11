@@ -1,0 +1,588 @@
+
+***************************** TUFLOWFV *****************************
+
+Build version: 2015.01.028_dev
+Build date: 18/09/2017 10:20
+Build platform: Linux
+Build architecture:  x86-64
+Compiler version: Ifort 16.0.1
+Build precision: single
+
+********************************************************************
+
+Computer name: Matts-MacBook-Pro.local
+User name: matthipsey
+Execution timestamp: 08/11/2019 08:11:48
+
+Attempting to process input control file:
+Trying to open file: erie.fvc ... OK. File unit: 101
+Start echoing input file:
+SPHERICAL == .FALSE.
+INCLUDE SALINITY == .TRUE.
+COUPLE SALINITY DENSITY == .TRUE.
+INCLUDE TEMPERATURE == .TRUE.
+COUPLE TEMPERATURE DENSITY == .TRUE.
+INCLUDE SEDIMENT == .FALSE.
+INCLUDE HEAT == .TRUE.
+INCLUDE ICE == .TRUE.
+LONG WAVE RADIATION MODEL == 3
+SW RADIATION ALBEDO (MEAN AT EQUATOR) ==   0.2500000
+MOMENTUM MIXING MODEL == SMAGORINSKY
+SCALAR MIXING MODEL == SMAGORINSKY
+VERTICAL MIXING MODEL == EXTERNAL
+EXTERNAL TURBULENCE MODEL DIR == ../External/GOTM/
+WATER QUALITY MODEL == EXTERNAL
+EXTERNAL WATER QUALITY MODEL DIR == ../External/AED2/
+SPATIAL ORDER == 1, 2
+VERTICALGRADIENTLIMITER == MC
+BOTTOM DRAG MODEL == KS
+EQUATION OF STATE == UNESCO
+TIME FORMAT == ISO DATE
+REFERENCE TIME == 01/01/2001 00:00:00
+START TIME == 28/05/2013 00:00:00
+END TIME == 01/06/2014 06:00:00
+CFL EXTERNAL ==   0.9000000
+CFL INTERNAL ==   0.9000000
+TIMESTEP LIMITS ==   0.1000000E+00,   10.000000
+TURBULENCE UPDATE DT ==    600.0000
+DISPLAY DT ==    900.0000
+STABILITY LIMITS ==    15.00000    ,    15.00000
+CELL DRY/WET DEPTHS ==   0.4000000E-01,   0.4000000E-01
+G ==    9.810000
+LATITUDE ==    42.12221
+REFERENCE SALINITY ==    35.00000
+REFERENCE TEMPERATURE ==    18.00000
+REFERENCE DENSITY ==   1000.0000
+DENSITY AIR ==    1.180000
+GLOBAL BOTTOM ROUGHNESS ==   0.2000000E-02
+GLOBAL HORIZONTAL EDDY VISCOSITY (SMAG COEFF) ==   0.2000000
+GLOBAL HORIZONTAL SCALAR DIFFUSIVITY (SMAG COEFF) ==   0.2000000
+DIFFUSIVITY LIMITER DT ==    30.00000
+BACKGROUND VISCOSITY ==   0.1000000E-05
+GLOBAL VERTICAL EDDY VISCOSITY LIMITS ==   0.1000000E-03,    9999.000
+GLOBAL VERTICAL SCALAR DIFFUSIVITY LIMITS ==   0.1000000E-05,    9999.000
+GEOMETRY2D == ../Geo/Erie_v5_Substrates.2dm
+VERTICAL MESH TYPE == Z
+LAYER FACE FILE == ../Geo/layers.csv
+SIGMA LAYERS == 2
+MINIMUM LAYER THICKNESS ==   0.1000000E+00
+CELL 3D DEPTH ==   0.5000000
+MATERIAL == 1
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 2
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 3
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+NTRACER == 1
+INITIAL CONDITION 2D == ../BCs/IC/IC_AED2_20130413.csv
+GRID DEFINITION FILE == ../BCs/Met/Wind_utm_20131001_20151001.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == WIND_GRID
+END GRID
+BC == W10_GRID, WIND_GRID, ../BCs/Met/Wind_utm_20131001_20151001.nc
+  BC HEADER ==  time, u, v
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+  BC SCALE ==   1.0000000,  1.0000000
+END BC
+GRID DEFINITION FILE == ../BCs/Met/Temperature_utm_20131001_20151001.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == TEMP_GRID
+END GRID
+BC == AIR_TEMP_GRID, TEMP_GRID, ../BCs/Met/Temperature_utm_20131001_20151001.nc
+  BC HEADER ==  time, temp
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+GRID DEFINITION FILE == ../BCs/Met/RelHum_utm_20131001_20151001.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == RHUM_GRID
+END GRID
+BC == REL_HUM_GRID, RHUM_GRID, ../BCs/Met/RelHum_utm_20131001_20151001.nc
+  BC HEADER ==  time, rhum
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+GRID DEFINITION FILE == ../BCs/Met/Radiation_utm_20130930_20150930.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == RAD_GRID
+END GRID
+BC == SW_RAD_GRID, RAD_GRID, ../BCs/Met/Radiation_utm_20130930_20150930.nc
+  BC HEADER ==  time, dswr
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+BC == LW_RAD_GRID, RAD_GRID, ../BCs/Met/Radiation_utm_20130930_20150930.nc
+  BC HEADER ==  time, dlwr
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+BC == Q, 1, ../BCs/Inflows/s2013_flwo_Nia_2013.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+BC == Q, 1, ../BCs_bmt/Inflows/2002-14_flwo_Nia_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+  BC SCALE ==  -1.0000000
+END BC
+BC == Q, 2, ../BCs_bmt/Inflows/2002-14_flwi_Det_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+BC == QC,    616680.0    ,    4744330.    , ../BCs_bmt/Inflows/2002-14_flwi_Gra_ON-WQ_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+BC == QC,    304206.7    ,    4618818.    , ../BCs_bmt/Inflows/2002-14_flwi_Mau-WQ_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+BC == QC,    362406.7    ,    4590618.    , ../BCs_bmt/Inflows/2002-14_flwi_Snd-WQ_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+BC == QC,    438120.0    ,    4594766.    , ../BCs_bmt/Inflows/2002-14_flwi_Cuy-WQ_v02.csv
+  BC HEADER ==  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT
+END BC
+OUTPUT DIR == ../Output/
+OUTPUT == NETCDF
+  SUFFIX == TFV
+  OUTPUT PARAMETERS ==  H, D, V, W, W10, SAL, TEMP,
+  OUTPUT INTERVAL ==    43200.00
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == AED
+  OUTPUT PARAMETERS ==  D, H, WQ_ALL,
+  OUTPUT INTERVAL ==    43200.00
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == AED_DIAG
+  OUTPUT PARAMETERS ==  D, H, WQ_DIAG_ALL,
+  OUTPUT INTERVAL ==    10800.00
+END OUTPUT
+OUTPUT == FLUX
+  OUTPUT INTERVAL ==    7200.000
+END OUTPUT
+WRITE RESTART DT ==   10.000000
+Closing file unit: 101
+Finished echoing input file.
+Configuring "AED2" external module... Successful.
+Successful.
+
+Attempting to build model domain object/s:
+
+Processing mesh geometry file/s:
+Reading 2dm mesh file...
+Trying to open file: ../Geo/Erie_v5_Substrates.2dm ... OK. File unit: 101
+Closing file unit: 101
+Finished reading 2dm mesh file.
+
+Processing mesh face connections...
+Finished processing mesh face connections.
+
+Trying to open file: log/erie_geo.csv ... OK. File unit: 101
+Trying to open file: log/erie_geo_cellupdates.csv ... OK. File unit: 102
+Trying to open file: log/erie_geo_nodestring.csv ... OK. File unit: 103
+
+Reading 3D layer specification file...
+Trying to open file: ../Geo/layers.csv ... OK. File unit: 104
+Z, columns read from csvfile. 35 lines successfully read.
+Closing file unit: 104
+Finished reading 3D layer specification file.
+
+Closing file unit: 101
+Closing file unit: 102
+Closing file unit: 103
+
+Found 18383 nodes.
+Found 21884 2D cells.
+Found 2 nodestrings.
+Mesh geometry file/s succesfully processed.
+
+Constructing domain, comprising:
+ 21884 2D cells.
+ 301304 3D cells.
+ 559213 3D faces.
+Constructing node object...OK
+Constructing cell object...OK
+Constructing face object...OK
+Constructing gridmap object/s...
+  Extracting grid definition from ../BCs/Met/Wind_utm_20131001_20151001.nc
+Trying to open file: ../BCs/Met/Wind_utm_20131001_20151001.nc ...OK
+Closing file: ../BCs/Met/Wind_utm_20131001_20151001.nc
+    Constructing grid to mesh-cells map
+WARNING: 99% of model cells are within grid coverage.
+  Extracting grid definition from ../BCs/Met/Temperature_utm_20131001_20151001.nc
+Trying to open file: ../BCs/Met/Temperature_utm_20131001_20151001.nc ...OK
+Closing file: ../BCs/Met/Temperature_utm_20131001_20151001.nc
+    Constructing grid to mesh-cells map
+WARNING: 99% of model cells are within grid coverage.
+  Extracting grid definition from ../BCs/Met/RelHum_utm_20131001_20151001.nc
+Trying to open file: ../BCs/Met/RelHum_utm_20131001_20151001.nc ...OK
+Closing file: ../BCs/Met/RelHum_utm_20131001_20151001.nc
+    Constructing grid to mesh-cells map
+  Extracting grid definition from ../BCs/Met/Radiation_utm_20130930_20150930.nc
+Trying to open file: ../BCs/Met/Radiation_utm_20130930_20150930.nc ...OK
+Closing file: ../BCs/Met/Radiation_utm_20130930_20150930.nc
+    Constructing grid to mesh-cells map
+WARNING: 99% of model cells are within grid coverage.
+OK
+Constructing external mode objects...OK
+Echoing geometry data:
+Trying to open file: log/erie_geo.nc ...OK.
+Closing file: log/erie_geo.nc
+
+Successfully built model domain object/s.
+
+Attempting to initialise atmospheric module:
+WARNING: Cloud cover not defined by the user. Clear skies assumed for long wave radiation heat transfer model
+Successfully initialised atmospheric module.
+
+Attempting to initialise external turbulence model:
+Initialising "GOTM" external turbulence module:
+Successful.
+
+Succesfully initialised external turbulence model.
+
+Attempting to initialise external wq model:
+Initialising "AED2" external module:
+Successful.
+22 water quality variables to be simulated:
+  TRC_tr1
+  TRC_age
+  OXY_oxy
+  SIL_rsi
+  NIT_amm
+  NIT_nit
+  PHS_frp
+  PHS_frp_ads
+  OGM_doc
+  OGM_poc
+  OGM_don
+  OGM_pon
+  OGM_dop
+  OGM_pop
+  PHY_DINOF
+  PHY_CYANO
+  PHY_NODUL
+  PHY_CHLOR
+  PHY_CRYPT
+  MAG_cgm
+  MAG_cgm_IP
+  BIV_filtfrac
+Succesfully initialised external wq model.
+
+Attempting to initialise model boundary conditions:
+Constructing fvbc object...
+
+BC 1, Type=W10_GRID
+Update dt=   3600.000    s
+BC grid label = WIND_GRID
+BC grid id = 1
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00
+BC default value/s =       NaN             NaN
+BC variable name/s =  TIME, W10_X, W10_Y,
+BC file header/s =  TIME, U, V,
+Trying to open file: ../BCs/Met/Wind_utm_20131001_20151001.nc ...OK
+TIME,U,V, variables found in netcdf file. 17521 timesteps successfully read.
+BC 1 is OK
+
+BC 2, Type=AIR_TEMP_GRID
+Update dt=   3600.000    s
+BC grid label = TEMP_GRID
+BC grid id = 2
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00
+BC variable scale/s =  1.00E+00
+BC default value/s =       NaN
+BC variable name/s =  TIME, AIR_TEMP,
+BC file header/s =  TIME, TEMP,
+Trying to open file: ../BCs/Met/Temperature_utm_20131001_20151001.nc ...OK
+TIME,TEMP, variables found in netcdf file. 17521 timesteps successfully read.
+BC 2 is OK
+
+BC 3, Type=REL_HUM_GRID
+Update dt=   3600.000    s
+BC grid label = RHUM_GRID
+BC grid id = 3
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00
+BC variable scale/s =  1.00E+00
+BC default value/s =       NaN
+BC variable name/s =  TIME, REL_HUM,
+BC file header/s =  TIME, RHUM,
+Trying to open file: ../BCs/Met/RelHum_utm_20131001_20151001.nc ...OK
+TIME,RHUM, variables found in netcdf file. 17521 timesteps successfully read.
+BC 3 is OK
+
+BC 4, Type=SW_RAD_GRID
+Update dt=   3600.000    s
+BC grid label = RAD_GRID
+BC grid id = 4
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00
+BC variable scale/s =  1.00E+00
+BC default value/s =       NaN
+BC variable name/s =  TIME, SW_RAD,
+BC file header/s =  TIME, DSWR,
+Trying to open file: ../BCs/Met/Radiation_utm_20130930_20150930.nc ...OK
+TIME,DSWR, variables found in netcdf file. 17521 timesteps successfully read.
+BC 4 is OK
+
+BC 5, Type=LW_RAD_GRID
+Update dt=   3600.000    s
+BC grid label = RAD_GRID
+BC grid id = 4
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00
+BC variable scale/s =  1.00E+00
+BC default value/s =       NaN
+BC variable name/s =  TIME, LW_RAD,
+BC file header/s =  TIME, DLWR,
+Trying to open file: ../BCs/Met/Radiation_utm_20130930_20150930.nc ...OK
+TIME,DLWR, variables found in netcdf file. 17521 timesteps successfully read.
+BC 5 is OK
+
+BC 6, Type=Q
+Subtype=1
+BC Nodestring id = 1
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs/Inflows/s2013_flwo_Nia_2013.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 365 lines successfully read.
+Closing file unit: 101
+BC 6 is OK
+
+BC 7, Type=Q
+Subtype=1
+BC Nodestring id = 1
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s = -1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwo_Nia_v02.csv ... OK. File unit: 101
+WARNING: SAL column not found in csv file. Assigning a value of             NaN
+WARNING: TEMP column not found in csv file. Assigning a value of             NaN
+WARNING: TRACE_1 column not found in csv file. Assigning a value of             NaN
+WARNING: SS1 column not found in csv file. Assigning a value of             NaN
+WARNING: RET column not found in csv file. Assigning a value of             NaN
+WARNING: OXY column not found in csv file. Assigning a value of             NaN
+WARNING: SIL column not found in csv file. Assigning a value of             NaN
+WARNING: AMM column not found in csv file. Assigning a value of             NaN
+WARNING: NIT column not found in csv file. Assigning a value of             NaN
+WARNING: FRP column not found in csv file. Assigning a value of             NaN
+WARNING: FRP_ADS column not found in csv file. Assigning a value of             NaN
+WARNING: DOC column not found in csv file. Assigning a value of             NaN
+WARNING: POC column not found in csv file. Assigning a value of             NaN
+WARNING: DON column not found in csv file. Assigning a value of             NaN
+WARNING: PON column not found in csv file. Assigning a value of             NaN
+WARNING: DOP column not found in csv file. Assigning a value of             NaN
+WARNING: POP column not found in csv file. Assigning a value of             NaN
+WARNING: CYANO column not found in csv file. Assigning a value of             NaN
+WARNING: CHLOR column not found in csv file. Assigning a value of             NaN
+WARNING: CRYPTO column not found in csv file. Assigning a value of             NaN
+WARNING: FDIAT column not found in csv file. Assigning a value of             NaN
+WARNING: MDIAT column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow, columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 7 is OK
+
+BC 8, Type=Q
+Subtype=1
+BC Nodestring id = 2
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwi_Det_v02.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 8 is OK
+
+BC 9, Type=QC
+Subtype=1
+Cell id=2645
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwi_Gra_ON-WQ_v02.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 9 is OK
+
+BC 10, Type=QC
+Subtype=1
+Cell id=21619
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwi_Mau-WQ_v02.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 6937 lines successfully read.
+Closing file unit: 101
+BC 10 is OK
+
+BC 11, Type=QC
+Subtype=1
+Cell id=18864
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwi_Snd-WQ_v02.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 7417 lines successfully read.
+Closing file unit: 101
+BC 11 is OK
+
+BC 12, Type=QC
+Subtype=1
+Cell id=14128
+BC variable name/s =  TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22,
+BC file header/s =  ISOTime, Flow, Sal, Temp, TRACE_1, SS1, RET, Oxy, Sil, Amm, Nit, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CYANO, CHLOR, CRYPTO, FDIAT, MDIAT, WQ_20, WQ_21, WQ_22,
+BC reference time = 01/01/2001 00:00:00
+BC time units = HOURS
+BC variable offset/s =  0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00        0.00E+00
+BC variable scale/s =  1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00        1.00E+00
+BC variable default/s =       NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN             NaN
+Trying to open file: ../BCs_bmt/Inflows/2002-14_flwi_Cuy-WQ_v02.csv ... OK. File unit: 101
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT, columns read from csvfile. 6845 lines successfully read.
+Closing file unit: 101
+BC 12 is OK
+
+Finished constructing fvbc object.
+
+Initialising ghost cell boundary conditions...
+Finished initialising ghost cell boundary conditions.
+
+Initialising face object boundary conditions...
+Finished initialising face object boundary conditions.
+
+Successfully initialised model boundary conditions.
+
+Attempting to generate model initial conditions:
+Trying to open file: ../BCs/IC/IC_AED2_20130413.csv ... OK. File unit: 101
+ID,WL,U,V,SAL,TEMP,TRACE_1,WQ_1,WQ_2,WQ_3,WQ_4,WQ_5,WQ_6,WQ_7,WQ_8,WQ_9,WQ_10,WQ_11,WQ_12,WQ_13,WQ_14,WQ_15,WQ_16,WQ_17,WQ_18,WQ_19,WQ_20,WQ_21,WQ_22, columns read from csvfile. 21884 lines successfully read.
+Closing file unit: 101
+Successfully generated model initial conditions.
+
+Attempting to initialise model output:
+
+Allocating output object memory:
+Memory allocation OK.
+
+Trying to open file: log/erie_geo_out.csv ... OK. File unit: 101
+Processing output requests:
+Processing request 1 is...
+OK.
+Processing request 2 is...
+OK.
+Processing request 3 is...
+OK.
+Processing request 4 is...
+OK.
+
+Closing file unit: 101
+Opening output files...
+Trying to open file: ../Output/erie_TFV.nc ...OK
+Trying to open file: ../Output/erie_AED.nc ...OK
+Trying to open file: ../Output/erie_AED_DIAG.nc ...OK
+Trying to open file: ../Output/erie_FLUX.csv ... OK. File unit: 101
+
+Successfully initialised model output.
+
+Running simulation
+Number of OpenMP threads=4
+Thread stacksize=4194304
+
+Entering timestep loop
+t = 28/05/2013 00:00:00.  dt =   0.000 /  0.000 s.  elapsed time =       0.0 s.
+    Writing NETCDF output. t = 28/05/2013 00:00:00.
+    Writing NETCDF output. t = 28/05/2013 00:00:00.
+    Writing NETCDF output. t = 28/05/2013 00:00:00.
+    Writing nodestring flux output. t = 28/05/2013 00:00:00.
+t = 28/05/2013 00:15:00.  dt =  10.000 / 10.000 s.  elapsed time =      31.9 s.
+t = 28/05/2013 00:30:00.  dt =  10.000 / 10.000 s.  elapsed time =      68.1 s.
+t = 28/05/2013 00:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     109.5 s.
+t = 28/05/2013 01:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     157.5 s.
+t = 28/05/2013 01:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     233.2 s.
+t = 28/05/2013 01:30:00.  dt =  10.000 / 10.000 s.  elapsed time =     266.4 s.
+t = 28/05/2013 01:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     300.7 s.
+t = 28/05/2013 02:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     332.9 s.
+    Writing nodestring flux output. t = 28/05/2013 02:00:00.
+t = 28/05/2013 02:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     365.4 s.
+t = 28/05/2013 02:30:00.  dt =  10.000 / 10.000 s.  elapsed time =     398.6 s.
+t = 28/05/2013 02:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     431.1 s.
+t = 28/05/2013 03:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     463.1 s.
+    Writing NETCDF output. t = 28/05/2013 03:00:00.
+t = 28/05/2013 03:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     497.6 s.
+t = 28/05/2013 03:30:00.  dt =  10.000 / 10.000 s.  elapsed time =     530.9 s.
+t = 28/05/2013 03:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     562.7 s.
+t = 28/05/2013 04:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     594.6 s.
+    Writing nodestring flux output. t = 28/05/2013 04:00:00.
+t = 28/05/2013 04:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     626.5 s.
+t = 28/05/2013 04:30:00.  dt =  10.000 / 10.000 s.  elapsed time =     660.3 s.
+t = 28/05/2013 04:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     693.7 s.
+t = 28/05/2013 05:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     726.9 s.
+t = 28/05/2013 05:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     758.6 s.
+t = 28/05/2013 05:30:00.  dt =  10.000 / 10.000 s.  elapsed time =     793.4 s.
+t = 28/05/2013 05:45:00.  dt =  10.000 / 10.000 s.  elapsed time =     852.6 s.
+t = 28/05/2013 06:00:00.  dt =  10.000 / 10.000 s.  elapsed time =     899.6 s.
+    Writing NETCDF output. t = 28/05/2013 06:00:00.
+    Writing nodestring flux output. t = 28/05/2013 06:00:00.
+t = 28/05/2013 06:15:00.  dt =  10.000 / 10.000 s.  elapsed time =     941.6 s.
+t = 28/05/2013 06:30:00.  dt =  10.000 / 10.000 s.  elapsed time =    1062.5 s.
+t = 28/05/2013 06:45:00.  dt =  10.000 / 10.000 s.  elapsed time =    1375.4 s.
+t = 28/05/2013 07:00:00.  dt =  10.000 / 10.000 s.  elapsed time =    2240.9 s.
+t = 28/05/2013 07:15:00.  dt =  10.000 / 10.000 s.  elapsed time =    2476.4 s.

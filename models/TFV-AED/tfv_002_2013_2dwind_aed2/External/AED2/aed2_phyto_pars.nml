@@ -1,0 +1,70 @@
+!-------------------------------------------------------------------------------
+! aed_phyto_pars
+!-------------------------------------------------------------------------------
+! p_name        [string]: Name of phytoplankton group
+! p_initial     [real]: Initial concentration of phytoplankton (mmol C/m3)
+! p0            [real]:	Minimum concentration of phytoplankton (mmol C/m3)
+! w_p           [real]: sedimentation rate (m/d)
+! Ycc           [real]: carbon to chlorophyll ratio (mg C/mg chla)
+!-- GROWTH parameters
+! R_growth      [real]: Phyto max growth rate @20C (/day)
+! fT_Method     [int]:  Specifies temperature limitation function of growth (-); 0 = no temperature limitation 1= CAEDYM style
+! theta_growth  [real]: Arrenhius temperature scaling for growth function (-)
+! T_std         [real]: Standard temperature (deg C) 
+! T_opt         [real]: Optimum temperature (deg C) 
+! T_max         [real]: Maximum temperature (deg C)
+!-- LIGHT parameters
+! lightModel    [int]: Type of light response function [0 = no photoinhibition; 1 = photoinhibition]
+! I_K           [real]: Half saturation constant for light limitation of growth (microE/m^2/s) used if lightModel=0
+! I_S           [real]: saturating light intensity  (microE/m^2/s) used if lightModel=1
+! KePHY         [real]: Specific attenuation coefficient  ((mmol C m^3^-1)^1 m^-1)
+!-- RESPIRATION parameters
+! f_pr          [real]: Fraction of primary production lost to exudation (-)
+! R_resp        [real]: Phytoplankton respiration/metabolic loss rate @ 20 (degC)
+! theta_resp    [real]: Arrhenius temperature scaling factor for respiration (-)
+! k_fres        [real]: Fraction of metabolic loss that is true respiration (-)
+! k_fdom        [real]: Fraction of metabolic loss that is DOM (-)
+!-- SALINITY parameters
+! salTol        [int]:  Type of salinity limitation function (-)
+! S_bep         [real]: Salinity limitation value at maximum salinity S_maxsp (-)
+! S_maxsp       [real]: Maximum salinity (g/kg)
+! S_opt         [real]: Optimal salinity (g/kg)
+!-- NITROGEN parameters
+! simDINUptake  [int]:  Simulate DIN uptake (0 = false, 1 = true)
+! simDONUptake  [int]:  Simulate DON uptake (0 = false, 1 = true) - currently not functioning
+! simNFixation  [int]:  Simulate N fixation (0 = false, 1 = true)
+! simINDynamics [int]:  Simulate internal N  (0 = assumed fixed C:N, 2 = dynamic C:N) 
+! N_o           [real]: Nitrogen concentraion below which uptake is 0 (mmol N/m^3)
+! K_N           [real]: Half-saturation concentration of nitrogen (mmol N/m^3)
+! X_ncon        [real]: Constant internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 0 or 1
+! X_nmin        [real]: minimum internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 2
+! X_nmax        [real]: maximum internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 2
+! R_nuptake     [real]: maximum nitrogen uptake rate(mmol N/m^3/d) used if simINDynamics = 2
+! k_nfix        [real]: growth rate reduction under maximum nitrogen fixation (/day) used if simNFixation >0
+! R_nfix        [real]: nitrogen fixation rate (mmol N/mmol C/day)
+!-- PHOSPHORUS parameters
+! simDIPUptake  [real]: Simulate DIP uptake (0 = false, 1 = true) 
+! simIPDynamics [real]: Simulate internal phosphorus dynamics (0 = assumed fixed C:P, 2 = dynamic C:P) 
+! P_0           [real]: Phosphorus concentraion below which uptake is 0 (mmol P/m^3)
+! K_P           [real]: Half-saturation concentration of phosphorus (mmol P/m^3)
+! X_pcon        [real]: Constant internal phosphorus concentration (mmol P/ mmol C) used if simIPDynamics = 0 or 1
+! X_pmin        [real]: Minimum internal phosphorus concentration (mmol P/mmol C) used if simIPDynamics = 2
+! X_pmax        [real]: Maximum internal phosphorus concentration (mmol P/mmol C) used if simIPDynamics = 2
+! R_puptake     [real]: Maximum phosphorus uptake rate(mmol P/m^3/d) used if simIPDynamics = 2
+!-- SILICA parameters
+! simSiUptake   [int]:  Simulate Si uptake (0 = false, 1 = true)
+! Si_0          [real]: Silica concentraion below which uptake is 0 (mmol Si/m^3)
+! K_Si          [real]: Half-saturation concentration of silica (mmol Si /m3)
+! X_sicon       [real]: Constant intenral silica concentration (mmol Si/mmol C)
+!-------------------------------------------------------------------------------
+
+!	p_name,	 p_initial,	   p0,	    w_p,	  Ycc, R_growth, fT_Method, theta_growth,   T_std,	T_opt,	T_max, lightModel,    I_K,    I_S,	  KePHY,	 f_pr,	R_resp,	theta_resp,	k_fres,	k_fdom,	salTol,	S_bep, S_maxsp,	S_opt,	simDINUptake, simDONUptake,	simNFixation,simINDynamics,   N_o,	  K_N, X_ncon, X_nmin, X_nmax, R_nuptake, k_nfix,   R_nfix,	simDIPUptake,	simIPDynamics,	  P_0,	  K_P, X_pcon, X_pmin, X_pmax, R_puptake, simSiUptake,    Si_0,	  K_Si,	X_sicon
+&phyto_data	
+pd ='DINOF',  10.0,  0.2,  0,  300,  0.6,  1,  1.06,  18.0,  22,  28,  3,  140,  390,  4.6667e-05,  0.025,  0.07,  1.04,  0.6,  0.1,  0,  1,  36,  18,  1,  0,  0,  0,  0,  1.4143,  0.0085714,  0.10286,  0.12857,  0,  2,  0.0028571,  1,  0,  0.0645,  0.12355,  0.0003871,  0.0019355,  0.027097,  0,  0,  0.0000,  0,  0,  
+    'CYANO',  10.0,  0.2,  -0.07344,  50,  0.8,  1,  1.09,  23.0,  30,  39,  2,  130,  1300,  0.0004,  0.025,  0.17,  1.06,  0.5,  0.7,  0,  3,  36,  3,  1,  0,  0,  0,  0,  3.2143,  0.068571,  0.034286,  0.068571,  0,  2,  0.017143,  1,  0,  0.0645,  0.29032,  0.0030968,  0.00077419,  0.0077419,  0,  0,  0.0000,  0,  0,  
+    'NODUL',  10.0,  0.2,  -0.07344,  50,  1.2,  1,  1.07,  12.0,  22,  35,  2,  100,  200,  0.0004,  0.025,  0.1,  1.06,  0.25,  0.3,  0,  2,  36,  28,  1,  0,  0,  0,  0,  3.2143,  0.068571,  0.034286,  0.068571,  0,  2,  0.017143,  1,  0,  0.0645,  0.25806,  0.0030968,  0.00077419,  0.003871,  0,  0,  0.0000,  0,  0,  
+    'CHLOR',  10.0,  0.2,  -0.019872,  40,  0.8,  1,  1.06,  12.0,  29,  35,  2,  100,  100,  0.00035,  0.025,  0.11,  1.08,  0.2,  0.2,  0,  2.5,  36,  14,  1,  0,  0,  0,  0,  4.2857,  0.064286,  0.064286,  0.19286,  0,  2,  0.021429,  1,  0,  0.0645,  0.096774,  0.0029032,  0.0029032,  0.019355,  0,  0,  0.0000,  0,  0,  
+    'CRYPT',  10.0,  0.2,  -0.019872,  180,  1,  1,  1.06,  20.0,  21,  27.5,  2,  40,  200,  7.7778e-05,  0.025,  0.2,  1.08,  0.2,  0.4,  0,  2,  36,  20,  1,  0,  0,  0,  0,  3.2143,  0.014286,  0.0095238,  0.019048,  0,  2,  0.0047619,  1,  0,  0.0645,  0.096774,  0.00064516,  0.00021505,  0.0021505,  0,  0,  0.0000,  0,  0,  
+    'FDIAT',  10.0,  0.2,  -0.864,  50,  1.99,  1,  1.075,  20.0,  23,  31,  2,  60,  70,  0.0004,  0.025,  0.15,  1.035,  0.3,  0.4,  0,  5,  36,  1,  1,  0,  0,  0,  0,  3.2143,  0.068571,  0.034286,  0.068571,  0,  2,  0.017143,  1,  0,  0.0645,  0.19355,  0.0030968,  0.0010065,  0.010065,  0,  1,  0.0000,  1.9573,  0.34164,  
+    'MDIAT',  10.0,  0.2,  -0.864,  50,  1.7,  1,  1.048,  7.0,  9.8,  18.5,  2,  60,  70,  0.0004,  0.025,  0.13,  1.09,  0.3,  0.4,  0,  5,  36,  1,  1,  0,  0,  0,  0,  3.2143,  0.068571,  0.034286,  0.068571,  0,  2,  0.017143,  1,  0,  0.0645,  0.29032,  0.0030968,  0.0013935,  0.013935,  0,  1,  0.0000,  5.3381,  0.51246,  
+/																																														

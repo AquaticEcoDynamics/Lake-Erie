@@ -1,0 +1,237 @@
+!_________________________________________________________________
+! Lake Erie Simulation (V3)
+!_________________________________________________________________
+
+
+! SIMULATION CONFIGURATION
+!_________________________________________________________________
+spherical == 0
+include salinity == 1,1
+include temperature == 1,1
+include sediment == 0,0
+include heat == 1
+include ice == 1
+LONGWAVERADIATIONMODEL == 3
+SHORTWAVERADIATIONALBEDO == 0.25
+momentum mixing model == Smagorinsky
+scalar mixing model == Smagorinsky
+vertical mixing model == external
+external turbulence model dir == ..\External\GOTM\
+waterqualitymodel == EXTERNAL
+external water quality model dir == ..\External\AED2\
+spatial order == 1,2
+!horizontal gradient limiter == LCD
+vertical gradient limiter == MC
+bottom drag model == ks
+equation of state == UNESCO
+
+!TIME COMMANDS
+!_________________________________________________________________
+time format == ISODATE
+reference time == 01/01/2001
+start time == 28/05/2013 00:00:00
+end time == 01/06/2014 06:00:00
+cfl external == 0.90
+cfl internal == 0.90
+timestep limits == 0.1, 10.
+turbulence update dt == 600                                     ! for GOTM (s)
+display dt == 900.
+
+!MODEL PARAMETERS
+!_________________________________________________________________
+! display depth == 1.0e-6
+stability limits == 15.0,15.0
+cell wet/dry depths == 4.0e-2, 4.0e-2                            ! <cells dry depth (m), cell wet depth (m)>
+g == 9.81
+latitude == 42.122212                                            ! <latitude in degree (-ve for southern Hemishpere)
+reference salinity == 35.0
+reference temperature == 18.0
+reference density == 1000.0
+density air == 1.18
+
+global bottom roughness == 0.0020                               ! <Global roughness>
+global horizontal eddy viscosity == 0.2                         ! <eddy viscosity coefficient/s (m2/s;-)>
+global horizontal scalar diffusivity == 0.2,0.2                 ! <diffusivity; coefficient/s (m2/s;-)>
+diffusivity limiter dt == 30.                                   ! <NOT IN MANUAL>
+kinematic viscosity == 1.0e-6                                   ! <eddy viscosity value (m2/s)>
+vertical mixing parameters ==  0.01, 0.01                       !
+global vertical eddy viscosity limits == 1.0e-04, 9999.
+global vertical scalar diffusivity limits == 1.0e-06, 9999.
+!min vertical eddy viscosity == 1.0e-4
+
+!GEOMETRY
+!_________________________________________________________________
+geometry 2d == ..\Geo\Erie_v5_Substrates.2dm
+vertical mesh type == z
+layer faces == ..\Geo\layers.csv
+sigma layers == 2
+min bottom layer thickness == 0.1
+cell 3d depth == 5.0e-1
+
+
+! MATERIAL PROPERTIES
+!_________________________________________________________________
+material == 1
+  bottom roughness == 0.005
+end material
+material == 2
+  bottom roughness == 0.005
+end material
+material == 3
+  bottom roughness == 0.005
+end material
+
+!SCALAR PROPERTIES
+!_________________________________________________________________
+Ntracer == 1
+
+! INITIAL CONDITIONS
+!_________________________________________________________________
+INITIAL CONDITION 2D == ..\BCs\IC\IC_AED2_20130413.csv
+
+
+!BOUNDARY CONDITIONS
+! Met______________________________________________________________
+
+! 3 Zone netcdf Met set-up
+
+! 3 Zone netcdf Met set-up
+grid definition file == ..\BCs\Met\Wind_utm_20131001_20151001.nc
+grid definition variables == X, Y
+grid definition label == WIND_GRID
+ENDGRID
+
+bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_20131001_20151001.nc
+bc header == time,u,v
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+bc scale == 1.0,1.0
+end bc
+
+grid definition file == ..\BCs\Met\Temperature_utm_20131001_20151001.nc
+grid definition variables == X, Y
+grid definition label == TEMP_GRID
+ENDGRID
+
+bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Temperature_utm_20131001_20151001.nc
+bc header == time,temp
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+grid definition file == ..\BCs\Met\RelHum_utm_20131001_20151001.nc
+grid definition variables == X, Y
+grid definition label == RHUM_GRID
+ENDGRID
+
+bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RelHum_utm_20131001_20151001.nc
+bc header == time,rhum
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+grid definition file == ..\BCs\Met\Radiation_utm_20130930_20150930.nc
+grid definition variables == X, Y
+grid definition label == RAD_GRID
+ENDGRID
+
+bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130930_20150930.nc
+bc header == time,dswr
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130930_20150930.nc
+bc header == time,dlwr
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+! ______________________________________________________________Met
+
+! Upper Inf.___________________________________________________________
+
+bc == Q, 1, ..\BCs\Inflows\s2013_flwo_Nia_2013.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+! ___________________________________________________________River
+
+! Detroit River_______________________________________________________
+
+! Upper Inf.___________________________________________________________
+
+bc == Q, 1, ..\BCs_bmt\Inflows\2002-14_flwo_Nia_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc scale == -1.0
+end bc
+
+! ___________________________________________________________River
+
+! Detroit River_______________________________________________________
+
+bc == Q,2, ..\BCs_bmt\Inflows\2002-14_flwi_Det_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+! _______________________________________________________Detroit River
+
+
+! Other inflows _______________________________________________________
+
+bc == QC,616680,4744330, ..\BCs_bmt\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+bc == QC,304206.72,4618817.56, ..\BCs_bmt\Inflows\2002-14_flwi_Mau-WQ_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+bc == QC,362406.72,4590617.56, ..\BCs_bmt\Inflows\2002-14_flwi_Snd-WQ_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+bc == QC,438120.0,4594766.0, ..\BCs_bmt\Inflows\2002-14_flwi_Cuy-WQ_v02.csv
+  bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+end bc
+
+! _____________________________________________________ Inflows
+
+
+!OUTPUT COMMANDS
+!_________________________________________________________________
+
+output dir == ..\Output\
+
+output == netcdf
+  Suffix == TFV
+  output parameters == h,d,v,w,w10,Sal,Temp
+  output interval == 43200.0 !10800.00
+end output
+
+output == netcdf
+  Suffix == AED
+  output parameters == d,h,wq_all
+  output interval == 43200.0 !10800.00
+end output
+
+output == netcdf
+  Suffix == AED_DIAG
+  output parameters == d,h,wq_diag_all
+  output interval == 10800.00
+end output
+
+!output == datv
+!  output parameters == h,d,v,w,Sal,Temp
+!  output interval == 7200.00
+!end output
+
+output == flux
+  output interval == 7200
+end output
+
+write restart dt == 10.

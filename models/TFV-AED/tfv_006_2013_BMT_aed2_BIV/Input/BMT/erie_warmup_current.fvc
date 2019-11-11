@@ -1,0 +1,216 @@
+! Lake Erie Simulation (v2)
+!_________________________________________________________________
+!
+
+! SIMULATION CONFIGURATION
+!_________________________________________________________________
+spherical == 0
+include salinity == 1,0
+include temperature == 1,0
+include sediment == 0,0
+include heat == 0
+include ice == 0
+LONGWAVERADIATIONMODEL == 3
+SHORTWAVERADIATIONALBEDO == 0.25
+momentum mixing model == Smagorinsky
+scalar mixing model == Smagorinsky
+vertical mixing model == external
+! external turbulence model dir == ..\External\GOTM\
+! waterqualitymodel == EXTERNAL
+! external water quality model dir == ..\External\AED2\
+spatial order == 1,2
+!horizontal gradient limiter == LCD
+vertical gradient limiter == MC
+bottom drag model == ks
+equation of state == UNESCO
+Ntracer == 32
+
+!TIME COMANDS
+!_________________________________________________________________
+time format == ISODATE
+! reference time == 01/01/2001
+start time == 01/09/2013 00:00:00
+end time == 01/10/2013 00:00:00
+cfl external == 0.90
+cfl internal == 0.90
+timestep limits == 0.1, 10.
+turbulence update dt == 600                                     ! for GOTM (s)
+display dt == 900.
+
+!MODEL PARAMETERS
+!_________________________________________________________________
+! display depth == 1.0e-6
+stability limits == 15.0,15.0
+cell wet/dry depths == 1.0e-2, 4.0e-2                            ! <cells dry depth (m), cell wet depth (m)>
+g == 9.81
+latitude == 42.122212                                            ! <latitude in degree (-ve for southern Hemishpere)
+reference salinity == 35.0
+reference temperature == 18.0
+reference density == 1000.0
+density air == 1.18
+
+global bottom roughness == 0.0020                               ! <Global roughness>
+global horizontal eddy viscosity == 0.2                         ! <eddy viscosity coefficient/s (m2/s;-)>
+global horizontal scalar diffusivity == 9999,9999                 ! <diffusivity; coefficient/s (m2/s;-)>
+diffusivity limiter dt == 30.                                   ! <NOT IN MANUAL>
+kinematic viscosity == 1.0e-6                                   ! <eddy viscosity value (m2/s)>
+vertical mixing parameters ==  0.01, 0.01                       !
+global vertical eddy viscosity limits == 1.0e-04, 9999.
+global vertical scalar diffusivity limits == 1.0e-06, 9999.
+!min vertical eddy viscosity == 1.0e-4
+
+!GEOMETRY
+!_________________________________________________________________
+geometry 2d == ..\Geo\Erie_v2.2dm
+vertical mesh type == z
+layer faces == ..\Geo\layers.csv
+sigma layers == 2
+min bottom layer thickness == 0.1
+cell 3d depth == 5.0e-1
+
+! MATERIAL PROPERTIES
+!_________________________________________________________________
+material == 1
+  bottom roughness == 0.005
+end material
+material == 2
+  bottom roughness == 0.005
+end material
+material == 3
+  bottom roughness == 0.005
+end material
+
+!SCALAR PROPERTIES
+!_________________________________________________________________
+
+
+! INITIAL CONDITIONS
+!_________________________________________________________________
+
+Initial water level == 0.0          					! set initial conditions *** check values ***                         
+Initial Salinity == 0.0
+Initial Temperature == 0.0
+
+
+! Warmup profiles
+include == ./ic_ERIE_current_v01.fvc   				! initial condition warmup profiles 
+
+!BOUNDARY CONDITIONS
+! Met______________________________________________________________
+
+! 3 Zone netcdf Met set-up
+
+grid definition file == \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+grid definition variables == X, Y
+grid definition label == WIND_GRID
+ENDGRID
+
+bc == W10_GRID,WIND_GRID, \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+bc header == time,wx,wy
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+bc scale == 1.0,1.0
+end bc
+
+! grid definition file == \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! grid definition variables == X, Y
+! grid definition label == TEMP_GRID
+! ENDGRID
+! 
+! bc == AIR_TEMP_GRID,TEMP_GRID, \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! bc header == time,atemp
+! bc reference time == 01/01/1990 00:00
+! bc time units == hours
+! bc update dt == 3600
+! end bc
+! 
+! grid definition file == \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! grid definition variables == X, Y
+! grid definition label == RHUM_GRID
+! ENDGRID
+! 
+! bc == REL_HUM_GRID,RHUM_GRID, \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! bc header == time,rhum
+! bc reference time == 01/01/1990 00:00
+! bc time units == hours
+! bc update dt == 3600
+! end bc
+! 
+! grid definition file == \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! grid definition variables == X, Y
+! grid definition label == RAD_GRID
+! ENDGRID
+! 
+! bc == SW_RAD_GRID,RAD_GRID, \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! bc header == time,srad
+! bc reference time == 01/01/1990 00:00
+! bc time units == hours
+! bc update dt == 3600
+! end bc
+! 
+! bc == LW_RAD_GRID,RAD_GRID, \proj_care\B22977\Met\Met_Erie_2002to2014.nc
+! bc header == time,lrad
+! bc reference time == 01/01/1990 00:00
+! bc time units == hours
+! bc update dt == 3600
+! end bc
+
+
+!OUTPUT COMMANDS
+!_________________________________________________________________
+
+output dir == /scratch1/B22977_FVICE/Erie/Erie_001/
+
+output == netcdf
+  Suffix == tfv
+  output parameters == h,d,v,w,w10,Sal,Temp
+  output interval == 10800.00
+end output
+
+output == netcdf
+  Suffix == tr_1to11
+  output parameters == Trace_1,Trace_2,Trace_3,Trace_4,Trace_5,Trace_6,Trace_7,Trace_8,Trace_9,Trace_10,Trace_11
+  output interval == 10800.00
+end output
+
+output == netcdf
+  Suffix == tr_12to22
+  output parameters == Trace_12,Trace_13,Trace_14,Trace_15,Trace_16,Trace_17,Trace_18,Trace_19,Trace_20,Trace_21,Trace_22
+  output interval == 10800.00
+end output
+
+output == netcdf
+  Suffix == tr_23to32
+  output parameters == Trace_23,Trace_24,Trace_25,Trace_26,Trace_27,Trace_28,Trace_29,Trace_30,Trace_31,Trace_32
+  output interval == 10800.00
+end output
+
+! output == netcdf
+!   Suffix == ICE
+!   output parameters == T_ICE,RHO_SNOW,H_SNOW,H_SNOWICE,H_ICE
+!   output interval == 10800.00
+! end output
+
+! output == netcdf
+!   Suffix == _AED
+!   output parameters == wq_all
+!   output interval == 3600.00
+! end output
+! 
+! output == netcdf
+!   Suffix == _AED_DIAG
+!   output parameters == wq_diag_all
+!   output interval == 3600.00
+! end output
+! 
+! output == datv
+!   output parameters == h,d,v,w,Sal,Temp
+!   output interval == 7200.00
+! end output
+
+output == flux
+  output interval == 3600
+end output
+
+write restart dt == 24.
