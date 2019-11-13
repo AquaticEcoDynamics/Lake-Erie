@@ -1,0 +1,45 @@
+!-----------------------------------------------------------
+! plots_window defines the size of the window used for 
+! display of the plots
+!-----------------------------------------------------------
+
+&plots_window
+  width = 1500
+  height = 900
+/
+
+!-----------------------------------------------------------
+! plots
+!  nplots - the number of plots
+!  title  - list of titles, one for each plot 
+!  min_z  - list of minimum values for the z component
+!  max_z  - list of maximum values for the z component
+! 
+! For the moment really only the min/max values are worth
+! tinkering with
+!-----------------------------------------------------------
+&plots
+  nplots = 9
+  plot_width = 400
+  plot_height = 200
+  
+
+! title = 'Temperature', 'Oxygen','Phyto','DOC','POC','TP','NO3','NH4','PO4'
+! vars  = 'temp','OXY_oxy','PHY_TCHLA','OGM_doc','OGM_poc','TOT_tp','NIT_nit','NIT_amm','PHS_frp'
+! min_z = 0.0, 0.0,   0.0,   0.0,  0.0,   0.0,  0.0,  0.0, 0.0
+! max_z = 30.0, 300.0, 20.0,  120.0, 80.0, 30.0, 80.0, 80.0, 1.0
+
+!  !# Light Plot Set
+! title = 'Temperature','TSS','Kd','light','PAR', 'UV', 'CDOM', 'SS1','POC'
+!  vars  = 'temp','TOT_tss','TOT_extc','TOT_light','TOT_par', 'TOT_uv', 'OGM_CDOM', 'TRC_ss1','OGM_poc'
+!  min_z =  0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+!  max_z = 30.0, 100.0, 1.0, 10.0, 10.0, 1, 5, 1, 50.
+
+ !# Biology Plot Set
+  title = 'Temperature','DO','FRP','Diatom (early)','Cyano1', 'Chloro', 'Diatom (late)', 'N fixers','Grazers'
+  vars  = 'temp','OXY_oxy','PHS_frp','PHY_CYANO','PHY_CHLOR','PHY_CRYPT','PHY_MDIAT','PHY_FDIAT','ZOO_DAPHNIA_big'
+  min_z =  0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0
+  max_z = 30.0, 500.0, 50.0, 10.0, 10, 10, 10, 10, 10, 10.,10.
+
+
+/
