@@ -5,9 +5,9 @@ An large volume of monitoring data is collected for Lake Erie for a range of sit
 
 **Data Sources and Status**
 
-| NickName | File Name | Data Source | Date Range | Site Overview |
+| File Name | Description | Data Source | Date Range | Site Overview |
 | ---------------- |:----------|:-----------|:-----------|:-----------:|
-| `&morphometry` | Lake location (*latitude and longitude*) and bathymetry (*depth and area*) setup | - |- |- |
-| `&wq_setup` | Water Quality setup | *Disabled* |- |- |
-| `&init_profiles` | Initial lake conditions with depths (eg. *temperature and salinity* ) | - |- |- |
-| `&output` | Specification of output file details | - |- |- |
+| `glenda.mat` | GLENDA | US EPA | ... | ... |
+| `eccc.mat` | ECCC routine data | ECCC |- |- |
+| `nearshore.mat` | ECCC high frequency data | - |- |- |
+| `.....mat` | others | - |- |- |
