@@ -1,0 +1,113 @@
+clear all; close all;
+load Lake_Erie_2013_20191126.mat;
+
+addpath(genpath('geo'));
+
+fd = fieldnames(LAKE_ERIE_2013);
+
+erie = [];
+
+[snum,sstr ] =xlsread('Conv.xlsx','A2:C10000');
+oldN = sstr(:,1);
+newN = sstr(:,2);
+conv = snum(:,1);
+
+for i = [1 2 3 5]%1:length(fd)
+    sites = fieldnames(LAKE_ERIE_2013.(fd{i}));
+    for j = 1:length(sites)
+        erie.(sites{j}) = LAKE_ERIE_2013.(fd{i}).(sites{j});
+    end
+    
+    
+end
+
+
+sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE);
+for j = 1:length(sites)
+        erie.(sites{j}).TEMP = LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE.(sites{j});
+        
+end
+sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.VELOCITY);
+for j = 1:length(sites)
+    erie.(sites{j}).VELOCITY = LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.VELOCITY.(sites{j});
+end
+
+
+
+
+
+sites = fieldnames(erie);
+for i = 1:length(sites)
+    vars = fieldnames(erie.(sites{i}));
+    for j = 1:length(vars)
+        if ~isfield(erie.(sites{i}).(vars{j}),'time')
+            erie.(sites{i}).(vars{j}).Date(:,1) = datenum(erie.(sites{i}).(vars{j}).DATE,'yyyy-mm-dd');
+        else
+            inc = 1;
+            for bb = 1:length(erie.(sites{i}).(vars{j}).time)
+                erie.(sites{i}).(vars{j}).Date(inc,1) = datenum(2013,01,01) + erie.(sites{i}).(vars{j}).time(bb);
+                for bdb = 1:size(
+        end
+        erie.(sites{i}).(vars{j}).Data(:,1) = erie.(sites{i}).(vars{j}).DATA;
+        
+        if length(erie.(sites{i}).(vars{j}).DEPTH) == length(erie.(sites{i}).(vars{j}).DATA)
+            erie.(sites{i}).(vars{j}).Depth(:,1) = double(erie.(sites{i}).(vars{j}).DEPTH);
+        else
+            erie.(sites{i}).(vars{j}).Depth(1:length(erie.(sites{i}).(vars{j}).DATA),1) = double(erie.(sites{i}).(vars{j}).DEPTH);
+        end
+    end
+end
+
+sites = fieldnames(erie);
+for i = 1:length(sites)
+    vars = fieldnames(erie.(sites{i}));
+    for j = 1:length(vars)
+        for k = 1:length(erie.(sites{i}).(vars{j}).Depth)
+            if erie.(sites{i}).(vars{j}).Depth(k) > 0
+                erie.(sites{i}).(vars{j}).Depth(k) = erie.(sites{i}).(vars{j}).Depth(k) * -1;
+            end
+        end
+    end
+end
+
+sites = fieldnames(erie);
+vars = [];
+for i = 1:length(sites)
+    vars = [vars;fieldnames(erie.(sites{i}))];
+end
+uvars = unique(vars);
+
+sites = fieldnames(erie);
+for i = 1:length(sites)
+    vars = fieldnames(erie.(sites{i}));
+    for j = 1:length(vars)
+        
+        ss = find(strcmpi(oldN,vars{j}) == 1);
+        
+        if ~isempty(ss)
+                if strcmpi(newN(ss),'Ignore') == 0
+                    erie.(sites{i}).(newN{ss}) = erie.(sites{i}).(vars{j});
+                    erie.(sites{i}).(newN{ss}).Data = erie.(sites{i}).(newN{ss}).Data * conv(ss);
+                end
+        end
+    end
+end
+
+sites = fieldnames(erie);
+for i = 1:length(sites)
+    vars = fieldnames(erie.(sites{i}));
+    for j = 1:length(vars)
+         erie.(sites{i}).(vars{j}).Lat = erie.(sites{i}).(vars{j}).Y;
+         erie.(sites{i}).(vars{j}).Lon = erie.(sites{i}).(vars{j}).X;
+         [erie.(sites{i}).(vars{j}).X,erie.(sites{i}).(vars{j}).Y] = ll2utm(erie.(sites{i}).(vars{j}).Lon(1),erie.(sites{i}).(vars{j}).Lat(1));
+    end
+end
+         
+         
+        
+
+summerise_data(erie,'New Images/','eriesites.shp')
+
+
+save erie.mat erie -mat;
+        

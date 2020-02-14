@@ -1,0 +1,10 @@
+function A = polyarea(x,y)
+siz = size(x);
+if min(siz)~=1, error('ERROR:polyarea:notvector', 'input x must be a vector'), end
+if size(y)~=siz, error('ERROR:polyarea:xy', 'x and y input must be same size'), end 
+N = max(siz);
+x0 = min(x);
+y0 = min(y);
+x = x - x0;
+y = y - y0;
+A = 0.5*abs(sum(x.*y([2:N 1])-x([2:N 1]).*y));
