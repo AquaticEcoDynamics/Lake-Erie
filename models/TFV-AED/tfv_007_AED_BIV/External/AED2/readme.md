@@ -24,7 +24,7 @@ It worked for me
 | Parameter     |Symbol | Description           | Units | Spec1 | Spec1 | Spec1 | Spec1 | Spec1 | Comment          |
 | ------------- |:-----:|:---------------------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:| ----------------:|
 | p_name        |       |                       |       |`DINOF`|`CYANO`|`NODUL`|`CHLOR`|`CRYPT`|                  |
-| $\alpha$        |       |                       |       |`DINOF`|`CYANO`|`NODUL`|`CHLOR`|`CRYPT`|                  |
+| ?alpha        |       |                       |       |`DINOF`|`CYANO`|`NODUL`|`CHLOR`|`CRYPT`|                  |
 
 
 
