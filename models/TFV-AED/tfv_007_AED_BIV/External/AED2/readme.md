@@ -1,3 +1,15 @@
+## Phytoplankton Model
+
+---
+### Overview
+
+| Parameter     |Symbol | Description           | Units | Spec1 | Spec1 | Spec1 | Spec1 | Spec1 | Comment          |
+| ------------- |:-----:|:---------------------:|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:| ----------------:|
+| p_name        |       |                       |       |`DINOF`|`CYANO`|`NODUL`|`CHLOR`|`CRYPT`|                  |
+
+
+
+
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
