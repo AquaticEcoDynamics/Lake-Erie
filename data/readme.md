@@ -13,6 +13,6 @@ An large volume of monitoring data is collected for Lake Erie for a range of sit
 | `hydrodynamic.mat` | ECCC high frequency data | ECCC | 2013 |- |
 | `ecopar.mat` | ECCC high frequency light data | ECCC | 2013 |- |
 | `cladophora.mat` | ECCC ...| ECCC | 2013 |- |
-| `usgs.mat` | NYSDEC OMNR USGS| USGS | 2013 |- |
+| `usgs.mat` | Water quality data from NYSDEC/OMNR/USGS| NYSDEC, OMNR and USGS | 2013 |- |
 | `.....mat` | others | - |- |- |
 
