@@ -10,7 +10,8 @@ An large volume of monitoring data is collected for Lake Erie for a range of sit
 | ---------------- |:----------|:-----------|:-----------|:-----------:|
 | `epa.mat` | [GLENDA](https://cdx.epa.gov) | US EPA | 2008-2018 | Station ID's from ER09-ER92 |
 | `eccc.mat` | ECCC routine data | ECCC | 2008-2018 | Station ID's from 12-1372 |
-| `nearshore.mat` | ECCC high frequency data | ECCC | 2013 |- |
+| `hydrodynamic.mat` | ECCC high frequency data | ECCC | 2013 |- |
+| `ecopar.mat` | ECCC high frequency light data | ECCC | 2013 |- |
 | `cladophora.mat` | ECCC ...| ECCC | 2013 |- |
 | `usgs.mat` | NYSDEC OMNR USGS| USGS | 2013 |- |
 | `.....mat` | others | - |- |- |
