@@ -213,15 +213,15 @@ output == netcdf
   output interval == 43200.0 !10800.00
 end output
 
-output == netcdf
-  Suffix == AED
-  output parameters == d,h,wq_all
-  output interval == 43200.0 !10800.00
-end output
+!output == netcdf
+!  Suffix == AED
+!  output parameters == d,h,wq_all
+!  output interval == 43200.0 !10800.00
+!end output
 
 output == netcdf
   Suffix == AED_DIAG
-  output parameters == d,h,wq_diag_all
+  output parameters == d,h,Temp,wq_all,wq_diag_all
   output interval == 10800.00
 end output
 
