@@ -230,18 +230,18 @@ output dir == ..\Output\
 output == netcdf
   suffix == TFV
   output parameters == d,h,v,w,w10,sal,temp
-  output interval == 14400
+  output interval == 28800
 end output
 output == netcdf
   Suffix == AED
   output parameters == d,h,wq_all
-  output interval == 14400
+  output interval == 28800
 end output
 output == netcdf
   suffix == AED_diag
  !vertical averaging == depth-range, 0, 5
   output parameters == d,h,wq_diag_all
-  output interval == 14400
+  output interval == 28800
 end output
 
 !output == datv
@@ -256,28 +256,28 @@ output == flux
 end output
 
 output == points
-  output points file == ..\Geo\output_points.csv
+  output points file == ..\Geo\output_points_epa.csv
   vertical averaging == depth-range, 0, 5
   suffix == depth_surf_temp
   output parameters == temp !, sal, wq_all
   output interval == 7200
 end output
 output == points
-  output points file == ..\Geo\output_points.csv
+  output points file == ..\Geo\output_points_epa.csv
   vertical averaging == depth-range, 0, 5
   suffix == depth_surf_TOT_TN
   output parameters == WQ_DIAG_TOT_TN
   output interval == 7200
 end output
 output == points
-  output points file == ..\Geo\output_points.csv
+  output points file == ..\Geo\output_points_epa.csv
   vertical averaging == depth-range, 0, 5
   suffix == depth_surf_PHY_EDIAT_fPho
   output parameters == WQ_DIAG_PHY_EDIAT_fPho
   output interval == 7200
 end output
 output == points
-  output points file == ..\Geo\output_points.csv
+  output points file == ..\Geo\output_points_epa.csv
   vertical averaging == layer-range-bot, 1, 1
   suffix == bot_tbiv
   output parameters == WQ_DIAG_BIV_TBIV
