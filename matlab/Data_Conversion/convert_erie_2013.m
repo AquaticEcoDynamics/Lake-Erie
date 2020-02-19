@@ -11,11 +11,15 @@ erie_mat = [];
 oldN = sstr(:,1);
 newN = sstr(:,2);
 conv = snum(:,1);
-
+agency = {'ECCC-WQ';'ECCC-CGM';'ECCC-PAR';'ECCC-HF';'OTHER (NYSDEC, OMNR and USGS)'};
 for i = [1 2 3 5]%1:length(fd)
     sites = fieldnames(LAKE_ERIE_2013.(fd{i}));
     for j = 1:length(sites)
         erie_mat.(sites{j}) = LAKE_ERIE_2013.(fd{i}).(sites{j});
+        vars = fieldnames(erie_mat.(sites{j}));
+        for k = 1:length(vars)
+            erie_mat.(sites{j}).(vars{k}).source = agency{i};
+        end
     end
     
     
@@ -25,7 +29,7 @@ end
 sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE);
 for j = 1:length(sites)
         erie_mat.(sites{j}).TEMP = LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE.(sites{j});
-        
+        erie_mat.(sites{j}).TEMP.source = 'ECCC-HF';
 end
 % sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.VELOCITY);
 % for j = 1:length(sites)
@@ -112,8 +116,9 @@ end
          
         
 
-summerise_data(erie_mat,'New Images/','eriesites.shp')
+%summerise_data(erie_mat,'New Images/','eriesites.shp')
 
 
 save erie_mat.mat erie_mat -mat;
-        
+save ..\Compiled_Data_Import\erie_mat.mat erie_mat -mat;
+  

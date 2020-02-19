@@ -8,6 +8,12 @@ load Lake_Erie_2013_20191126.mat;
 
 fd = fieldnames(LAKE_ERIE_2013);
 
+
+
+
+
+
+
 for i = [1 2 3 5]%1:length(fd)
     sites = fieldnames(LAKE_ERIE_2013.(fd{i}));
     for j = 1:length(sites)

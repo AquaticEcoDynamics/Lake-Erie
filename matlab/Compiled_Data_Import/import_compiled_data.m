@@ -2,7 +2,7 @@ clear all; close all;
 
 addpath(genpath('geo'));
 
-basedir = '../../raw/Compiled/';
+basedir = '../../data/Compiled/';
 
 filenames = {...
     'LE_2008_compiled.xlsx',...
