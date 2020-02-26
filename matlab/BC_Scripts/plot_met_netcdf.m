@@ -1,13 +1,16 @@
 clear all; close all;
 
 
-wind = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\Wind_utm_20131001_20151001.nc';
+%wind = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\Wind_utm_20131001_20151001.nc';
 
-temp = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\Temperature_utm_20131001_20151001.nc';
+wind = 'E:\Github 2018\Lake-Erie-2019\matlab\merge_netcdf\Merged\Wind_utm_20131001_20151001.nc';
 
-relhum = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\RelHum_utm_20131001_20151001.nc';
+%temp = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\Temperature_utm_20131001_20151001.nc';
+temp = 'E:\Github 2018\Lake-Erie-2019\matlab\merge_netcdf\Merged\Temperature_utm_20131001_20151001.nc';
 
-rad = 'E:\Github 2018\Lake-Erie-2019\models\TFV-AED\tfv_007_AED_BIV\BCs\Met\Radiation_utm_20130930_20150930.nc';
+relhum = 'E:\Github 2018\Lake-Erie-2019\matlab\merge_netcdf\Merged\RelHum_utm_20131001_20151001.nc';
+
+rad = 'E:\Github 2018\Lake-Erie-2019\matlab\merge_netcdf\Merged\Radiation_utm_20130930_20150930.nc';
 
 dataw = tfv_readnetcdf(wind);
 
