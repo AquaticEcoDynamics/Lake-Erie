@@ -440,24 +440,24 @@
    n_zones = 4
    active_zones = 5,7,8,9
    simSloughing = 2
-   slough_stress = 0.5
+   slough_stress = 0.1
+   resuspension = 0.001
    p_excretion_target_variable='OGM_dop'
    n_excretion_target_variable='OGM_don'
    c_excretion_target_variable='OGM_doc'
-   si_excretion_target_variable='SIL_rsi'
    p_mortality_target_variable='OGM_pop'
    n_mortality_target_variable='OGM_pon'
    c_mortality_target_variable='OGM_poc'
-   si_mortality_target_variable=''
    p1_uptake_target_variable='PHS_frp'
    n1_uptake_target_variable='NIT_nit'
    n2_uptake_target_variable='NIT_amm'
-   si_uptake_target_variable='SIL_rsi'
    do_uptake_target_variable='OXY_oxy'
    c_uptake_target_variable=''
+   simMalgFeedback = .true.
    simMalgHSI = 0
-   extra_debug = .false.
    dbase = '../External/AED2/aed2_malgae_pars.nml'
+   zerolimitfudgefactor = 900
+   diag_level = 10
 /
 !###############################################################################
 ! aed2_zooplankton - AED zooplankton model
@@ -491,10 +491,10 @@
    do_uptake_variable='OXY_oxy'  ! oxygen uptake variable
    ss_uptake_variable=''         ! ss uptake variable
    dbase = '../External/AED2/aed2_bivalve_pars.nml'
-   extra_diag = .true.
    simFixedEnv = .false.
    simStaticBiomass = .true.
    initFromDensity = .true.
+   diag_level = 10
 /
 !###############################################################################
 ! aed2_totals

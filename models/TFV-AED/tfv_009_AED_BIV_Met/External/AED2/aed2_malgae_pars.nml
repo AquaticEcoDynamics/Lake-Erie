@@ -6,7 +6,7 @@
 !                 p_initial : [    real] - Initial concentration of phytoplankton (mmol C/m3)
 !                        p0 : [    real] - Minimum concentration of phytoplankton (mmol C/m3)
 !                       w_p : [    real] - sedimentation rate (m/d)
-!                       Xcc : [    real] - carbon to chlorophyll ratio (mg C/mg chla)
+!                       Xcc : [    real] - carbon to chlorophyll ratio (mg C/mg chla) [NOTE: gC/gDM for CGM]
 !-- GROWTH parameters
 !                  R_growth : [    real] - Phyto max growth rate @20C (/day)
 !                 fT_Method : [ integer] - Specifies temperature limitation function of growth (-); 0 = no temperature limitation 1= CAEDYM style
@@ -62,8 +62,8 @@ pd%p_name           =      'chaetomorpha',        'cladophora',               'c
 pd%p_initial        =                10.0,                10.0,                10.0
 pd%p0               =                 0.2,                 0.2,                 0.2
 pd%w_p              =                   0,            -0.07344,            -0.07344
-pd%Xcc              =                 300,                  50,                  50
-pd%R_growth         =                 0.6,                 0.8,                 1.2
+pd%Xcc              =                 300,                  50,                0.25 ! gC/gDM
+pd%R_growth         =                 0.6,                 0.8,                 0.6
 pd%fT_Method        =                   1,                   1,                   1
 pd%theta_growth     =                1.06,                1.09,                1.07
 pd%T_std            =                18.0,                23.0,                12.0
@@ -74,7 +74,7 @@ pd%I_K              =                 140,                 130,                 
 pd%I_S              =                 390,                1300,                 200
 pd%KePHY            =          4.6667e-05,              0.0004,              0.0004
 pd%f_pr             =               0.025,               0.025,               0.025
-pd%R_resp           =                0.07,                0.17,                 0.1
+pd%R_resp           =                0.07,                0.17,                 0.151
 pd%theta_resp       =                1.04,                1.06,                1.06
 pd%k_fres           =                 0.6,                 0.5,                0.25
 pd%k_fdom           =                 0.1,                 0.7,                 0.3
@@ -87,23 +87,23 @@ pd%simDONUptake     =                   0,                   0,                 
 pd%simNFixation     =                   0,                   0,                   0
 pd%simINDynamics    =                   0,                   0,                   0
 pd%N_o              =                   0,                   0,                   0
-pd%K_N              =              1.4143,              3.2143,              3.2143
-pd%X_ncon           =           0.0085714,            0.068571,            0.068571
-pd%X_nmin           =             0.10286,            0.034286,            0.034286
-pd%X_nmax           =             0.12857,            0.068571,            0.068571
-pd%R_nuptake        =                   0,                   0,                   0
-pd%k_nfix           =                   2,                   2,                   2
-pd%R_nfix           =           0.0028571,            0.017143,            0.017143
+pd%K_N              =              1.4143,              3.2143,                10.0
+pd%X_ncon           =           0.0085714,            0.068571,             0.06857
+pd%X_nmin           =             0.10286,            0.034286,             0.03429
+pd%X_nmax           =             0.12857,            0.068571,             0.15000
+pd%R_nuptake        =                   0,                   0,                 0.0
+pd%k_nfix           =                   2,                   2,                 2.0
+pd%R_nfix           =           0.0028571,            0.017143,                 0.0
 pd%simDIPUptake     =                   1,                   1,                   1
 pd%simIPDynamics    =                   0,                   0,                   1
-pd%P_0              =              0.0645,              0.0645,              0.0645
-pd%K_P              =             0.12355,             0.29032,             0.25806
-pd%X_pcon           =           0.0003871,           0.0030968,           0.0030968
+pd%P_0              =              0.0645,              0.0645,                 0.1
+pd%K_P              =             0.12355,             0.29032,                4.03
+pd%X_pcon           =           0.0003871,           0.0030968,               0.001
 pd%X_pmin           =           0.0019355,          0.00077419,          0.00077419
-pd%X_pmax           =            0.027097,           0.0077419,            0.003871
-pd%R_puptake        =                   0,                   0,                   0
+pd%X_pmax           =            0.027097,           0.0077419,             0.00645
+pd%R_puptake        =                   0,                   0,                 2.0
 pd%simSiUptake      =                   0,                   0,                   0
-pd%Si_0             =              0.0000,              0.0000,              0.0000
-pd%K_Si             =                   0,                   0,                   0
-pd%X_sicon          =                   0,                   0,                   0
+pd%Si_0             =              0.0000,              0.0000,                 0.0
+pd%K_Si             =                   0,                   0,                 0.0
+pd%X_sicon          =                   0,                   0,                 0.0
 /

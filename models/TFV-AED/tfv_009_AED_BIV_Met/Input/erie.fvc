@@ -67,7 +67,7 @@ global vertical scalar diffusivity limits == 1.0e-06, 9999.
 !_________________________________________________________________
 geometry 2d == ..\Geo\Erie_v5_Substrates.2dm
 vertical mesh type == z
-layer faces == ..\Geo\layers.csv
+layer faces == ..\Geo\layers0.csv
 sigma layers == 2
 min bottom layer thickness == 0.1
 cell 3d depth == 5.0e-1
@@ -236,18 +236,18 @@ output dir == ..\Output\
 output == netcdf
   suffix == TFV
   output parameters == d,h,v,w,w10,sal,temp
-  output interval == 28800
+  output interval == 14400
 end output
 output == netcdf
   Suffix == AED
   output parameters == d,h,wq_all
-  output interval == 28800
+  output interval == 14400
 end output
 output == netcdf
   suffix == AED_diag
  !vertical averaging == depth-range, 0, 5
-  output parameters == d,h,wq_diag_all
-  output interval == 28800
+  output parameters == d, h, wq_diag_all, WQ_MAG_CGM, WQ_MAG_CGM_IP
+  output interval == 14400
 end output
 
 !output == datv
