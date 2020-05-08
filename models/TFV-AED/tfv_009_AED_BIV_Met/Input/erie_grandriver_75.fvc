@@ -207,7 +207,7 @@ end bc
 bc == QC, 616680,4744330, ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
   !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
   bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
-  bc scale == 1,1,1,1,1,1,1,1,1,1,0.1,0.1,1,1,1,1,0.1,0.1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+  bc scale == 1,1,1,1,1,1,1,1,1,1,0.75,0.75,1,1,1,1,0.75,0.75,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 
 end bc
 
