@@ -37,7 +37,7 @@
    do_limiter = .true.
  ! do_2d_atm_flux = .TRUE.
  ! do_particle_bgc = .false.
- !  display_minmax = .true.
+   display_minmax = .false.
    glob_min = -1e38
    glob_max = 1e38
    min_water_depth =0.0401
@@ -311,11 +311,11 @@
      cpom_initial = 100.0
    !-- Breakdown and mineralisation (basic pool)
      Rpoc_hydrol  =   0.04
-     Rdoc_minerl  =   0.001
+     Rdoc_minerl  =   0.005
      Rpon_hydrol  =   0.05
-     Rdon_minerl  =   0.005
+     Rdon_minerl  =   0.008
      Rpop_hydrol  =   0.03
-     Rdop_minerl  =   0.001
+     Rdop_minerl  =   0.005
      theta_hydrol =   1.08
      theta_minerl =   1.08
      Kpom_hydrol  =  31.25
@@ -434,30 +434,35 @@
 ! MAG: aed2_macroalgae - AED macroalgae model
 !-------------------------------------------------------------------------------
 &aed2_macroalgae
-   num_malgae = 1
-   the_malgae = 3
-   settling =   5
-   n_zones = 4
-   active_zones = 5,7,8,9
-   simSloughing = 2
-   slough_stress = 0.1
-   resuspension = 0.001
-   p_excretion_target_variable='OGM_dop'
-   n_excretion_target_variable='OGM_don'
-   c_excretion_target_variable='OGM_doc'
-   p_mortality_target_variable='OGM_pop'
-   n_mortality_target_variable='OGM_pon'
-   c_mortality_target_variable='OGM_poc'
-   p1_uptake_target_variable='PHS_frp'
-   n1_uptake_target_variable='NIT_nit'
-   n2_uptake_target_variable='NIT_amm'
-   do_uptake_target_variable='OXY_oxy'
-   c_uptake_target_variable=''
+  !-- group details
+   num_malgae      = 1
+   the_malgae      = 3
+   dbase           = '../External/AED2/aed2_malgae_pars.nml'
+   settling        = 5
+   n_zones         = 4
+   active_zones    = 5,7,8,9
+  !-- benthic sloughing & detachment
+   simSloughing    = 2                       ! CGM sloughing based on decay
+   slough_stress   = -1.5                    ! CGM trigger value for sloughing
+   resuspension    = 0.01                    ! rate of detachment
+   tau_0           = 0.1                     ! critical stress for detachment
+  !-- macroalgae feedback & linking setup
    simMalgFeedback = .true.
-   simMalgHSI = 0
-   dbase = '../External/AED2/aed2_malgae_pars.nml'
-   zerolimitfudgefactor = 900
-   diag_level = 10
+   p_excretion_target_variable ='OGM_dop'
+   n_excretion_target_variable ='OGM_don'
+   c_excretion_target_variable ='OGM_doc'
+   p_mortality_target_variable ='OGM_pop'
+   n_mortality_target_variable ='OGM_pon'
+   c_mortality_target_variable ='OGM_poc'
+   p1_uptake_target_variable   ='PHS_frp'
+   n1_uptake_target_variable   ='NIT_nit'
+   n2_uptake_target_variable   ='NIT_amm'
+   do_uptake_target_variable   ='OXY_oxy'
+   c_uptake_target_variable    ='' !CAR_dic
+  !-- advanced settings
+   simMalgHSI      = 0
+   dtlim           = 900
+   diag_level      = 10
 /
 !###############################################################################
 ! aed2_zooplankton - AED zooplankton model
@@ -478,22 +483,28 @@
 &aed2_bivalve
    num_biv = 1
    the_biv = 1
+   X_c = 1.
+   dbase = '../External/AED2/aed2_bivalve_pars.nml'
+  !--[ benthic setup ]--!
    n_zones = 11
    active_zones = 1,2,3,4,5,6,7,8,9,10,11
-   simBivTracer = .true.
-   simBivFeedback = .false.
-   dn_target_variable='NIT_amm'  ! dissolved nitrogen target variable
-   pn_target_variable=''  ! particulate nitrogen target variable
-   dp_target_variable=''  ! dissolved phosphorus target variable
-   pp_target_variable=''  ! particulate phosphorus target variable
-   dc_target_variable=''  ! dissolved carbon target variable
-   pc_target_variable=''  ! particulate carbon target variable
-   do_uptake_variable='OXY_oxy'  ! oxygen uptake variable
-   ss_uptake_variable=''         ! ss uptake variable
-   dbase = '../External/AED2/aed2_bivalve_pars.nml'
-   simFixedEnv = .false.
-   simStaticBiomass = .true.
    initFromDensity = .true.
+  !--[ bivalve filtration tracer ]--!
+   simBivTracer = .true.
+   bt_renewal = 0.
+  !--[ bivalve feedback & linking setup ]--!
+   simStaticBiomass = .false.
+   simBivFeedback = .true.
+   dn_target_variable='NIT_amm'  ! dissolved nitrogen target variable
+   pn_target_variable='OGM_pon'  ! particulate nitrogen target variable
+   dp_target_variable='PHS_frp'  ! dissolved phosphorus target variable
+   pp_target_variable='OGM_pop'  ! particulate phosphorus target variable
+   dc_target_variable='OGM_doc'  ! dissolved carbon target variable
+   pc_target_variable='OGM_poc'  ! particulate carbon target variable
+   do_uptake_variable='OXY_oxy'  ! oxygen uptake variable
+   ss_uptake_variable='NCS_ss1'  ! ss uptake limitation variable
+  !--[ advanced settings ]--!
+   simFixedEnv = .false.
    diag_level = 10
 /
 !###############################################################################

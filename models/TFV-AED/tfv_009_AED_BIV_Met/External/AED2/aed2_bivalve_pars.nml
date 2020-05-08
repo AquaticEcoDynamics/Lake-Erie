@@ -6,8 +6,8 @@
 !              initial_conc : [    real] - Initial concentration of bivalve (mmolC/m2)
 !                       min : [    real] - Minimum concentration of bivalve (mmolC/m3)
 !                    length : [    real] - Length of bivalve (mm)
-!                       INC : [    real] - Ratio of internal nitrogen to carbon of bivalve (-)
-!                       IPC : [    real] - Ratio of internal phosphorus to carbon of bivalve (-)
+!                       INC : [    real] - Ratio of internal nitrogen to carbon of bivalve (molN/molC)
+!                       IPC : [    real] - Ratio of internal phosphorus to carbon of bivalve (molP/molC)
 !-- FILTRATION & INGESTION Parameters
 !                      Rgrz : [    real] - Maximum ingestion rate of bivalve (mmol/mmol/day) (Spillman et al. 2008) Calculated from Schneider 1992 based on 15 mm mussel
 !                       Ing : [ integer] - Type of maximum ingestion for bivalve; 0=Enter (mmol/mmol/d) or 1=Calculate based on length
@@ -24,7 +24,7 @@
 !                      maxD : [    real] - Upper density for no ingestion of bivalve (mmol/m2)
 !                     SSmax : [    real] - Upper suspended solids for optimum ingestion of bivalve (mg/L)
 !                     maxSS : [    real] - Upper suspended solids for no ingestion of bivalve (mg/L)
-!-- EXCRETION AND EGESTION Parameters
+!-- EXCRETION & EGESTION Parameters
 !                     Rexcr : [    real] - Excretion fraction of ingestion for bivalve(-)
 !                     Regst : [    real] - Minimum proportion egested as feces for bivalve (-)
 !                     gegst : [    real] - Gamma coefficient for food availability dependence for bivalve
@@ -63,15 +63,15 @@
   bivalve_param%initial_conc         =           800,          833
   bivalve_param%min                  =           8.3,          8.3
   bivalve_param%length               =            15,           15
-  bivalve_param%INC                  =        291.67,       291.67
-  bivalve_param%IPC                  =         64.58,        64.58
-  bivalve_param%Rgrz                 =           1.9,         0.12
+  bivalve_param%INC                  =         0.167,       291.67
+  bivalve_param%IPC                  =         0.008,        64.58
+  bivalve_param%Rgrz                 =           2.1,         0.12
   bivalve_param%Ing                  =             0,            0
   bivalve_param%WaI                  =             0,            0
   bivalve_param%WbI                  =         -0.39,        -0.39
   bivalve_param%fassim               =          0.34,         0.34
-  bivalve_param%Cmin_grz             =          0.05,         0.05
-  bivalve_param%Kgrz                 =         187.5,        187.5
+  bivalve_param%Cmin_grz             =          0.0005,         0.0005
+  bivalve_param%Kgrz                 =         180.5,        187.5
   bivalve_param%minT                 =             4,            4
   bivalve_param%Tmin                 =            17,           17
   bivalve_param%Tmax                 =            20,           20
@@ -80,20 +80,20 @@
   bivalve_param%maxD                 =         20000,        20000
   bivalve_param%SSmax                =            20,           20
   bivalve_param%maxSS                =           100,          100
-  bivalve_param%Rexcr                =             0,            0
-  bivalve_param%Regst                =             0,            0
-  bivalve_param%gegst                =             0,            0
-  bivalve_param%Rresp                =          0.01,         0.01
+  bivalve_param%Rexcr                =             0.0,            0
+  bivalve_param%Regst                =             0.215,            0
+  bivalve_param%gegst                =             0.88,            0
+  bivalve_param%Rresp                =           0.01,         0.01
   bivalve_param%saltfunc             =             0,            0
   bivalve_param%minS                 =             0,            0
   bivalve_param%Smin                 =             0,            0
   bivalve_param%Smax                 =             0,            0
   bivalve_param%maxS                 =             0,            0
-  bivalve_param%fR20                 =             0,            0
+  bivalve_param%fR20                 =             0.02,            0
   bivalve_param%War                  =        16.759,       16.759
   bivalve_param%Wbr                  =         -0.25,        -0.25
   bivalve_param%fR                   =             1,            1
-  bivalve_param%theta_resp           =          1.08,         1.08
+  bivalve_param%theta_resp           =          1.07,         1.08
   bivalve_param%TmaxR                =            30,           30
   bivalve_param%maxTR                =            43,           43
   bivalve_param%Qresp                =           2.3,          2.3
@@ -103,11 +103,11 @@
   bivalve_param%fDO                  =             0,            0
   bivalve_param%K_BDO                =           160,          160
   bivalve_param%KDO                  =             8,            8
-  bivalve_param%num_prey             =             1,            1
+  bivalve_param%num_prey             =             3,            1
   bivalve_param%prey(1)%bivalve_prey =     'OGM_poc',    'OGM_poc'
-  bivalve_param%prey(1)%Pbiv_prey    =             1,            1
-  bivalve_param%prey(2)%bivalve_prey =  'PHY_CHLOROPCH3', 'PHY_CHLOROPCH3'
-  bivalve_param%prey(2)%Pbiv_prey    =             1,            1
-  bivalve_param%prey(3)%bivalve_prey =  'PHY_DIATOMPCH4',    'PHY_DIATOMPCH4'
-  bivalve_param%prey(3)%Pbiv_prey    =             1,            1
+  bivalve_param%prey(1)%Pbiv_prey    =           0.6,            1
+  bivalve_param%prey(2)%bivalve_prey =   'PHY_CRYPT',  'PHY_CHLOR'
+  bivalve_param%prey(2)%Pbiv_prey    =           0.2,            1
+  bivalve_param%prey(3)%bivalve_prey =   'PHY_CHLOR',  'PHY_CRYPT'
+  bivalve_param%prey(3)%Pbiv_prey    =           0.2,            1
 /

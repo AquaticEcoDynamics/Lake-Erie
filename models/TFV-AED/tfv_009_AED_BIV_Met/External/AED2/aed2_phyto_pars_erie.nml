@@ -61,9 +61,9 @@
 pd%p_name            = 'CYANO', 'CHLOR', 'CRYPT', 'EDIAT', 'LDIAT'
 pd%p_initial         =       1,       5,       5,      10,       2
 pd%p0                =     0.5,     0.5,     0.5,     0.5,     0.5
-pd%w_p               =     0.1,   -0.35,   -0.23,    -9.3,    -9.3
+pd%w_p               =     0.1,   -0.35,   -0.23,    -3.3,    -3.3
 pd%Xcc               =      50,      40,     180,      50,      50
-pd%R_growth          =     0.8,0.8,1,1.99,1.7
+pd%R_growth          =     0.8,0.8,1,2.99,1.9
 pd%fT_Method         =       1,1,1,1,1
 pd%theta_growth      =    1.09,1.06,1.06,1.048,1.075
 pd%T_std             = 23,12,20,7,20

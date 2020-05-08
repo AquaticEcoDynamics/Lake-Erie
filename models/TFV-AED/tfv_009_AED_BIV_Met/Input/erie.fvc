@@ -240,7 +240,7 @@ output == netcdf
 end output
 output == netcdf
   Suffix == AED
-  output parameters == d,h,wq_all
+  output parameters == d,h,temp,wq_all, WQ_DIAG_TOT_TN, WQ_DIAG_TOT_TP, WQ_DIAG_PHY_TCHLA, WQ_DIAG_MAG_TMALG, WQ_DIAG_BIV_TBIV
   output interval == 14400
 end output
 output == netcdf
