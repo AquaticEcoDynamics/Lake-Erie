@@ -39,7 +39,11 @@ sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE);
 for j = 1:length(sites)
         erie_temp.(sites{j}).TEMP = LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.TEMPERATURE.(sites{j});
         erie_temp.(sites{j}).TEMP.source = 'ECCC-HF';
+        
+        
 end
+
+
 % sites = fieldnames(LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.VELOCITY);
 % for j = 1:length(sites)
 %     erie.(sites{j}).VELOCITY = LAKE_ERIE_2013.ECCC_HYDRODYNAMIC.VELOCITY.(sites{j});
@@ -79,6 +83,8 @@ for i = 1:length(sites)
 end
 
 sites = fieldnames(erie_temp);
+
+
 for i = 1:length(sites)
     vars = fieldnames(erie_temp.(sites{i}));
     for j = 1:length(vars)
@@ -89,6 +95,9 @@ for i = 1:length(sites)
         end
     end
 end
+
+
+
 
 sites = fieldnames(erie_temp);
 vars = [];

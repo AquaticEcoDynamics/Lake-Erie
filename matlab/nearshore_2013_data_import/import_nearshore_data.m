@@ -81,6 +81,7 @@ for i = 1:length(sites)
     bdepth = sdepth(tt);
     
     
+    
     for j = 1:length(vars)
         
         if strcmpi(vars{j},'Time') == 0 & ...
@@ -101,11 +102,15 @@ for i = 1:length(sites)
                     ns.(sites{i}).(thevar).Data = data.(sites{i}).(vars{j}) * conv(ss);
             end
             
-            ns.(sites{i}).(thevar).Depth = bdepth + data.(sites{i}).Depth;
+            %ns.(sites{i}).(thevar).Depth = bdepth + data.(sites{i}).Depth;
+            ns.(sites{i}).(thevar).Depth = data.(sites{i}).Depth * -1;
             ns.(sites{i}).(thevar).Date(:,1) = data.(sites{i}).Time;
             ns.(sites{i}).(thevar).X = X;
             ns.(sites{i}).(thevar).Y = Y;
             ns.(sites{i}).(thevar).Agency = 'ECCC-YSI';
+            
+            sss = find(ns.(sites{i}).(thevar).Depth > 0);
+            ns.(sites{i}).(thevar).Data(sss) = NaN;
             
         end
     end
