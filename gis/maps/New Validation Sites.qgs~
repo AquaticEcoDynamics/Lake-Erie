@@ -32,19 +32,16 @@
     <layer-tree-layer id="CGM_Transect_3_line_869bcdc9_b245_40b8_9412_7d29df1a368b" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_3_line.shp" name="CGM_Transect_3_line" legend_exp="" providerKey="ogr" expanded="1">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_5.shp|layername=CGM_Transect_5" name="CGM_Transect_5" legend_exp="" providerKey="ogr" expanded="1">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer id="CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76" checked="Qt::Checked" source="Point?crs=EPSG:32617&amp;uid={9b14bd1d-b0c3-4505-8cd1-e59b1b4bb6d6}" name="CGM_Transect_5" legend_exp="" providerKey="memory" expanded="1">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer id="CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_5_line1.shp|layername=CGM_Transect_5_line1" name="CGM_Transect_5_line1" legend_exp="" providerKey="ogr" expanded="1">
-      <customproperties/>
-    </layer-tree-layer>
-    <layer-tree-layer id="CGM_Transect_5_line_79d46eb1_53b5_4e92_9871_17f58f6b876b" checked="Qt::Unchecked" source="../../matlab/modeltools/gis/CGM_Transect_5_line.shp" name="CGM_Transect_5_line" legend_exp="" providerKey="ogr" expanded="1">
+    <layer-tree-layer id="CGM_Transect_5_line_79d46eb1_53b5_4e92_9871_17f58f6b876b" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_5_line.shp" name="CGM_Transect_5_line" legend_exp="" providerKey="ogr" expanded="1">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer id="CGM_Transect_4_line_5ed94148_7edc_4a1c_92b6_d1939014006f" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_4_line.shp" name="CGM_Transect_4_line" legend_exp="" providerKey="ogr" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer id="CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_5.shp|layername=CGM_Transect_5" name="CGM_Transect_5" legend_exp="" providerKey="ogr" expanded="1">
+      <customproperties/>
+    </layer-tree-layer>
+    <layer-tree-layer id="CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e" checked="Qt::Checked" source="Point?crs=EPSG:4326&amp;uid={8579234d-f0c7-4004-aa98-ee5ef0af9b19}" name="CGM_Transect_5" legend_exp="" providerKey="memory" expanded="1">
       <customproperties/>
     </layer-tree-layer>
     <layer-tree-layer id="CGM_Transect_4_73902ce6_7a83_4381_9dd8_845aca0a1a6d" checked="Qt::Checked" source="../../matlab/modeltools/gis/CGM_Transect_4.shp|layername=CGM_Transect_4" name="CGM_Transect_4" legend_exp="" providerKey="ogr" expanded="1">
@@ -102,24 +99,20 @@
       <item>CGM_Transect_2_459ddc9d_5c22_4c16_8939_179d1730ef33</item>
       <item>CGM_Transect_3_0518b0fc_84e5_4d3f_b804_c4acb85a5590</item>
       <item>CGM_Transect_4_fca4354f_2309_45bf_b65c_3471a34bd76c</item>
+      <item>CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e</item>
       <item>CGM_Transect_1_8ec31cce_bbe4_466a_9305_03e6e6ec5b5b</item>
       <item>CGM_Transect_2_f129b894_43d9_40c3_a8c6_e1de87ebf25f</item>
       <item>CGM_Transect_3_48a1890c_68fd_481a_b797_3e7e13017a55</item>
       <item>CGM_Transect_4_73902ce6_7a83_4381_9dd8_845aca0a1a6d</item>
-      <item>CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0</item>
-      <item>CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76</item>
-      <item>CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01</item>
+      <item>CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d</item>
     </custom-order>
   </layer-tree-group>
   <snapping-settings intersection-snapping="0" mode="1" enabled="0" tolerance="0" unit="2" type="1">
     <individual-layer-settings>
       <layer-setting id="CGM_Transect_2_f129b894_43d9_40c3_a8c6_e1de87ebf25f" enabled="0" tolerance="12" units="1" type="1"/>
-      <layer-setting id="CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0" enabled="0" tolerance="12" units="1" type="1"/>
-      <layer-setting id="CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="Field_Locations_UTM_26a366de_ce4e_45d2_984e_8165321f2dcc" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_3_48a1890c_68fd_481a_b797_3e7e13017a55" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="Boundary_d70099ea_86d5_4fad_9bf1_4fd0ca57fdfc" enabled="0" tolerance="12" units="1" type="1"/>
-      <layer-setting id="CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_4_73902ce6_7a83_4381_9dd8_845aca0a1a6d" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_4_line_5ed94148_7edc_4a1c_92b6_d1939014006f" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_2_459ddc9d_5c22_4c16_8939_179d1730ef33" enabled="0" tolerance="12" units="1" type="1"/>
@@ -128,20 +121,22 @@
       <layer-setting id="CGM_Transect_1_8ec31cce_bbe4_466a_9305_03e6e6ec5b5b" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_1_c90204a9_7b08_4766_9c3b_6ac841941b98" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_4_fca4354f_2309_45bf_b65c_3471a34bd76c" enabled="0" tolerance="12" units="1" type="1"/>
+      <layer-setting id="CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_2_line_6c2d23e2_4eb9_4e7e_aa60_2d86c0181f21" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_1_line_65b3ebaf_a806_42dd_866b_84a0b5e4c552" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_3_0518b0fc_84e5_4d3f_b804_c4acb85a5590" enabled="0" tolerance="12" units="1" type="1"/>
       <layer-setting id="CGM_Transect_3_line_869bcdc9_b245_40b8_9412_7d29df1a368b" enabled="0" tolerance="12" units="1" type="1"/>
+      <layer-setting id="CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e" enabled="0" tolerance="12" units="1" type="1"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>626869.52497289434541017</xmin>
-      <ymin>4737265.53544349130243063</ymin>
-      <xmax>665633.77244102314580232</xmax>
-      <ymax>4754850.56890053208917379</ymax>
+      <xmin>540907.76977162971161306</xmin>
+      <ymin>4725574.31634443253278732</ymin>
+      <xmax>695964.75964414491318166</xmax>
+      <ymax>4795914.45017259567975998</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -182,29 +177,24 @@
         <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_3_line_869bcdc9_b245_40b8_9412_7d29df1a368b"/>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5" showFeatureCount="0" open="true">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5_line" showFeatureCount="0" open="true">
       <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5" showFeatureCount="0" open="true">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5_line1" showFeatureCount="0" open="true">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0"/>
-      </filegroup>
-    </legendlayer>
-    <legendlayer checked="Qt::Unchecked" drawingOrder="-1" name="CGM_Transect_5_line" showFeatureCount="0" open="true">
-      <filegroup open="true" hidden="false">
-        <legendlayerfile isInOverview="0" visible="0" layerid="CGM_Transect_5_line_79d46eb1_53b5_4e92_9871_17f58f6b876b"/>
+        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_line_79d46eb1_53b5_4e92_9871_17f58f6b876b"/>
       </filegroup>
     </legendlayer>
     <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_4_line" showFeatureCount="0" open="true">
       <filegroup open="true" hidden="false">
         <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_4_line_5ed94148_7edc_4a1c_92b6_d1939014006f"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5" showFeatureCount="0" open="true">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d"/>
+      </filegroup>
+    </legendlayer>
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_5" showFeatureCount="0" open="true">
+      <filegroup open="true" hidden="false">
+        <legendlayerfile isInOverview="0" visible="1" layerid="CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e"/>
       </filegroup>
     </legendlayer>
     <legendlayer checked="Qt::Checked" drawingOrder="-1" name="CGM_Transect_4" showFeatureCount="0" open="true">
@@ -2948,12 +2938,12 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer type="vector" simplifyMaxScale="1" simplifyAlgorithm="0" simplifyDrawingTol="1" styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" maxScale="0" readOnly="0" minScale="100000000" geometry="Point" autoRefreshTime="0" wkbType="Point" simplifyLocal="1" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" simplifyDrawingHints="1" autoRefreshEnabled="0">
       <extent>
-        <xmin>638709.33124338602647185</xmin>
-        <ymin>4741104.46339594386518002</ymin>
-        <xmax>639171.861887137289159</xmax>
-        <ymax>4747847.42468917742371559</ymax>
+        <xmin>-79.30179680661143493</xmin>
+        <ymin>42.87063035446114156</ymin>
+        <xmax>-79.30179680661143493</xmax>
+        <ymax>42.87063035446114156</ymax>
       </extent>
-      <id>CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01</id>
+      <id>CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d</id>
       <datasource>../../matlab/modeltools/gis/CGM_Transect_5.shp|layername=CGM_Transect_5</datasource>
       <keywordList>
         <value></value>
@@ -2961,15 +2951,15 @@ def my_form_open(dialog, layer, feature):
       <layername>CGM_Transect_5</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["WGS 84 / UTM zone 17N",BASEGEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["UTM zone 17N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-81,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["World - N hemisphere - 84°W to 78°W - by country"],BBOX[0,-84,84,-78]],ID["EPSG",32617]]</wkt>
-          <proj4>+proj=utm +zone=17 +datum=WGS84 +units=m +no_defs</proj4>
-          <srsid>3101</srsid>
-          <srid>32617</srid>
-          <authid>EPSG:32617</authid>
-          <description>WGS 84 / UTM zone 17N</description>
-          <projectionacronym>utm</projectionacronym>
+          <wkt>GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["World"],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
           <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
+          <geographicflag>true</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
@@ -3017,7 +3007,7 @@ def my_form_open(dialog, layer, feature):
           <symbol alpha="1" clip_to_extent="1" name="0" force_rhr="0" type="marker">
             <layer enabled="1" class="SimpleMarker" locked="0" pass="0">
               <prop k="angle" v="0"/>
-              <prop k="color" v="190,207,80,255"/>
+              <prop k="color" v="164,113,88,255"/>
               <prop k="horizontal_anchor_point" v="1"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="name" v="circle"/>
@@ -3067,7 +3057,7 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
-        <field name="cngmeters">
+        <field name="cngdegrees">
           <editWidget type="">
             <config>
               <Option/>
@@ -3077,21 +3067,21 @@ def my_form_open(dialog, layer, feature):
       </fieldConfiguration>
       <aliases>
         <alias name="" field="fid" index="0"/>
-        <alias name="" field="cngmeters" index="1"/>
+        <alias name="" field="cngdegrees" index="1"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
         <default expression="" applyOnUpdate="0" field="fid"/>
-        <default expression="" applyOnUpdate="0" field="cngmeters"/>
+        <default expression="" applyOnUpdate="0" field="cngdegrees"/>
       </defaults>
       <constraints>
         <constraint exp_strength="0" unique_strength="0" field="fid" constraints="0" notnull_strength="0"/>
-        <constraint exp_strength="0" unique_strength="0" field="cngmeters" constraints="0" notnull_strength="0"/>
+        <constraint exp_strength="0" unique_strength="0" field="cngdegrees" constraints="0" notnull_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint exp="" desc="" field="fid"/>
-        <constraint exp="" desc="" field="cngmeters"/>
+        <constraint exp="" desc="" field="cngdegrees"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -3120,28 +3110,28 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer type="vector" simplifyMaxScale="1" simplifyAlgorithm="0" simplifyDrawingTol="1" styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" maxScale="0" readOnly="0" minScale="100000000" geometry="Point" autoRefreshTime="0" wkbType="Point" simplifyLocal="1" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" simplifyDrawingHints="1" autoRefreshEnabled="0">
       <extent>
-        <xmin>638709.33124338602647185</xmin>
-        <ymin>4741104.46339594386518002</ymin>
-        <xmax>639171.861887137289159</xmax>
-        <ymax>4747847.42468917742371559</ymax>
+        <xmin>-79.30179680661143493</xmin>
+        <ymin>42.87063035446114156</ymin>
+        <xmax>-79.30179680661143493</xmax>
+        <ymax>42.87063035446114156</ymax>
       </extent>
-      <id>CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76</id>
-      <datasource>memory?geometry=Point&amp;crs=EPSG:32617&amp;field=fid:(0,0)&amp;field=cngmeters:(0,0)</datasource>
+      <id>CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e</id>
+      <datasource>memory?geometry=Point&amp;crs=EPSG:4326&amp;field=fid:(0,0)&amp;field=cngdegrees:(0,0)</datasource>
       <keywordList>
         <value></value>
       </keywordList>
       <layername>CGM_Transect_5</layername>
       <srs>
         <spatialrefsys>
-          <wkt>PROJCRS["WGS 84 / UTM zone 17N",BASEGEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["UTM zone 17N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-81,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["World - N hemisphere - 84°W to 78°W - by country"],BBOX[0,-84,84,-78]],ID["EPSG",32617]]</wkt>
-          <proj4>+proj=utm +zone=17 +datum=WGS84 +units=m +no_defs</proj4>
-          <srsid>3101</srsid>
-          <srid>32617</srid>
-          <authid>EPSG:32617</authid>
-          <description>WGS 84 / UTM zone 17N</description>
-          <projectionacronym>utm</projectionacronym>
+          <wkt>GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["unknown"],AREA["World"],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+          <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+          <srsid>3452</srsid>
+          <srid>4326</srid>
+          <authid>EPSG:4326</authid>
+          <description>WGS 84</description>
+          <projectionacronym>longlat</projectionacronym>
           <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
+          <geographicflag>true</geographicflag>
         </spatialrefsys>
       </srs>
       <resourceMetadata>
@@ -3189,7 +3179,7 @@ def my_form_open(dialog, layer, feature):
           <symbol alpha="1" clip_to_extent="1" name="0" force_rhr="0" type="marker">
             <layer enabled="1" class="SimpleMarker" locked="0" pass="0">
               <prop k="angle" v="0"/>
-              <prop k="color" v="152,125,183,255"/>
+              <prop k="color" v="196,60,57,255"/>
               <prop k="horizontal_anchor_point" v="1"/>
               <prop k="joinstyle" v="bevel"/>
               <prop k="name" v="circle"/>
@@ -3239,7 +3229,7 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
-        <field name="cngmeters">
+        <field name="cngdegrees">
           <editWidget type="">
             <config>
               <Option/>
@@ -3249,180 +3239,21 @@ def my_form_open(dialog, layer, feature):
       </fieldConfiguration>
       <aliases>
         <alias name="" field="fid" index="0"/>
-        <alias name="" field="cngmeters" index="1"/>
+        <alias name="" field="cngdegrees" index="1"/>
       </aliases>
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
         <default expression="" applyOnUpdate="0" field="fid"/>
-        <default expression="" applyOnUpdate="0" field="cngmeters"/>
+        <default expression="" applyOnUpdate="0" field="cngdegrees"/>
       </defaults>
       <constraints>
         <constraint exp_strength="0" unique_strength="0" field="fid" constraints="0" notnull_strength="0"/>
-        <constraint exp_strength="0" unique_strength="0" field="cngmeters" constraints="0" notnull_strength="0"/>
+        <constraint exp_strength="0" unique_strength="0" field="cngdegrees" constraints="0" notnull_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint exp="" desc="" field="fid"/>
-        <constraint exp="" desc="" field="cngmeters"/>
-      </constraintExpressions>
-      <expressionfields/>
-      <attributeactions>
-        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
-      </attributeactions>
-      <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
-        <columns/>
-      </attributetableconfig>
-      <conditionalstyles>
-        <rowstyles/>
-        <fieldstyles/>
-      </conditionalstyles>
-      <storedexpressions/>
-      <editform tolerant="1"></editform>
-      <editforminit/>
-      <editforminitcodesource>0</editforminitcodesource>
-      <editforminitfilepath></editforminitfilepath>
-      <editforminitcode><![CDATA[]]></editforminitcode>
-      <featformsuppress>0</featformsuppress>
-      <editorlayout>generatedlayout</editorlayout>
-      <editable/>
-      <labelOnTop/>
-      <widgets/>
-      <previewExpression></previewExpression>
-      <mapTip></mapTip>
-    </maplayer>
-    <maplayer type="vector" simplifyMaxScale="1" simplifyAlgorithm="0" simplifyDrawingTol="1" styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" maxScale="0" readOnly="0" minScale="100000000" geometry="Line" autoRefreshTime="0" wkbType="MultiLineString" simplifyLocal="1" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" simplifyDrawingHints="1" autoRefreshEnabled="0">
-      <extent>
-        <xmin>638709.33124338602647185</xmin>
-        <ymin>4741080.75154685415327549</ymin>
-        <xmax>639172.02254698774777353</xmax>
-        <ymax>4747847.42468917742371559</ymax>
-      </extent>
-      <id>CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0</id>
-      <datasource>../../matlab/modeltools/gis/CGM_Transect_5_line1.shp|layername=CGM_Transect_5_line1</datasource>
-      <keywordList>
-        <value></value>
-      </keywordList>
-      <layername>CGM_Transect_5_line1</layername>
-      <srs>
-        <spatialrefsys>
-          <wkt>PROJCRS["WGS 84 / UTM zone 17N",BASEGEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["UTM zone 17N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-81,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["unknown"],AREA["World - N hemisphere - 84°W to 78°W - by country"],BBOX[0,-84,84,-78]],ID["EPSG",32617]]</wkt>
-          <proj4>+proj=utm +zone=17 +datum=WGS84 +units=m +no_defs</proj4>
-          <srsid>3101</srsid>
-          <srid>32617</srid>
-          <authid>EPSG:32617</authid>
-          <description>WGS 84 / UTM zone 17N</description>
-          <projectionacronym>utm</projectionacronym>
-          <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
-          <geographicflag>false</geographicflag>
-        </spatialrefsys>
-      </srs>
-      <resourceMetadata>
-        <identifier></identifier>
-        <parentidentifier></parentidentifier>
-        <language></language>
-        <type>dataset</type>
-        <title></title>
-        <abstract></abstract>
-        <links/>
-        <fees></fees>
-        <encoding></encoding>
-        <crs>
-          <spatialrefsys>
-            <wkt></wkt>
-            <proj4></proj4>
-            <srsid>0</srsid>
-            <srid>0</srid>
-            <authid></authid>
-            <description></description>
-            <projectionacronym></projectionacronym>
-            <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
-          </spatialrefsys>
-        </crs>
-        <extent/>
-      </resourceMetadata>
-      <provider encoding="UTF-8">ogr</provider>
-      <vectorjoins/>
-      <layerDependencies/>
-      <dataDependencies/>
-      <legend type="default-vector"/>
-      <expressionfields/>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
-      </map-layer-style-manager>
-      <auxiliaryLayer/>
-      <flags>
-        <Identifiable>1</Identifiable>
-        <Removable>1</Removable>
-        <Searchable>1</Searchable>
-      </flags>
-      <renderer-v2 enableorderby="0" type="singleSymbol" symbollevels="0" forceraster="0">
-        <symbols>
-          <symbol alpha="1" clip_to_extent="1" name="0" force_rhr="0" type="line">
-            <layer enabled="1" class="SimpleLine" locked="0" pass="0">
-              <prop k="capstyle" v="square"/>
-              <prop k="customdash" v="5;2"/>
-              <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <prop k="customdash_unit" v="MM"/>
-              <prop k="draw_inside_polygon" v="0"/>
-              <prop k="joinstyle" v="bevel"/>
-              <prop k="line_color" v="231,113,72,255"/>
-              <prop k="line_style" v="solid"/>
-              <prop k="line_width" v="0.26"/>
-              <prop k="line_width_unit" v="MM"/>
-              <prop k="offset" v="0"/>
-              <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <prop k="offset_unit" v="MM"/>
-              <prop k="ring_filter" v="0"/>
-              <prop k="use_custom_dash" v="0"/>
-              <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-              <data_defined_properties>
-                <Option type="Map">
-                  <Option name="name" value="" type="QString"/>
-                  <Option name="properties"/>
-                  <Option name="type" value="collection" type="QString"/>
-                </Option>
-              </data_defined_properties>
-            </layer>
-          </symbol>
-        </symbols>
-        <rotation/>
-        <sizescale/>
-      </renderer-v2>
-      <customproperties/>
-      <blendMode>0</blendMode>
-      <featureBlendMode>0</featureBlendMode>
-      <layerOpacity>1</layerOpacity>
-      <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
-        <activeChecks type="StringList">
-          <Option value="" type="QString"/>
-        </activeChecks>
-        <checkConfiguration/>
-      </geometryOptions>
-      <referencedLayers/>
-      <referencingLayers/>
-      <fieldConfiguration>
-        <field name="id">
-          <editWidget type="">
-            <config>
-              <Option/>
-            </config>
-          </editWidget>
-        </field>
-      </fieldConfiguration>
-      <aliases>
-        <alias name="" field="id" index="0"/>
-      </aliases>
-      <excludeAttributesWMS/>
-      <excludeAttributesWFS/>
-      <defaults>
-        <default expression="" applyOnUpdate="0" field="id"/>
-      </defaults>
-      <constraints>
-        <constraint exp_strength="0" unique_strength="0" field="id" constraints="0" notnull_strength="0"/>
-      </constraints>
-      <constraintExpressions>
-        <constraint exp="" desc="" field="id"/>
+        <constraint exp="" desc="" field="cngdegrees"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -3482,15 +3313,6 @@ def my_form_open(dialog, layer, feature):
         <type>dataset</type>
         <title></title>
         <abstract></abstract>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
         <links/>
         <fees></fees>
         <encoding></encoding>
@@ -3507,15 +3329,7 @@ def my_form_open(dialog, layer, feature):
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent>
-          <spatial maxx="0" maxz="0" dimensions="2" crs="" maxy="0" miny="0" minz="0" minx="0"/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
-        </extent>
+        <extent/>
       </resourceMetadata>
       <provider encoding="UTF-8">ogr</provider>
       <vectorjoins/>
@@ -3565,66 +3379,21 @@ def my_form_open(dialog, layer, feature):
         <rotation/>
         <sizescale/>
       </renderer-v2>
-      <customproperties>
-        <property key="embeddedWidgets/count" value="0"/>
-        <property key="variableNames"/>
-        <property key="variableValues"/>
-      </customproperties>
+      <customproperties/>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
-        <DiagramCategory spacingUnit="MM" lineSizeScale="3x:0,0,0,0,0,0" scaleDependency="Area" backgroundColor="#ffffff" scaleBasedVisibility="0" lineSizeType="MM" maxScaleDenominator="1e+08" diagramOrientation="Up" showAxis="1" enabled="0" spacing="5" labelPlacementMethod="XHeight" minScaleDenominator="0" rotationOffset="270" penAlpha="255" backgroundAlpha="255" opacity="1" barWidth="5" sizeScale="3x:0,0,0,0,0,0" height="15" spacingUnitScale="3x:0,0,0,0,0,0" penWidth="0" sizeType="MM" minimumSize="0" penColor="#000000" direction="0" width="15">
-          <fontProperties description="MS Shell Dlg 2,8.25,-1,5,50,0,0,0,0,0" style=""/>
-          <axisSymbol>
-            <symbol alpha="1" clip_to_extent="1" name="" force_rhr="0" type="line">
-              <layer enabled="1" class="SimpleLine" locked="0" pass="0">
-                <prop k="capstyle" v="square"/>
-                <prop k="customdash" v="5;2"/>
-                <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-                <prop k="customdash_unit" v="MM"/>
-                <prop k="draw_inside_polygon" v="0"/>
-                <prop k="joinstyle" v="bevel"/>
-                <prop k="line_color" v="35,35,35,255"/>
-                <prop k="line_style" v="solid"/>
-                <prop k="line_width" v="0.26"/>
-                <prop k="line_width_unit" v="MM"/>
-                <prop k="offset" v="0"/>
-                <prop k="offset_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-                <prop k="offset_unit" v="MM"/>
-                <prop k="ring_filter" v="0"/>
-                <prop k="use_custom_dash" v="0"/>
-                <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
-                <data_defined_properties>
-                  <Option type="Map">
-                    <Option name="name" value="" type="QString"/>
-                    <Option name="properties"/>
-                    <Option name="type" value="collection" type="QString"/>
-                  </Option>
-                </data_defined_properties>
-              </layer>
-            </symbol>
-          </axisSymbol>
-        </DiagramCategory>
-      </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings showAll="1" zIndex="0" obstacle="0" priority="0" placement="2" linePlacementFlags="18" dist="0">
-        <properties>
-          <Option type="Map">
-            <Option name="name" value="" type="QString"/>
-            <Option name="properties"/>
-            <Option name="type" value="collection" type="QString"/>
-          </Option>
-        </properties>
-      </DiagramLayerSettings>
       <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
-        <activeChecks/>
+        <activeChecks type="StringList">
+          <Option value="" type="QString"/>
+        </activeChecks>
         <checkConfiguration/>
       </geometryOptions>
       <referencedLayers/>
       <referencingLayers/>
       <fieldConfiguration>
         <field name="id">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
@@ -3650,10 +3419,7 @@ def my_form_open(dialog, layer, feature):
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
       <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
-        <columns>
-          <column name="id" type="field" hidden="0" width="-1"/>
-          <column type="actions" hidden="1" width="-1"/>
-        </columns>
+        <columns/>
       </attributetableconfig>
       <conditionalstyles>
         <rowstyles/>
@@ -3664,33 +3430,13 @@ def my_form_open(dialog, layer, feature):
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
       <editforminitfilepath></editforminitfilepath>
-      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
-"""
-QGIS forms can have a Python function that is called when the form is
-opened.
-
-Use this function to add extra logic to your forms.
-
-Enter the name of the function in the "Python Init function"
-field.
-An example follows:
-"""
-from qgis.PyQt.QtWidgets import QWidget
-
-def my_form_open(dialog, layer, feature):
-	geom = feature.geometry()
-	control = dialog.findChild(QWidget, "MyLineEdit")
-]]></editforminitcode>
+      <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
-      <editable>
-        <field name="id" editable="1"/>
-      </editable>
-      <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-      </labelOnTop>
+      <editable/>
+      <labelOnTop/>
       <widgets/>
-      <previewExpression>id</previewExpression>
+      <previewExpression></previewExpression>
       <mapTip></mapTip>
     </maplayer>
     <maplayer type="vector" simplifyMaxScale="1" simplifyAlgorithm="0" simplifyDrawingTol="1" styleCategories="AllStyleCategories" refreshOnNotifyEnabled="0" maxScale="0" readOnly="0" minScale="100000000" geometry="Point" autoRefreshTime="0" wkbType="Point" simplifyLocal="1" refreshOnNotifyMessage="" hasScaleBasedVisibilityFlag="0" labelsEnabled="0" simplifyDrawingHints="0" autoRefreshEnabled="0">
@@ -4913,13 +4659,12 @@ def my_form_open(dialog, layer, feature):
     <layer id="CGM_Transect_2_459ddc9d_5c22_4c16_8939_179d1730ef33"/>
     <layer id="CGM_Transect_3_0518b0fc_84e5_4d3f_b804_c4acb85a5590"/>
     <layer id="CGM_Transect_4_fca4354f_2309_45bf_b65c_3471a34bd76c"/>
+    <layer id="CGM_Transect_5_fe93bb38_1165_4225_9319_d8e3e9be520e"/>
     <layer id="CGM_Transect_1_8ec31cce_bbe4_466a_9305_03e6e6ec5b5b"/>
     <layer id="CGM_Transect_2_f129b894_43d9_40c3_a8c6_e1de87ebf25f"/>
     <layer id="CGM_Transect_3_48a1890c_68fd_481a_b797_3e7e13017a55"/>
     <layer id="CGM_Transect_4_73902ce6_7a83_4381_9dd8_845aca0a1a6d"/>
-    <layer id="CGM_Transect_5_line1_553e5450_ef2c_42fa_bce1_bb322859a8f0"/>
-    <layer id="CGM_Transect_5_ab5f39d9_1d4c_490f_b994_589d78754e76"/>
-    <layer id="CGM_Transect_5_2857566b_1b1f_4358_8e1b_74b43db89a01"/>
+    <layer id="CGM_Transect_5_681698c3_549e_4db9_9a00_7e7cbeed765d"/>
   </layerorder>
   <properties>
     <Digitizing>
