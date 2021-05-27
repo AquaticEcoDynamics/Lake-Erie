@@ -1,28 +1,29 @@
-clear all; close all;
+%clear all; close all;
+function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname)
 
-addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
-addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 
-ncfile1 = '/Volumes/T7 Touch/Erie/Output.00/erie_00_AED.nc';
-ncfile2 = '/Volumes/T7 Touch/Erie/Output.01/erie_01_AED.nc';
-
-var = 'WQ_DIAG_MAG_TMALG';
-
-titletxt = 'My variable name (units)';
-
-del_caxis = [-2 2];
-del_clip = [-0.2 0.2];
+% addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
+% 
+% ncfile1 = 'F:/Output.n/erie_AED.nc';
+% ncfile2 = 'F:/Output.n/erie_AED.nc';
+% 
+% var = 'WQ_NCS_SS1';
+% 
+% titletxt = 'My variable name (units)';
+% 
+% del_caxis = [-1 1];
+% del_clip = [-0.1 0.1];
 
 conv1 = 1;
 conv2 = 1; %just for testing, make sure these match.
 
-thedepth = 'bottom';%or bottom
+thedepth = 'surface';%or bottom
 
 %_ BC's
 
-bc(1).data = {'2002-14_flwo_Nia_v02',672609.00,4747642.00,'^'};
-bc(2).data = {'2002-14_flwi_Det_v02',321970.00	4658195.00,'^'};
-bc(3).data = {'2002-14_flwi_Gra_ON-WQ_v02',616680.00,4744330.00,'^'};
+bc(1).data = {'2002-14_flwo_Nia_v02',672609.00,4747642.00,'v'};
+bc(2).data = {'2002-14_flwi_Det_v02',321970.00	4658195.00,'v'};
+bc(3).data = {'2002-14_flwi_Gra_ON-WQ_v02',616680.00,4744330.00,'v'};
 bc(4).data = {'2002-14_flwi_Mau-WQ_v02',304206.72,4618817.56,'^'};
 bc(5).data = {'2002-14_flwi_Snd-WQ_v02',362406.72,4590617.56,'^'};
 bc(6).data = {'2002-14_flwi_Cuy-WQ_v02',438120.00,4594766.00,'^'};
@@ -40,8 +41,8 @@ mtime2 = dat.Time;
 
 clear functions; clear dat;
 
-start_timeave = datenum(2013,08,01);
-end_timeave = datenum(2013,08,31);
+% start_timeave = datenum(2013,05,08);
+% end_timeave = datenum(2013,05,20);
 
 
 ncfile1_time = find(mtime1 >= start_timeave & mtime1 <= end_timeave);
@@ -95,7 +96,7 @@ data2 = mean(data2_raw,2);clear data2_raw
 data1 = data1 * conv1;
 data2 = data2 * conv2;
 
-del = data2 - data1;
+del = data1 - data2;
 
 
 figure('position',[680   299   517   679]);
@@ -122,7 +123,7 @@ set(cb,'position',[0.25 0.487 0.5 0.01]);
 text(0.6,0.1,titletxt,'fontsize',12,'fontweight','bold','units','normalized');
 
 for i = 1:length(bc)
-    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'r');
+    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'r','markerfacecolor','k');
 end
 
 %15m contour
@@ -157,4 +158,4 @@ set(cb2,'position',[0.25 0.035 0.5 0.01]);
 % set(gcf,'paperposition',[0 0 xSize ySize])
 
 
-saveas(gcf,'delmap.png');
+saveas(gcf,outname);close
