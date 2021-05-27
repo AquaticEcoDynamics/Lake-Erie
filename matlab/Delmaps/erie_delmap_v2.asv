@@ -1,19 +1,21 @@
-clear all; close all;
+%clear all; close all;
+function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname)
 
-addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 
-ncfile1 = 'F:/Output.n/erie_AED.nc';
-ncfile2 = 'F:/Output.n/erie_AED.nc';
-
-var = 'WQ_NCS_SS1';
-
-titletxt = 'My variable name (units)';
-
-del_caxis = [-1 1];
-del_clip = [-0.1 0.1];
+% addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
+% 
+% ncfile1 = 'F:/Output.n/erie_AED.nc';
+% ncfile2 = 'F:/Output.n/erie_AED.nc';
+% 
+% var = 'WQ_NCS_SS1';
+% 
+% titletxt = 'My variable name (units)';
+% 
+% del_caxis = [-1 1];
+% del_clip = [-0.1 0.1];
 
 conv1 = 1;
-conv2 = rand; %just for testing, make sure these match.
+conv2 = 1; %just for testing, make sure these match.
 
 thedepth = 'surface';%or bottom
 
@@ -156,4 +158,4 @@ set(cb2,'position',[0.25 0.035 0.5 0.01]);
 % set(gcf,'paperposition',[0 0 xSize ySize])
 
 
-saveas(gcf,'delmap.png');
+saveas(gcf,outname);
