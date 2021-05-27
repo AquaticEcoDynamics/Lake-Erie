@@ -1,20 +1,21 @@
 clear all; close all;
 
 addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
+addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 
-ncfile1 = 'F:/Output.n/erie_AED.nc';
-ncfile2 = 'F:/Output.n/erie_AED.nc';
+ncfile1 = '/Volumes/T7 Touch/Erie/Output.00/erie_00_AED.nc';
+ncfile2 = '/Volumes/T7 Touch/Erie/Output.01/erie_01_AED.nc';
 
-var = 'WQ_NCS_SS1';
+var = 'WQ_DIAG_MAG_TMALG';
 
 
-del_caxis = [-1 1];
-del_clip = [-0.1 0.1];
+del_caxis = [-2 2];
+del_clip = [-0.2 0.2];
 
 conv1 = 1;
-conv2 = rand; %just for testing, make sure these match.
+conv2 = 1; %just for testing, make sure these match.
 
-thedepth = 'surface';%or bottom
+thedepth = 'bottom';%or bottom
 
 % import in the time (incase each netcdf has a different timesteps);
 dat = tfv_readnetcdf(ncfile1,'time',1);
@@ -24,8 +25,8 @@ mtime2 = dat.Time;
 
 clear functions; clear dat;
 
-start_timeave = datenum(2013,05,08);
-end_timeave = datenum(2013,05,20);
+start_timeave = datenum(2013,08,01);
+end_timeave = datenum(2013,08,31);
 
 
 ncfile1_time = find(mtime1 >= start_timeave & mtime1 <= end_timeave);
@@ -79,7 +80,7 @@ data2 = mean(data2_raw,2);clear data2_raw
 data1 = data1 * conv1;
 data2 = data2 * conv2;
 
-del = data1 - data2;
+del = data2 - data1;
 
 
 figure('position',[680   299   517   679]);
