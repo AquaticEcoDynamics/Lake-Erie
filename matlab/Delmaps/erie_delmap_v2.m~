@@ -1,7 +1,8 @@
 %clear all; close all;
-function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname,conv)
+function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname)
 
 addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
+
 
 % addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 % 
@@ -15,8 +16,8 @@ addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV
 % del_caxis = [-1 1];
 % del_clip = [-0.1 0.1];
 
-%conv1 = 1;
-%conv2 = 1; %just for testing, make sure these match.
+conv1 = 1;
+conv2 = 1; %just for testing, make sure these match.
 
 thedepth = 'surface';%or bottom
 
@@ -94,8 +95,8 @@ clear functions; clear dat;
 data1 = mean(data1_raw,2);clear data1_raw
 data2 = mean(data2_raw,2);clear data2_raw
 
-data1 = data1 * conv;
-data2 = data2 * conv;
+data1 = data1 * conv1;
+data2 = data2 * conv2;
 
 del = data1 - data2;
 
