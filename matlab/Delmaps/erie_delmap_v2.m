@@ -149,6 +149,14 @@ caxis(del_caxis);
 cb2 = colorbar('southoutside');
 set(cb2,'position',[0.25 0.035 0.5 0.01]);
 
+
+for i = 1:length(bc)
+    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'r','markerfacecolor','k');
+end
+
+%15m contour
+mapshow(shp,'color','r');
+
 % set(gcf, 'PaperPositionMode', 'manual');
 % set(gcf, 'PaperUnits', 'centimeters');
 % xSize = 16;
