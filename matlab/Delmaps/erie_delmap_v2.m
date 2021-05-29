@@ -1,5 +1,5 @@
 %clear all; close all;
-function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname,conv)
+function erie_delmap_v2(ncfile1,ncfile2,var,titletxt,del_caxis,del_clip,start_timeave,end_timeave,outname,conv,thedepth)
 
 addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 
@@ -18,14 +18,14 @@ addpath(genpath('~/AED Dropbox/Matt Hipsey/GitHub/aed_matlab_modeltools/TUFLOWFV
 %conv1 = 1;
 %conv2 = 1; %just for testing, make sure these match.
 
-thedepth = 'surface';%or bottom
+%thedepth = 'surface';%or bottom
 
 %_ BC's
 
 bc(1).data = {'2002-14_flwo_Nia_v02',672609.00,4747642.00,'v'};
 bc(2).data = {'2002-14_flwi_Det_v02',321970.00	4658195.00,'v'};
 bc(3).data = {'2002-14_flwi_Gra_ON-WQ_v02',616680.00,4744330.00,'v'};
-bc(4).data = {'2002-14_flwi_Mau-WQ_v02',304206.72,4618817.56,'^'};
+bc(4).data = {'2002-14_flwi_Mau-WQ_v02',304206.72,461 8817.56,'^'};
 bc(5).data = {'2002-14_flwi_Snd-WQ_v02',362406.72,4590617.56,'^'};
 bc(6).data = {'2002-14_flwi_Cuy-WQ_v02',438120.00,4594766.00,'^'};
 
@@ -46,8 +46,8 @@ clear functions; clear dat;
 % end_timeave = datenum(2013,05,20);
 
 
-ncfile1_time = find(mtime1 >= start_timeave & mtime1 <= end_timeave);
-ncfile2_time = find(mtime2 >= start_timeave & mtime2 <= end_timeave);
+ncfile1_time = find(mtime1 >= start_timeave & mtime1 <= (end_timeave-1));
+ncfile2_time = find(mtime2 >= start_timeave & mtime2 <= (end_timeave-1));
 
 
 %___ Processing for the faces and surface / bottom indicies
@@ -97,7 +97,7 @@ data2 = mean(data2_raw,2);clear data2_raw
 data1 = data1 * conv;
 data2 = data2 * conv;
 
-del = data1 - data2;
+del = data2 - data1;
 
 
 figure('position',[680   299   517   679]);
@@ -121,14 +121,14 @@ caxis(del_caxis);
 cb = colorbar('southoutside');
 set(cb,'position',[0.25 0.487 0.5 0.01]);
 
-text(0.6,0.1,titletxt,'fontsize',12,'fontweight','bold','units','normalized');
+text(0.6,0.1,titletxt,'color','w','fontsize',12,'fontweight','bold','units','normalized');
 
 for i = 1:length(bc)
-    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'r','markerfacecolor','k');
+    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'k','markerfacecolor','b');
 end
 
 %15m contour
-mapshow(shp,'color','r');
+mapshow(shp,'color',[0.3 0.3 0.3]);
 
 
 axes('position',[0 0 1 0.5]);
@@ -152,11 +152,11 @@ set(cb2,'position',[0.25 0.035 0.5 0.01]);
 
 
 for i = 1:length(bc)
-    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'r','markerfacecolor','k');
+    scatter(bc(i).data{2},bc(i).data{3},bc(i).data{4},'k','markerfacecolor','b');
 end
 
 %15m contour
-mapshow(shp,'color','r');
+mapshow(shp,'color',[0.3 0.3 0.3]);
 
 % set(gcf, 'PaperPositionMode', 'manual');
 % set(gcf, 'PaperUnits', 'centimeters');
