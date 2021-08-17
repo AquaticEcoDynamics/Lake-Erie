@@ -1,0 +1,301 @@
+!_________________________________________________________________
+! Lake Erie Simulation (V3)
+!_________________________________________________________________
+
+
+! SIMULATION CONFIGURATION
+!_________________________________________________________________
+spherical == 0
+include salinity == 1,1
+include temperature == 1,1
+include sediment == 0,0
+include heat == 1
+include ice == 1
+longwaveradiationmodel == 3
+shortwaveradiationalbedo == 0.08
+longwaveradiationalbedo == 0.03
+momentum mixing model == Smagorinsky
+scalar mixing model == Smagorinsky
+vertical mixing model == external
+external turbulence model dir == ..\External\GOTM\
+waterqualitymodel == EXTERNAL
+external water quality model dir == ..\External\AED\
+spatial order == 1,2
+!horizontal gradient limiter == LCD
+vertical gradient limiter == MC
+bottom drag model == ks
+equation of state == UNESCO
+
+
+!TIME COMMANDS
+!_________________________________________________________________
+time format == ISODATE
+reference time == 01/01/2001
+! Earliest Met data 07/05/2013
+start time == 07/05/2013 00:00:00   ! Based on ICE coefficient
+end time == 30/09/2013 06:00:00     ! Based on ICE ON
+cfl external == 0.90
+cfl internal == 0.90
+timestep limits == 0.1, 10.
+turbulence update dt == 600                                     ! for GOTM (s)
+display dt == 900.
+WQ update dt == 1800
+
+!MODEL PARAMETERS
+!_________________________________________________________________
+! display depth == 1.0e-6
+stability limits == 15.0,15.0
+cell wet/dry depths == 0.1, 0.1                                  ! <cells dry depth (m), cell wet depth (m)>
+g == 9.81
+latitude == 42.122212                                            ! <latitude in degree (-ve for southern Hemishpere)
+reference salinity == 35.0
+reference temperature == 18.0
+reference density == 1000.0
+density air == 1.18
+
+global bottom roughness == 0.0020                               ! <global roughness>
+global horizontal eddy viscosity == 0.2                         ! <eddy viscosity coefficient/s (m2/s;-)>
+global horizontal scalar diffusivity == 0.2,0.2                 ! <diffusivity; coefficient/s (m2/s;-)>
+diffusivity limiter dt == 30.                                   ! <NOT IN MANUAL>
+kinematic viscosity == 1.0e-6                                   ! <eddy viscosity value (m2/s)>
+vertical mixing parameters ==  0.01, 0.01                       !
+global vertical eddy viscosity limits == 1.0e-04, 9999.
+global vertical scalar diffusivity limits == 1.0e-06, 9999.
+!min vertical eddy viscosity == 1.0e-4
+
+
+!GEOMETRY
+!_________________________________________________________________
+geometry 2d == ..\Geo\Erie_v5_Substrates_NS.2dm
+vertical mesh type == z
+layer faces == ..\Geo\layers.csv
+sigma layers == 2
+min bottom layer thickness == 0.1
+cell 3d depth == 5.0e-1
+
+
+! MATERIAL PROPERTIES (11 Mat zones)
+!_________________________________________________________________
+
+material == 1
+  bottom roughness == 0.005
+end material
+material == 2
+  bottom roughness == 0.005
+end material
+material == 3
+  bottom roughness == 0.005
+end material
+material == 4
+  bottom roughness == 0.005
+end material
+material == 5
+  bottom roughness == 0.005
+end material
+material == 6
+  bottom roughness == 0.005
+end material
+material == 7
+  bottom roughness == 0.005
+end material
+material == 8
+  bottom roughness == 0.005
+end material
+material == 9
+  bottom roughness == 0.005
+end material
+material == 10
+  bottom roughness == 0.005
+end material
+material == 11
+  bottom roughness == 0.005
+end material
+
+
+!SCALAR PROPERTIES (1 Tracer for Grand River)
+!_________________________________________________________________
+Ntracer == 1
+
+
+
+! INITIAL CONDITIONS
+!_________________________________________________________________
+INITIAL CONDITION 2D == ..\BCs\IC\IC-AED2-2013-Feb11NN.csv
+
+! Warmup profiles (using 2012)
+!include == ..\BCs\IC\IC_2012\ic_erie_2012.fvc   				! initial condition warmup profiles
+!2013 Initial Condition as a Restart File was prepared by warmup module based on ELCOM infiles - Nader Nakhaei
+!restart == log\erie2013IC.rst
+
+!BOUNDARY CONDITIONS
+!_________________________________________________________________
+
+! Met______________________________________________________________
+
+! 3 Zone netcdf Met set-up
+grid definition file == ..\BCs\Met\Wind_utm_20130507_20151001.nc
+grid definition variables == X, Y
+grid definition label == WIND_GRID
+ENDGRID
+
+bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001.nc
+bc header == time,u,v
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+bc scale == 1.125,1.125
+end bc
+
+grid definition file == ..\BCs\Met\Temperature_utm_20130507_20151001.nc
+grid definition variables == X, Y
+grid definition label == TEMP_GRID
+ENDGRID
+
+bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001.nc
+bc header == time,temp
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+grid definition file == ..\BCs\Met\RelHum_utm_20130507_20151001.nc
+grid definition variables == X, Y
+grid definition label == RHUM_GRID
+ENDGRID
+
+bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001.nc
+bc header == time,rhum
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+grid definition file == ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+grid definition variables == X, Y
+grid definition label == RAD_GRID
+ENDGRID
+
+bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+bc header == time,dswr
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+bc header == time,dlwr
+bc reference time == 01/01/1990 00:00
+bc time units == hours
+bc update dt == 3600
+end bc
+
+! ______________________________________________________________Met
+
+
+
+! Inflows / Outflow________________________________________________
+bc == Q, 1, ..\BCs\Inflows\2002-14_flwo_Nia_v02.csv
+  bc header ==  TIME,FLOW !,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc scale == -1.0           ! This is an OUTFLOW
+end bc
+
+bc == Q, 2, ..\BCs\Inflows\2002-14_flwi_Det_v02.csv
+  !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
+!  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
+end bc
+
+bc == QC, 616680,4744330, ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
+  !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
+!  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
+end bc
+
+bc == QC, 304206.72,4618817.56, ..\BCs\Inflows\2002-14_flwi_Mau-WQ_v02.csv
+  !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
+!  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
+end bc
+
+bc == QC, 362406.72,4590617.56, ..\BCs\Inflows\2002-14_flwi_Snd-WQ_v02.csv
+  !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
+!  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
+end bc
+
+bc == QC, 438120.0,4594766.0, ..\BCs\Inflows\2002-14_flwi_Cuy-WQ_v02.csv
+  !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
+  bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
+!  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
+end bc
+
+! __________________________________________________________Inflows
+
+
+
+!OUTPUT COMMANDS
+!_________________________________________________________________
+
+output dir == ..\Output\
+
+output == netcdf
+  suffix == TFV
+  output parameters == d,h,v,w,w10,sal,temp
+  output interval == 14400
+end output
+output == netcdf
+  Suffix == AED
+  output parameters == d,h,temp,wq_all, WQ_DIAG_TOT_TN, WQ_DIAG_TOT_TP, WQ_DIAG_PHY_TCHLA, WQ_DIAG_MAG_TMALG, WQ_DIAG_BIV_TBIV
+  output interval == 14400
+  output compression == 1
+end output
+output == netcdf
+  suffix == AED_diag
+ !vertical averaging == depth-range, 0, 5
+  output parameters == d, h, wq_diag_all, WQ_MAG_CGM, WQ_MAG_CGM_IP
+  output interval == 28800
+  output compression == 1
+end output
+
+!output == datv
+!  vertical averaging == depth-range, 0, 5
+!  suffix == depth_surf_wq
+!  output parameters == h,d,v,w,Sal,Temp
+!  output interval == 7200.00
+!end output
+
+output == flux
+  output interval == 7200
+end output
+
+output == points
+  output points file == ..\Geo\output_points_epa.csv
+  vertical averaging == depth-range, 0, 5
+  suffix == depth_surf_temp
+  output parameters == temp !, sal, wq_all
+  output interval == 7200
+end output
+output == points
+  output points file == ..\Geo\output_points_epa.csv
+  vertical averaging == depth-range, 0, 5
+  suffix == depth_surf_TOT_TN
+  output parameters == WQ_DIAG_TOT_TN
+  output interval == 7200
+end output
+output == points
+  output points file == ..\Geo\output_points_epa.csv
+  vertical averaging == depth-range, 0, 5
+  suffix == depth_surf_PHY_EDIAT_fPho
+  output parameters == WQ_DIAG_PHY_EDIAT_fPho
+  output interval == 7200
+end output
+output == points
+  output points file == ..\Geo\output_points_epa.csv
+  vertical averaging == layer-range-bot, 1, 1
+  suffix == bot_tbiv
+  output parameters == WQ_DIAG_BIV_TBIV
+  output interval == 7200
+end output
+
+write restart dt == 86400
+hardware == gpu

@@ -1,0 +1,328 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>label</title><meta name="generator" content="MATLAB 8.0"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2014-08-01"><meta name="DC.source" content="label_documentation.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, tt, code { font-size:12px; }
+pre { margin:0px 0px 20px; }
+pre.error { color:red; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>label</h1><!--introduction--><p>This function provides an option between the <tt>legend</tt> and <tt>text</tt> or <tt>annotation</tt> commands for labeling data that you plot.  <a href="http://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a> says that data shouldn't stray far from its label, because the viewer of a graph should not need to repeatedly move his or her eyes back and forth between plotted data and the legend to connect the dots of which data are which.  In this spirit, <tt>label</tt> can be used to place a label directly on a plot close to the data it describes.</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Example 1: A bunch of labels</a></li><li><a href="#9">Example 2: A bug fix introduced Aug. 1, 2014</a></li><li><a href="#10">Example 3: It works on maps, too!</a></li><li><a href="#11">Author Info</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>label(h,'string')
+label(...,'location',LocationString)
+label(...,'TextProperty',PropertyValue)
+label(...,'slope')
+h = label(...)</pre><h2>Description<a name="2"></a></h2><p><tt>label(h,'string')</tt> places <tt>'string'</tt> near the leftmost data described by handle <tt>h</tt>.</p><p><tt>label(...,'location',LocationString)</tt> specifies location of the string. <tt>LocationString</tt> can be any of the following:</p><div><ul><li><tt>'left'</tt> or <tt>'west'</tt> (default)</li><li><tt>'right'</tt> or <tt>'east'</tt></li><li><tt>'top'</tt> or <tt>'north'</tt></li><li><tt>'bottom'</tt> or <tt>'south'</tt></li><li><tt>'center'</tt> or <tt>'middle'</tt></li></ul></div><p><tt>label(...,'TextProperty',PropertyValue)</tt> specifies text properties as name-value pairs.</p><p><tt>label(...,'slope')</tt> attempts to angle text following the local slope of the data.</p><p><tt>htext = label(...)</tt> returns the handle <tt>htext</tt> of the newly-created text object.</p><h2>Example 1: A bunch of labels<a name="3"></a></h2><p>In this example our plot is rather cluttered and there is no clear place to put a legend. Even if we do put a legend in there somewhere, a colorblind person may have difficulty linking each dataset to its label. First we make up some data and plot it:</p><pre class="codeinput"><span class="comment">% Make up some data:</span>
+x = 1:100;
+y1 = 50*ones(size(x));
+y2 = 250 + x.^1.2 + 80*rand(size(x));
+y3 = x ;
+y4 = 200+20*cos(x/30);
+y5 = 1e+4 - 120*x;
+y6 = 300 - 3.5*x;
+
+<span class="comment">% Plot data:</span>
+h1 = plot(x,y1,<span class="string">'color'</span>,[.4 .2 0]);
+hold <span class="string">on</span>;
+h2 = plot(x(1:12:end),y2(1:12:end),<span class="string">'rp'</span>);
+h3 = plot(x,y3,<span class="string">'b'</span>);
+h4 = plot(x,y4,<span class="string">'m'</span>,<span class="string">'linewidth'</span>,2);
+h5 = plot(x,y5,<span class="string">'k'</span>,<span class="string">'linewidth'</span>,1);
+h6 = plot(x,y6,<span class="string">'color'</span>,[.1 .4 0]);
+h7 = plot((20:45)',250*ones(26,1),<span class="string">'r'</span>,<span class="string">'linewidth'</span>,6);
+axis([0 100 0 400]);
+box <span class="string">off</span>
+</pre><img vspace="5" hspace="5" src="label_documentation_01.png" alt=""> <p>That looks like a very nice plot, but it is busy. There is no clear place for a legend. Furthermore, as a colorblind American, I cannot distinguish between the colors of lines <tt>y1</tt>, <tt>y4</tt>, and <tt>y6</tt>, so a legend would be of little use.  Let's label the lines directly, starting with <tt>y1</tt>:</p><pre class="codeinput">label(h1,<span class="string">'y1 data'</span>)
+</pre><img vspace="5" hspace="5" src="label_documentation_02.png" alt=""> <p>By default, labels are placed near the leftmost part of the data and the label will appear on top of the curve. If you'd like to place a label somewhere else relative to the data, you can do so with the <tt>'location'</tt> argument and format further with <tt>'VerticalAlignment'</tt> and <tt>'HorizontalAlignment'</tt> properties.  The <tt>'location'</tt> command finds the leftmost, rightmost, centermost, topmost, or bottommost part of your data, and pins a label to that point. The <tt>'VerticalAlignment'</tt> and <tt>'HorizontalAlignment'</tt> properties can then be used to place the label relative to its pinning point.  Following the syntax described in the <tt>text</tt> documentation, <tt>'VerticalAlignment','top'</tt> places a label below its pinning point because the pinning point is on <tt>'top'</tt> of the data. If I had my druthers I'd reverse this syntax, but what can I do.</p><pre class="codeinput">label(h2,<span class="string">'centered label'</span>,<span class="string">'location'</span>,<span class="string">'center'</span>)
+
+label(h3,<span class="string">'centered, following slope'</span>,<span class="string">'location'</span>,<span class="string">'center'</span>,<span class="string">'slope'</span>)
+
+label(h4,<span class="string">'some cosine curve'</span>,<span class="string">'location'</span>,<span class="string">'right'</span>,<span class="keyword">...</span>
+    <span class="string">'verticalalignment'</span>,<span class="string">'top'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>)
+
+label(h5,<span class="string">' top'</span>,<span class="string">'location'</span>,<span class="string">'top'</span>)
+
+label(h6,<span class="string">'y6'</span>,<span class="string">'location'</span>,<span class="string">'bottom'</span>)
+
+label(h7,<span class="string">'left top'</span>,<span class="string">'location'</span>,<span class="string">'left'</span>)
+label(h7,<span class="string">' blue, right side'</span>,<span class="string">'location'</span>,<span class="string">'right'</span>,<span class="string">'color'</span>,<span class="string">'blue'</span>,<span class="keyword">...</span>
+    <span class="string">'horizontalalignment'</span>,<span class="string">'left'</span>,<span class="string">'verticalalignment'</span>,<span class="string">'middle'</span>)
+</pre><img vspace="5" hspace="5" src="label_documentation_03.png" alt=""> <p>I should be clear that although the text, especially the text following the local slope looks awful in the image above, that's purely a problem with the way that Matlab's publishing script snaps frames.  If you save images with a fancy function like <a href="http://www.mathworks.com/matlabcentral/fileexchange/23629"><tt>export_fig</tt></a>, the text will look smoother, as in the example image for the <tt>label</tt> function.</p><p>You can also return the handle of a label if you'd like:</p><pre class="codeinput">h4label = label(h4,<span class="string">'Now you see it.'</span>,<span class="string">'color'</span>,<span class="string">'r'</span>);
+</pre><img vspace="5" hspace="5" src="label_documentation_04.png" alt=""> <p>Saving label handles lets you delete them easily:</p><pre class="codeinput">delete(h4label);
+</pre><img vspace="5" hspace="5" src="label_documentation_05.png" alt=""> <p>...and now it's gone.</p><h2>Example 2: A bug fix introduced Aug. 1, 2014<a name="9"></a></h2><p>After uploading this function, I quickly noticed a bug.  If data extended beyond the visible area of the plot and then came back, <tt>label</tt> would get a little confused. I've tweaked the code to help <tt>label</tt> make smarter decisions about where to pin a label in this case.  Here we plot a parabola and set axes such that the visible plot window cuts off some data:</p><pre class="codeinput">close; clear; <span class="comment">% Gets rid of all the stuff we plotted in Ex. 1.</span>
+
+x = -10:.01:10;
+y = -x.^2;
+h=plot(x,y);
+axis([-9 9 -70 -10])
+
+label(h,<span class="string">'default label'</span>);
+label(h,<span class="string">'bottom following slope'</span>,<span class="string">'location'</span>,<span class="string">'bottom'</span>,<span class="string">'slope'</span>)
+label(h,<span class="string">'a label at the top'</span>,<span class="string">'location'</span>,<span class="string">'top'</span>)
+label(h,<span class="string">'italics work too'</span>,<span class="string">'location'</span>,<span class="string">'right'</span>,<span class="string">'fontangle'</span>,<span class="string">'italic'</span>)
+label(h,<span class="string">'$$\int_0^x\!\int_y dF(u,v)$$'</span>,<span class="string">'FontSize'</span>,20,<span class="string">'location'</span>,<span class="string">'center'</span>,<span class="keyword">...</span>
+    <span class="string">'interpreter'</span>,<span class="string">'latex'</span>,<span class="string">'color'</span>,<span class="string">'red'</span>)
+</pre><img vspace="5" hspace="5" src="label_documentation_06.png" alt=""> <h2>Example 3: It works on maps, too!<a name="10"></a></h2><p>My motivation for creating this function was to automatically label satellite tracks on maps and have the labels follow the arc of the satellite tracks they describe. It was a nice surprise to find out that this function indeed works. I don't expect this exact example to be of use for many folks, but it is provided to show capability. Using <a href="www.mathworks.com/matlabcentral/fileexchange/47282"><tt>modismoa</tt></a>, <a href="http://www.mathworks.com/matlabcentral/fileexchange/47329"><tt>measures</tt></a>, <a href="http://www.mathworks.com/matlabcentral/fileexchange/7943"><tt>freezeColors</tt></a>, the <a href="http://www.mathworks.com/matlabcentral/fileexchange/42353">Bedmap2 Toolbox for Matlab</a>, and some satellite track plotting functions of my own, we can easily plot and format labels in many different ways</p><pre class="codeinput">figure(<span class="string">'position'</span>,[50 50 900 700])
+modismoa(-67.1,115,200)
+freezeColors;
+measures(<span class="string">'speed'</span>,-67.1,115,<span class="string">'mapwidth'</span>,200,<span class="string">'alpha'</span>,.15);
+measures(<span class="string">'vel'</span>,-67.1,115,<span class="string">'mapwidth'</span>,200,<span class="string">'density'</span>,6)
+scalebar(<span class="string">'color'</span>,<span class="string">'w'</span>,<span class="string">'location'</span>,<span class="string">'southeast'</span>,<span class="string">'length'</span>,50);
+
+hgl = asaid(<span class="string">'gl'</span>,<span class="string">'color'</span>,<span class="string">'g'</span>,<span class="string">'linewidth'</span>,2);
+h1335 = plottrack(1335,<span class="string">'linewidth'</span>,2);
+h1312 = plottrack(1312,<span class="string">'linewidth'</span>,2);
+
+label(h1335,<span class="string">'track 1335'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>,<span class="string">'slope'</span>)
+label(h1312,<span class="string">'track 1312'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>,<span class="string">'slope'</span>)
+
+label(h1335,<span class="string">'track 1335'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>,<span class="string">'slope'</span>,<span class="string">'loc'</span>,<span class="string">'right'</span>,<span class="keyword">...</span>
+    <span class="string">'verticalalignment'</span>,<span class="string">'top'</span>,<span class="string">'backgroundcolor'</span>,<span class="string">'w'</span>)
+label(h1312,<span class="string">'track 1312'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>,<span class="string">'slope'</span>,<span class="string">'loc'</span>,<span class="string">'right'</span>,<span class="keyword">...</span>
+    <span class="string">'verticalalignment'</span>,<span class="string">'top'</span>,<span class="string">'backgroundcolor'</span>,[.7 .9 .7],<span class="string">'margin'</span>,.001)
+
+label(hgl,<span class="string">'  grounding line'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>)
+label(hgl,<span class="string">'  grounding line'</span>,<span class="string">'location'</span>,<span class="string">'top'</span>,<span class="string">'fontweight'</span>,<span class="string">'bold'</span>)
+</pre><img vspace="5" hspace="5" src="label_documentation_07.png" alt=""> <h2>Author Info<a name="11"></a></h2><p>This function was written by Chad A. Greene of the University of Texas Institute for Geophysics (<a href="http://www.ig.utexas.edu/research/cryosphere/">UTIG</a>) in Austin, July 2014.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2012b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% label
+% This function provides an option between the |legend| and |text| or |annotation| commands
+% for labeling data that you plot.  <http://en.wikipedia.org/wiki/Edward_Tufte Edward Tufte> 
+% says that data shouldn't stray far from its label, because
+% the viewer of a graph should not need to repeatedly move his or her eyes
+% back and forth between plotted data and the legend to connect the dots of
+% which data are which.  In this spirit, |label| can be used to place a
+% label directly on a plot close to the data it describes.  
+
+%% Syntax 
+% 
+%  label(h,'string')
+%  label(...,'location',LocationString)
+%  label(...,'TextProperty',PropertyValue)
+%  label(...,'slope')
+%  h = label(...)
+
+%% Description 
+% 
+% |label(h,'string')| places |'string'| near the leftmost data described by
+% handle |h|. 
+%
+% |label(...,'location',LocationString)| specifies location of the string.
+% |LocationString| can be any of the following:
+% 
+% * |'left'| or |'west'| (default) 
+% * |'right'| or |'east'| 
+% * |'top'| or |'north'| 
+% * |'bottom'| or |'south'| 
+% * |'center'| or |'middle'| 
+% 
+% |label(...,'TextProperty',PropertyValue)| specifies text properties as
+% name-value pairs. 
+%
+% |label(...,'slope')| attempts to angle text following the local slope of
+% the data. 
+%
+% |htext = label(...)| returns the handle |htext| of the newly-created text
+% object. 
+% 
+%% Example 1: A bunch of labels
+% In this example our plot is rather cluttered and there is no clear place to put
+% a legend. Even if we do put a legend in there somewhere, a colorblind
+% person may have difficulty linking each dataset to its label. First we
+% make up some data and plot it: 
+
+% Make up some data: 
+x = 1:100; 
+y1 = 50*ones(size(x)); 
+y2 = 250 + x.^1.2 + 80*rand(size(x));
+y3 = x ;
+y4 = 200+20*cos(x/30);
+y5 = 1e+4 - 120*x; 
+y6 = 300 - 3.5*x; 
+
+% Plot data: 
+h1 = plot(x,y1,'color',[.4 .2 0]); 
+hold on; 
+h2 = plot(x(1:12:end),y2(1:12:end),'rp'); 
+h3 = plot(x,y3,'b'); 
+h4 = plot(x,y4,'m','linewidth',2);
+h5 = plot(x,y5,'k','linewidth',1); 
+h6 = plot(x,y6,'color',[.1 .4 0]); 
+h7 = plot((20:45)',250*ones(26,1),'r','linewidth',6);
+axis([0 100 0 400]);
+box off
+
+%% 
+% That looks like a very nice plot, but it is busy. There is no clear
+% place for a legend. Furthermore, as a colorblind American, I cannot
+% distinguish between the colors of lines |y1|, |y4|, and |y6|, so a legend
+% would be of little use.  Let's label the lines directly, starting with |y1|: 
+
+label(h1,'y1 data')
+
+%% 
+% By default, labels are placed near the leftmost part of the data and the 
+% label will appear on top of the curve. If you'd like to place a label somewhere else
+% relative to the data, you can do so with the |'location'| argument and format further 
+% with |'VerticalAlignment'| and |'HorizontalAlignment'| properties.  The |'location'| 
+% command finds the leftmost, rightmost, centermost, topmost, or bottommost part of your
+% data, and pins a label to that point. The |'VerticalAlignment'| and |'HorizontalAlignment'| 
+% properties can then be used to place the label relative to its pinning point.  Following
+% the syntax described in the |text| documentation, |'VerticalAlignment','top'| 
+% places a label below its pinning point because the pinning point is on |'top'| of the
+% data. If I had my druthers I'd reverse this syntax, but what can I do.  
+
+label(h2,'centered label','location','center')
+
+label(h3,'centered, following slope','location','center','slope')
+
+label(h4,'some cosine curve','location','right',...
+    'verticalalignment','top','fontweight','bold')
+
+label(h5,' top','location','top')
+
+label(h6,'y6','location','bottom')
+
+label(h7,'left top','location','left')
+label(h7,' blue, right side','location','right','color','blue',...
+    'horizontalalignment','left','verticalalignment','middle')
+
+%% 
+% I should be clear that although the text, especially the text following the 
+% local slope looks awful in the image above, that's purely a problem with the
+% way that Matlab's publishing script snaps frames.  If you save images with a
+% fancy function like <http://www.mathworks.com/matlabcentral/fileexchange/23629 
+% |export_fig|>, the text will look smoother, as in the example image for the |label| 
+% function.  
+% 
+% You can also return the handle of a label if you'd like: 
+
+h4label = label(h4,'Now you see it.','color','r');
+
+%% 
+% Saving label handles lets you delete them easily: 
+
+delete(h4label); 
+
+%% 
+% ...and now it's gone.  
+
+%% Example 2: A bug fix introduced Aug. 1, 2014
+% After uploading this function, I quickly noticed a bug.  If data
+% extended beyond the visible area of the plot and then came back, |label| would
+% get a little confused. I've tweaked the code to help |label| make smarter
+% decisions about where to pin a label in this case.  Here we plot a parabola
+% and set axes such that the visible plot window cuts off some data:
+close; clear; % Gets rid of all the stuff we plotted in Ex. 1. 
+
+x = -10:.01:10;
+y = -x.^2;
+h=plot(x,y);
+axis([-9 9 -70 -10])
+
+label(h,'default label');
+label(h,'bottom following slope','location','bottom','slope')
+label(h,'a label at the top','location','top') 
+label(h,'italics work too','location','right','fontangle','italic')
+label(h,'$$\int_0^x\!\int_y dF(u,v)$$','FontSize',20,'location','center',...
+    'interpreter','latex','color','red')
+
+%% Example 3: It works on maps, too! 
+% My motivation for creating this function was to automatically label
+% satellite tracks on maps and have the labels follow the arc of the
+% satellite tracks they describe. It was a nice surprise to find out that
+% this function indeed works. I don't expect this exact example to be of
+% use for many folks, but it is provided to show capability. Using
+% <www.mathworks.com/matlabcentral/fileexchange/47282 |modismoa|>,
+% <http://www.mathworks.com/matlabcentral/fileexchange/47329 |measures|>,
+% <http://www.mathworks.com/matlabcentral/fileexchange/7943
+% |freezeColors|>, the
+% <http://www.mathworks.com/matlabcentral/fileexchange/42353 Bedmap2
+% Toolbox for Matlab>, and some satellite track plotting functions of my
+% own, we can easily plot and format labels in many different ways
+
+figure('position',[50 50 900 700])
+modismoa(-67.1,115,200)                 
+freezeColors;                                          
+measures('speed',-67.1,115,'mapwidth',200,'alpha',.15);  
+measures('vel',-67.1,115,'mapwidth',200,'density',6)        
+scalebar('color','w','location','southeast','length',50);
+
+hgl = asaid('gl','color','g','linewidth',2);
+h1335 = plottrack(1335,'linewidth',2);
+h1312 = plottrack(1312,'linewidth',2);
+
+label(h1335,'track 1335','fontweight','bold','slope')
+label(h1312,'track 1312','fontweight','bold','slope')
+
+label(h1335,'track 1335','fontweight','bold','slope','loc','right',...
+    'verticalalignment','top','backgroundcolor','w')
+label(h1312,'track 1312','fontweight','bold','slope','loc','right',...
+    'verticalalignment','top','backgroundcolor',[.7 .9 .7],'margin',.001)
+
+label(hgl,'  grounding line','fontweight','bold') 
+label(hgl,'  grounding line','location','top','fontweight','bold')
+
+%% Author Info
+% This function was written by Chad A. Greene of the University of Texas
+% Institute for Geophysics (<http://www.ig.utexas.edu/research/cryosphere/
+% UTIG>) in Austin, July 2014.  
+##### SOURCE END #####
+--></body></html>
