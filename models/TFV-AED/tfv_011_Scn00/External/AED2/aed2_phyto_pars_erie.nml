@@ -1,0 +1,109 @@
+!-------------------------------------------------------------------------------
+! aed2_phyto_pars_erie.nml : Based on Leon et al (2012), JGLR CAEDYM application
+!-------------------------------------------------------------------------------
+!-- GENERAL parameters
+!                    p_name : [  string] - Name of phytoplankton group
+!                 p_initial : [    real] - Initial concentration of phytoplankton (mmol C/m3)
+!                        p0 : [    real] - Minimum concentration of phytoplankton (mmol C/m3)
+!                       w_p : [    real] - sedimentation rate (m/d)
+!                       Xcc : [    real] - carbon to chlorophyll ratio (mg C/mg chla)
+!-- GROWTH parameters
+!                  R_growth : [    real] - Phyto max growth rate @20C (/day)
+!                 fT_Method : [ integer] - Specifies temperature limitation function of growth (-); 0 = no temperature limitation 1= CAEDYM style
+!              theta_growth : [    real] - Arrenhius temperature scaling for growth function (-)
+!                     T_std : [    real] - Standard temperature (deg C)
+!                     T_opt : [    real] - Optimum temperature (deg C)
+!                     T_max : [    real] - Maximum temperature (deg C)
+!-- LIGHT parameters
+!                lightModel : [ integer] - Type of light response function [0 = no photoinhibition; 1 = photoinhibition]
+!                       I_K : [    real] - Half saturation constant for light limitation of growth (W/m^2) : used if lightModel=0
+!                       I_S : [    real] - saturating light intensity  (W/m^2) : used if lightModel=1
+!                     KePHY : [    real] - Specific attenuation coefficient  ((mmol C m^3^-1)^1 m^-1)
+!-- RESPIRATION parameters
+!                      f_pr : [    real] - Fraction of primary production lost to exudation (-)
+!                    R_resp : [    real] - Phytoplankton respiration/metabolic loss rate @ 20 (degC)
+!                theta_resp : [    real] - Arrhenius temperature scaling factor for respiration (-)
+!                    k_fres : [    real] - Fraction of metabolic loss that is true respiration (-)
+!                    k_fdom : [    real] - Fraction of metabolic loss that is DOM (-)
+!-- SALINITY parameters
+!                    salTol : [ integer] - Type of salinity limitation function (-)
+!                     S_bep : [    real] - Salinity limitation value at maximum salinity S_maxsp (-)
+!                   S_maxsp : [    real] - Maximum salinity (g/kg)
+!                     S_opt : [    real] - Optimal salinity (g/kg)
+!-- NITROGEN parameters
+!              simDINUptake : [ integer] - Simulate DIN uptake (0 = false, 1 = true)
+!              simDONUptake : [ integer] - Simulate DON uptake (0 = false, 1 = true)
+!              simNFixation : [ integer] - Simulate N fixation (0 = false, 1 = true)
+!             simINDynamics : [ integer] - Simulate internal N  (0 = assumed fixed C:N, 2 = dynamic C:N)
+!                       N_o : [    real] - Nitrogen concentraion below which uptake is 0 (mmol N/m^3)
+!                       K_N : [    real] - Half-saturation concentration of nitrogen (mmol N/m^3)
+!                    X_ncon : [    real] - Constant internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 0 or 1
+!                    X_nmin : [    real] - minimum internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 2
+!                    X_nmax : [    real] - maximum internal nitrogen concentration (mmol N/ mmol C) used if simINDynamics = 2
+!                 R_nuptake : [    real] - maximum nitrogen uptake rate(mmol N/m^3/d) used if simINDynamics = 2
+!                    k_nfix : [    real] - growth rate reduction under maximum nitrogen fixation (/day) used if simNFixation >0
+!                    R_nfix : [    real] - nitrogen fixation rate (mmol N/mmol C/day)
+!-- PHOSPHORUS parameters
+!              simDIPUptake : [ integer] - Simulate DIP uptake (0 = false, 1 = true)
+!             simIPDynamics : [ integer] - Simulate internal phosphorus dynamics (0 = assumed fixed C:P, 2 = dynamic C:P)
+!                       P_0 : [    real] - Phosphorus concentraion below which uptake is 0 (mmol P/m^3)
+!                       K_P : [    real] - Half-saturation concentration of phosphorus (mmol P/m^3)
+!                    X_pcon : [    real] - Constant internal phosphorus concentration (mmol P/ mmol C) used if simIPDynamics = 0 or 1
+!                    X_pmin : [    real] - Minimum internal phosphorus concentration (mmol P/mmol C) used if simIPDynamics = 2
+!                    X_pmax : [    real] - Maximum internal phosphorus concentration (mmol P/mmol C) used if simIPDynamics = 2
+!                 R_puptake : [    real] - Maximum phosphorus uptake rate(mmol P/m^3/d) used if simIPDynamics = 2
+!-- SILICA parameter
+!               simSiUptake : [ integer] - Simulate Si uptake (0 = false, 1 = true)
+!                      Si_0 : [    real] - Silica concentraion below which uptake is 0 (mmol Si/m^3)
+!                      K_Si : [    real] - Half-saturation concentration of silica (mmol Si /m3)
+!                   X_sicon : [    real] - Constant interal silica concentration (mmol Si/mmol C)
+&phyto_data
+pd%p_name            =  'CYANO', 'CHLOR', 'CRYPT', 'EDIAT', 'LDIAT'
+pd%p_initial         =     1.0 ,    5.0 ,    5.0 ,   20.0 ,    2.0
+pd%p0                =     0.5 ,    0.5 ,    0.5 ,    0.5 ,    0.5
+pd%w_p               =     0.0 ,   -0.3 ,  -0.24 ,   -0.8 ,   -0.8
+pd%Xcc               =    50.0 ,   40.0 ,  180.0 ,   50.0 ,   50.0
+pd%R_growth          =     0.8 ,    0.85,    1.0 ,    2.4 ,    2.1
+pd%fT_Method         =     1   ,    1   ,    1   ,    1   ,    1
+pd%theta_growth      =     1.09,    1.06,    1.06,    1.05,    1.085
+pd%T_std             =    23   ,   12   ,   20   ,    7   ,   20
+pd%T_opt             =    30   ,   29   ,   21   ,    9.8 ,   25
+pd%T_max             =    39   ,   35   ,   27.5 ,   18.5 ,   31.5
+pd%lightModel        =     2   ,    0   ,    0   ,    0   ,    0
+pd%I_K               =    27   ,   20.8 ,    8.3 ,   12.5 ,   12.5
+pd%I_S               =   270   ,  100   ,  200   ,   70   ,   70
+pd%KePHY             =   0.0048,  0.0042, 0.00093,  0.0048,    0.0048
+pd%f_pr              =    0.025,   0.025,   0.025,   0.021,    0.025
+pd%R_resp            =     0.11,    0.10,    0.1 ,    0.11,    0.10
+pd%theta_resp        =     1.06,    1.08,    1.08,    1.11,    1.035
+pd%k_fres            =     0.5 ,    0.2 ,    0.2 ,    0.3 ,    0.3
+pd%k_fdom            =     0.2 ,    0.2 ,    0.2 ,    0.2 ,    0.4
+pd%salTol            =     0   ,    0   ,    0   ,    0   ,    0
+pd%S_bep             =     3   ,    2.5 ,    2   ,    5   ,    5
+pd%S_maxsp           =    36   ,   36   ,   36   ,   36   ,   36
+pd%S_opt             =     0   ,    0   ,    0   ,    0   ,    0
+pd%simDINUptake      =     1   ,    1   ,    1   ,    1   ,    1
+pd%simDONUptake      =     0   ,    0   ,    0   ,    0   ,    0
+pd%simNFixation      =     1   ,    0   ,    0   ,    0   ,    0
+pd%simINDynamics     =     2   ,    2   ,    2   ,    2   ,    2
+pd%N_o               =     0   ,    0   ,    0   ,    0   ,    0
+pd%K_N               =     3.21,    3.21,    3.21,    3.21,    3.21
+pd%X_ncon            = 0.068571,0.064286,0.019048,0.068571,0.051429
+pd%X_nmin            = 0.034286,0.064286,0.009524,0.034286,0.034286
+pd%X_nmax            = 0.068571,0.192857,0.019048,0.068571,0.068571
+pd%R_nuptake         = 0.025714,0.032143,0.007143,0.026714,0.025714
+pd%k_nfix            =     2   ,    2   ,    2   ,    2   ,    2
+pd%R_nfix            = 0.017143,0.021429,0.004761,0.01714 ,0.017143
+pd%simDIPUptake      =     1   ,    1   ,    1   ,    1   ,    1
+pd%simIPDynamics     =     2   ,    2   ,    2   ,    2   ,    2
+pd%P_0               =     0.05,    0.05,    0.05,    0.03,    0.05
+pd%K_P               = 0.357143,0.357143,0.214286,0.642857,0.357143
+pd%X_pcon            = 0.003097,0.002903,0.000645,0.003097,0.003097
+pd%X_pmin            = 0.000774,0.002903,0.000215,0.001094,0.001006
+pd%X_pmax            = 0.007742,0.019355,0.002151,0.011935,0.010065
+pd%R_puptake         = 0.007742,0.009677,0.001505,0.006597,0.007742
+pd%simSiUptake       =     0   ,    0   ,    0   ,    1   ,    1
+pd%Si_0              =     0   ,    0   ,    0   ,    0.04,    0
+pd%K_Si              =     0   ,    0   ,    0   ,    1.96,    3.338
+pd%X_sicon           =     0   ,    0   ,    0   , 0.31164,    0.3125
+/

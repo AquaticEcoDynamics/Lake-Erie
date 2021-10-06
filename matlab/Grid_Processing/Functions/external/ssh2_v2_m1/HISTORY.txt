@@ -1,0 +1,18 @@
+
+Release Notes:
+==============
+
+m1 (matlab v1), 2013-01-01:
+- Added support for proper data exchange in Matlab via included 
+custom ganymed-library (SFTP_v3Client.java). Not used by default, 
+must be enabled by changing USE_CUSTOM_GANYMED_LIB = 1 in the first 
+few lines of ssh2_setup.m.
+
+r2-r3, 2012-04 to 2012-06:
+- Bugfix for newer version of matlab when checking for ganymed-ssh2 
+library (for jcp_index = 1:length(jcp)).
+
+r1, 2012-03-01:
+
+- Initial release.
+
