@@ -15,7 +15,7 @@ for j = 1:length(data2)
     for i = 1:length(headers)
         
         if i == 1
-            fprintf(fid,'%d,',data2(j,i));
+            fprintf(fid,'%i,',data2(j,i));
         else
             if i == length(headers)
                 fprintf(fid,'%4.4f\n',data2(j,i));

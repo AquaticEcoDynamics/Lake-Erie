@@ -66,7 +66,7 @@ global vertical scalar diffusivity limits == 1.0e-06, 9999.
 
 !GEOMETRY
 !_________________________________________________________________
-geometry 2d == ..\Geo\Erie_v6_Substrates.2dm
+geometry 2d == ..\Geo\Erie_V6_Substrates.2dm
 vertical mesh type == z
 layer faces == ..\Geo\layers.csv
 sigma layers == 2
@@ -298,4 +298,4 @@ output == points
 end output
 
 write restart dt == 86400
-!hardware == gpu
+hardware == gpu

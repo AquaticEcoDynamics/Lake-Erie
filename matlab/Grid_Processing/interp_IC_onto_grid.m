@@ -4,10 +4,9 @@ addpath(genpath('Functions'));
 
 existing = dir('v10_files\*.csv');
 
-[~,~,~,~,oldX,oldY,oldID] = tfv_get_node_from_2dm('Erie_v5_Substrates_NS.2dm');
+[~,~,~,~,oldX,oldY,~,oldID] = tfv_get_node_from_2dm('Erie_v5_Substrates_NS.2dm');
 
-[~,~,~,~,newX,newY,newID] = tfv_get_node_from_2dm('Erie_V6_Substrates.2dm');
-
+[~,~,~,~,newX,newY,~,newID] = tfv_get_node_from_2dm('Erie_V6_Substrates.2dm');
 for i = 1:length(existing)
     filename = ['v10_files\',existing(i).name];
     
