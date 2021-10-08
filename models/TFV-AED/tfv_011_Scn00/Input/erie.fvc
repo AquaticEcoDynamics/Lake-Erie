@@ -1,7 +1,10 @@
 !_________________________________________________________________
 ! Lake Erie Simulation (V3)
 !_________________________________________________________________
-
+! GIS 
+!_________________________________________________________________
+GIS format == shp
+shp projection == ../GIS/projection.prj
 
 ! SIMULATION CONFIGURATION
 !_________________________________________________________________
@@ -73,6 +76,9 @@ sigma layers == 2
 min bottom layer thickness == 0.1
 cell 3d depth == 5.0e-1
 
+Read GIS Nodestring == ../GIS/nodestrings.shp
+
+Read GIS Mat == ../GIS/Substrate_v2utm.shp
 
 ! MATERIAL PROPERTIES (11 Mat zones)
 !_________________________________________________________________
@@ -235,6 +241,9 @@ end bc
 
 !OUTPUT COMMANDS
 !_________________________________________________________________
+
+Write Check Files  == ..\Check\
+
 
 output dir == ..\Output\
 
