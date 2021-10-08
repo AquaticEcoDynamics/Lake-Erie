@@ -67,6 +67,7 @@ global vertical scalar diffusivity limits == 1.0e-06, 9999.
 !GEOMETRY
 !_________________________________________________________________
 geometry 2d == ..\Geo\Erie_V6_Substrates.2dm
+cell elevation file == ..\Geo\Erie_V6_Substrates_elev_0m.csv
 vertical mesh type == z
 layer faces == ..\Geo\layers.csv
 sigma layers == 2
