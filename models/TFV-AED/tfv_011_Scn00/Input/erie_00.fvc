@@ -4,7 +4,7 @@
 ! GIS 
 !_________________________________________________________________
 GIS format == shp
-shp projection == ../GIS/projection.prj
+shp projection == ../GIS/Projection.prj
 
 ! SIMULATION CONFIGURATION
 !_________________________________________________________________
@@ -79,7 +79,7 @@ cell 3d depth == 5.0e-1
 
 Read GIS Nodestring == ../GIS/nodestrings.shp
 
-Read GIS Mat == ../GIS/Substrate_v2utm.shp
+Read GIS Mat == ../GIS/Substrate_v2utm_dis.shp
 
 
 ! MATERIAL PROPERTIES (11 Mat zones)
@@ -141,12 +141,12 @@ INITIAL CONDITION 2D == ..\BCs\IC\IC-AED2-2013-Feb11NN_v11.csv
 ! Met______________________________________________________________
 
 ! 3 Zone netcdf Met set-up
-grid definition file == ..\BCs\Met\Wind_utm_20130507_20151001.nc
+grid definition file == ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
 grid definition variables == X, Y
 grid definition label == WIND_GRID
 ENDGRID
 
-bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001.nc
+bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
 bc header == time,u,v
 bc reference time == 01/01/1990 00:00
 bc time units == hours
@@ -154,43 +154,43 @@ bc update dt == 3600
 bc scale == 1.125,1.125
 end bc
 
-grid definition file == ..\BCs\Met\Temperature_utm_20130507_20151001.nc
+grid definition file == ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
 grid definition variables == X, Y
 grid definition label == TEMP_GRID
 ENDGRID
 
-bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001.nc
+bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
 bc header == time,temp
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-grid definition file == ..\BCs\Met\RelHum_utm_20130507_20151001.nc
+grid definition file == ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
 grid definition variables == X, Y
 grid definition label == RHUM_GRID
 ENDGRID
 
-bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001.nc
+bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
 bc header == time,rhum
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-grid definition file == ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+grid definition file == ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
 grid definition variables == X, Y
 grid definition label == RAD_GRID
 ENDGRID
 
-bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
 bc header == time,dswr
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930.nc
+bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
 bc header == time,dlwr
 bc reference time == 01/01/1990 00:00
 bc time units == hours
