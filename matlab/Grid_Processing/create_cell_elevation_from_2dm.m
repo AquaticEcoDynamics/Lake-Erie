@@ -2,14 +2,14 @@ function create_cell_elevation_from_2dm
 
 
 
-gridfile = 'Erie_V6_Substrates.2dm';
-outfile = 'Erie_V6_Substrates_elev_0m.csv';
+gridfile = 'Erie_V6_A2.2dm';
+outfile = 'Erie_V6_A2_elev_0m.csv';
 
 
 
 [XX,YY,nodeID,faces,Cell_X,Cell_Y,Cell_ID,Cell_Z] = tfv_get_node_from_2dm(gridfile);
 
-Cell_Z(Cell_Z > 0) = 0;
+Cell_Z(Cell_Z > -0.5) = -0.5;
 
 fid = fopen(outfile,'wt');
 
@@ -94,7 +94,8 @@ while strcmpi(str{1},'ND') == 1
 
     inc = inc + 1;
     fline = fgetl(fid);
-    str = strsplit(fline);
+    
+    str = split(fline,' ');
     
 end
 

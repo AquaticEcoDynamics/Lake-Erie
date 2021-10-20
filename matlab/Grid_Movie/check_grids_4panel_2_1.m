@@ -3,7 +3,7 @@ clear all; close all;
 addpath(genpath('../../../aed_matlab_modeltools/TUFLOWFV/tuflowfv/'));
 ncfile = 'Y:\Erie\Erie_TFVAED_Scn00\Output.00\erie_00_AED_diag.nc';
 %ncfile2 = 'Y:\Erie\tfv_011_Scn00\Output\erie_00_AED_diag.nc';
-ncfile2 = 'Y:\Erie\tfv_011_Scn00\Output_1\erie_00_AED_diag.nc';
+ncfile2 = 'Y:\Erie\tfv_011_Scn00\Output\erie_00_AED_diag.nc';
 
 
 %%

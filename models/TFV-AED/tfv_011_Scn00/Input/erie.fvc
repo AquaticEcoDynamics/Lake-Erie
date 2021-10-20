@@ -69,8 +69,8 @@ global vertical scalar diffusivity limits == 1.0e-06, 9999.
 
 !GEOMETRY
 !_________________________________________________________________
-geometry 2d == ..\Geo\Erie_V6_Substrates.2dm
-cell elevation file == ..\Geo\Erie_V6_Substrates_elev_0m.csv
+geometry 2d == ..\Geo\Erie_V6_A2.2dm
+cell elevation file == ..\Geo\Erie_V6_A2_elev_0m.csv
 vertical mesh type == z
 layer faces == ..\Geo\layers.csv
 sigma layers == 2
@@ -212,7 +212,7 @@ bc == Q, 2, ..\BCs\Inflows\2002-14_flwi_Det_v02.csv
 !  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
 end bc
 
-bc == QC, 616680,4744330, ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
+bc == Q, 3, ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
   !bc header ==  ISOTime,Flow,Sal,Temp,TRACE_1,SS1,RET,Oxy,Sil,Amm,Nit,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CYANO,CHLOR,CRYPTO,FDIAT,MDIAT
   bc header == TIME,Q,SAL,TEMP,T1,SS1,AGE,OXY,SIL,AMM,NIT,FRP,FRP_ADS,DOC,POC,DON,PON,DOP,POP,CY,CYr,CYin,CYip,CH,CHin,CHip,CR,CRin,CRip,ED,EDin,EDip,LD,LDin,LDip,CGM,CGMip,BIVF
 !  bc scale == 1,1,1,1,1,1,1,1,1,1,0.6,0.6,1,1,1,1,0.6,0.6,1,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,1,0.6,1,0.6,1
