@@ -304,6 +304,36 @@ output == points
   output parameters == WQ_DIAG_PHY_EDIAT_fPho
   output interval == 7200
 end output
+
+!output sheet at 1m below the surface
+!output == netcdf
+!output parameters == wq_all 
+!suffix == surface                                     
+!output interval == 14400.   
+!vertical averaging == depth-range, 0.9, 1.1 ! metres downwards from 0.0 at the surface                   
+!end output
+ 
+!output sheet at 1m above the bottom
+!output == netcdf
+!suffix == bottom
+!output parameters == wq_all                                      
+!output interval == 14400.   
+!vertical averaging == height-range,0.9, 1.1 ! metres upwards from 0.0 at the bed                
+!end output
+ 
+!output depth averaged sheet 
+!output == netcdf
+!suffix == average
+!output parameters == wq_all                                      
+!output interval == 14400.   
+!vertical averaging == depth-all                   
+!end output
+ 
+ 
+
+
+
+
 !output == points
 !  output points file == ..\Geo\output_points_epa.csv
 !  vertical averaging == layer-range-bot, 1, 1

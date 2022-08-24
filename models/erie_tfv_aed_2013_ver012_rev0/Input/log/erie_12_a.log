@@ -14,7 +14,7 @@ GIS Module Version: 2020-07-PD
 
 Computer name: DEP64896
 User name: 00065525
-Execution timestamp: 24/08/2022 09:14:30
+Execution timestamp: 25/08/2022 07:45:04
 
 
 Initialising TUFLOW Licence Settings...
@@ -232,6 +232,18 @@ OUTPUT == POINTS
   SUFFIX == depth_surf_PHY_EDIAT_fPho
   OUTPUT PARAMETERS ==  WQ_DIAG_PHY_EDIAT_FPHO,
   OUTPUT INTERVAL ==    7200.000
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == bottom
+  OUTPUT PARAMETERS ==  WQ_ALL,
+  OUTPUT INTERVAL ==    14400.00
+  VERTICAL AVERAGING == HEIGHT-RANGE  0.9000000     to    1.100000
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == average
+  OUTPUT PARAMETERS ==  WQ_ALL,
+  OUTPUT INTERVAL ==    14400.00
+  VERTICAL AVERAGING == DEPTH-ALL
 END OUTPUT
 WRITE RESTART DT ==    86400.00
 Closing file unit: 101
@@ -877,43 +889,7 @@ END OF WATER QUALITY MODEL INITIALISATION
 
 Attempting to generate model initial conditions:
 Trying to open file: ..\BCs\IC\IC_LE_AED2_2013_DD_RV_UWA_rev0.csv ... OK. File unit: 101
-WARNING: SAL column not found in csv file. Assigning a value of    0.000000
-WARNING: TEMP column not found in csv file. Assigning a value of    0.000000
-WARNING: TRACE_1 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_1 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_2 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_3 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_4 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_5 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_6 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_7 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_8 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_9 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_10 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_11 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_12 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_13 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_14 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_15 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_16 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_17 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_18 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_19 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_20 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_21 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_22 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_23 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_24 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_25 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_26 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_27 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_28 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_29 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_30 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_31 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_32 column not found in csv file. Assigning a value of    0.000000
-WARNING: WQ_33 column not found in csv file. Assigning a value of    0.000000
- ID, WL, U, V columns read from csvfile. 17693 lines successfully read.
+ ID, WL, U, V, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, columns read from csvfile. 17693 lines successfully read.
 Closing file unit: 101
 Successfully generated model initial conditions.
 
@@ -1076,6 +1052,10 @@ Output point 18 is inside cell 16867.
 Output point 19 is inside cell 16472.
 Output point 20 is inside cell 15826.
 OK.
+Processing request 7 is...
+OK.
+Processing request 8 is...
+OK.
 
 Opening output files...
 Trying to open file: ..\Output\erie_12_a_TFV.nc ...OK
@@ -1084,6 +1064,8 @@ Trying to open file: ..\Output\erie_12_a_AED_diag.nc ...OK
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_temp.csv ... OK. File unit: 101
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_TOT_TN.csv ... OK. File unit: 102
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_PHY_EDIAT_fPho.csv ... OK. File unit: 103
+Trying to open file: ..\Output\erie_12_a_bottom.nc ...OK
+Trying to open file: ..\Output\erie_12_a_average.nc ...OK
 
 Successfully initialised model output.
 
@@ -1150,7 +1132,7 @@ FVC[0]: nuw = 0.000001
 FVC[0]: wave_par_hmin = 0.010000
 FVC[0]: Device 0 total GPU memory = 12288 Mb, free memory = 11282 Mb
 FVC[0]: Loading module FVC_kernels.ptx
-FVC[0]: Full module path: C:\Users\00065525\Github\Lake-Erie\models\bin4\FVC_kernels.ptx
+FVC[0]: Full module path: C:\Users\00065525\Github\Lake-Erie\models\erie_tfv_aed_2013_ver012_rev0\bin4\FVC_kernels.ptx
 Running simulation
 Number of OpenMP threads=1
 Thread stacksize=4194304
@@ -1163,4 +1145,35 @@ t = 07/05/2013 00:00:00.  dt =   0.000 /  0.000 s.  elapsed time =       0.0 s.
     Writing point timeseries output. t = 07/05/2013 00:00:00.
     Writing point timeseries output. t = 07/05/2013 00:00:00.
     Writing point timeseries output. t = 07/05/2013 00:00:00.
-t = 07/05/2013 00:15:06.  dt =   5.732 /  5.732 s.  elapsed time =       7.0 s.
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+
+ERROR: Error invoking nf90_put_var. Netcdf status value is -57. NetCDF: Start+count exceeds dimension bound.
+
+ERROR-STACK:fvdomain_run:fvdomain_run_timestep:fvout_wrtout:fvout_wrtnetcdf:write_variables:CheckNCStatus:Error invoking nf90_put_var. Netcdf status value is -57. NetCDF: Start+count exceeds dimension bound.
+
+
+Simulation Summary:
+
+Input File: C:\Users\00065525\Github\Lake-Erie\models\erie_tfv_aed_2013_ver012_rev0\Input\erie_12_a.fvc
+Log File: C:\Users\00065525\Github\Lake-Erie\models\erie_tfv_aed_2013_ver012_rev0\Input\log\erie_12_a.log
+
+Computer name: DEP64896
+User name: 00065525
+Execution Timestamp: 25/08/2022 07:45:04
+Execution Completed: 25/08/2022 07:45:41
+
+Number of warnings = 44
+
+Closing file unit: 101
+Fatal Error Encountered!
+
+Releasing TUFLOW FV Licence...Done.
+Releasing 1 TUFLOW FV Threads...Done.
+Releasing TUFLOW FV 3D Licence...Done.
+Releasing TUFLOW FV AD Licence...Done.
+Releasing TUFLOW FV WQ Licence...Done.
+Releasing 1 TUFLOW FV GPU Cards...Done.
+
+Exiting TUFLOWFV
+
