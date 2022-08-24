@@ -1,0 +1,1166 @@
+
+***************************** TUFLOWFV *****************************
+
+Build version: 2020.03.105
+Build date: 28/07/2021 13:10
+Build platform: Windows
+Build architecture:  x86-64
+Compiler version: Ifort 2021.3.0
+Build precision: single
+NVidia GPU enabled: Cuda v10.2.89
+GIS Module Version: 2020-07-PD
+
+********************************************************************
+
+Computer name: DEP64896
+User name: 00065525
+Execution timestamp: 24/08/2022 09:14:30
+
+
+Initialising TUFLOW Licence Settings...
+
+No TUFLOW licence Settings files found.  Default settings applied.
+WIBU Retry Time == 60  ! Seconds.  Values less than 1 are set to 1.  Default = 60.
+WIBU Retry Count == 0  ! Number of times to retry for a licence at start of simulation.  Use -1 for indefinitely.  Default = 0.
+WIBU Dongles Only == OFF  ! If set to ON, searches for WIBU dongles only.  Default is OFF.
+
+Attempting to process input control file:
+Trying to open file: erie_12_a.fvc ... OK. File unit: 101
+TIME FORMAT == ISO DATE & TIME
+REFERENCE TIME == 01/01/2001 00:00:00
+Start echoing input file:
+GIS FORMAT == SHP
+SHP PROJECTION == ..\GIS\Projection.prj
+HARDWARE TARGET == GPU
+SPHERICAL == .FALSE.
+INCLUDE SALINITY == .TRUE.
+COUPLE SALINITY DENSITY == .TRUE.
+INCLUDE TEMPERATURE == .TRUE.
+COUPLE TEMPERATURE DENSITY == .TRUE.
+INCLUDE SEDIMENT == .FALSE.
+INCLUDE HEAT == .TRUE.
+INCLUDE ICE == .TRUE.
+LONG WAVE RADIATION MODEL == 3
+SW RADIATION ALBEDO (MEAN AT EQUATOR) ==   0.8000000E-01
+LONG WAVE RADIATION ALBEDO ==   0.3000000E-01
+MOMENTUM MIXING MODEL == SMAGORINSKY
+SCALAR MIXING MODEL == SMAGORINSKY
+VERTICAL MIXING MODEL == EXTERNAL
+EXTERNAL TURBULENCE MODEL DIR == ..\External\GOTM\
+WATER QUALITY MODEL == EXTERNAL
+WATER QUALITY MODEL DIR == ..\External\AED\
+SPATIAL ORDER == 1, 2
+VERTICALGRADIENTLIMITER == MC
+BOTTOM DRAG MODEL == KS
+EQUATION OF STATE == UNESCO
+START TIME == 07/05/2013 00:00:00
+END TIME == 30/09/2013 06:00:00
+CFL EXTERNAL ==   0.9000000
+CFL INTERNAL ==   0.9000000
+TIMESTEP LIMITS ==   0.1000000    ,    10.00000
+TURBULENCE UPDATE DT ==    600.0000
+DISPLAY DT ==    900.0000
+WQ UPDATE DT ==    1800.000     (WILL BE OVERWITTEN IF WQ DT IS SPECIFIED IN WQ CONTROL FILE)
+STABILITY LIMITS ==    15.00000    ,    15.00000
+WARNING: Wet depth is less than dry depth. Momentum will never be switched off
+CELL DRY/WET DEPTHS ==   0.1000000    ,   0.1000000
+G ==    9.810000
+LATITUDE ==    42.12221
+REFERENCE SALINITY ==    35.00000
+REFERENCE TEMPERATURE ==    18.00000
+REFERENCE DENSITY ==    1000.000
+DENSITY AIR ==    1.180000
+GLOBAL BOTTOM ROUGHNESS ==   0.2000000E-02
+GLOBAL HORIZONTAL EDDY VISCOSITY (SMAG COEFF) ==   0.2000000
+GLOBAL HORIZONTAL SCALAR DIFFUSIVITY (SMAG COEFF) ==   0.2000000
+DIFFUSIVITY LIMITER DT ==    30.00000
+KINEMATIC VISCOSITY ==   0.1000000E-05
+GLOBAL VERTICAL EDDY VISCOSITY LIMITS ==   0.1000000E-03,    9999.000
+GLOBAL VERTICAL SCALAR DIFFUSIVITY LIMITS ==   0.1000000E-05,    9999.000
+GEOMETRY2D == ..\Geo\Erie_V12.2dm
+CELL ELEVATION FILE == ..\Geo\Erie_V12_elev_0m.csv, CELL_ID, UNESCO
+VERTICAL MESH TYPE == Z
+LAYER FACE FILE == ..\Geo\layers.csv
+SURFACE SIGMA LAYERS == 2
+MINIMUM LAYER THICKNESS ==   0.1000000
+CELL 3D DEPTH ==   0.5000000
+READ GIS MAT == ..\GIS\LE_CGM_Substrate_RV.shp
+MATERIAL == 1
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 2
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 3
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 4
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 5
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 6
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 7
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 8
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 9
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 10
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 11
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+MATERIAL == 12
+  BOTTOM ROUGHNESS ==   0.5000000E-02
+END MATERIAL
+NTRACER == 1
+INITIAL CONDITION 2D == ..\BCs\IC\IC_LE_AED2_2013_DD_RV_UWA_rev0.csv
+GRID DEFINITION FILE == ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == WIND_GRID
+END GRID
+BC == W10_GRID, WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+  BC HEADER ==  time, u, v
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+  BC SCALE ==    1.125000,   1.125000
+END BC
+GRID DEFINITION FILE == ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == TEMP_GRID
+END GRID
+BC == AIR_TEMP_GRID, TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+  BC HEADER ==  time, temp
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+GRID DEFINITION FILE == ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == RHUM_GRID
+END GRID
+BC == REL_HUM_GRID, RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+  BC HEADER ==  time, rhum
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+GRID DEFINITION FILE == ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+GRID DEFINITION VARIABLES ==  X, Y
+GRID DEFINITION LABEL == RAD_GRID
+END GRID
+BC == SW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+  BC HEADER ==  time, dswr
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+BC == LW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+  BC HEADER ==  time, dlwr
+BC REFERENCE TIME == 01/01/1990 00:00:00
+  BC TIME UNITS == HOURS
+  UPDATE DT ==    3600.000
+END BC
+BC == Q, 1, ..\BCs\Inflows\2002-14_flwo_Nia_v02.csv
+  BC HEADER ==  TIME, FLOW
+  BC SCALE ==   -1.000000
+END BC
+BC == Q, 2, ..\BCs\Inflows\2002-14_flwi_Det_v02.csv
+  BC HEADER ==  TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip
+  BC SCALE ==    1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000000,  0.6000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000
+END BC
+BC == Q, 3, ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv
+  BC HEADER ==  TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip
+END BC
+BC == QC,    304206.7    ,    4618818.    , ..\BCs\Inflows\2002-14_flwi_Mau-WQ_v02.csv
+  BC HEADER ==  TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip
+  BC SCALE ==    1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000000,  0.6000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000
+END BC
+BC == QC,    362406.7    ,    4590618.    , ..\BCs\Inflows\2002-14_flwi_Snd-WQ_v02.csv
+  BC HEADER ==  TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip
+  BC SCALE ==    1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000000,  0.6000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000
+END BC
+BC == QC,    438120.0    ,    4594766.    , ..\BCs\Inflows\2002-14_flwi_Cuy-WQ_v02.csv
+  BC HEADER ==  TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip
+  BC SCALE ==    1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000000,  0.6000000,   1.000000,   1.000000,   1.000000,   1.000000,  0.6000
+END BC
+WRITE CHECK FILES == ..\Check\
+OUTPUT DIR == ..\Output\
+OUTPUT == NETCDF
+  SUFFIX == TFV
+  OUTPUT PARAMETERS ==  D, H, V, W, W10, SAL, TEMP,
+  OUTPUT INTERVAL ==    14400.00
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == AED
+  OUTPUT PARAMETERS ==  D, H, TEMP, WQ_ALL, WQ_DIAG_TOT_TN, WQ_DIAG_TOT_TP, WQ_DIAG_PHY_TCHLA, WQ_DIAG_MAG_TMALG,
+  OUTPUT INTERVAL ==    14400.00
+  COMPRESSION == .TRUE.
+END OUTPUT
+OUTPUT == NETCDF
+  SUFFIX == AED_diag
+  OUTPUT PARAMETERS ==  D, H, WQ_DIAG_ALL, WQ_MAG_CGM, WQ_MAG_CGM_IP,
+  OUTPUT INTERVAL ==    28800.00
+  COMPRESSION == .TRUE.
+END OUTPUT
+OUTPUT == POINTS
+  OUTPUT POINTS FILE == ..\Geo\output_points_epa.csv
+  VERTICAL AVERAGING == DEPTH-RANGE   0.000000     to    5.000000
+  SUFFIX == depth_surf_temp
+  OUTPUT PARAMETERS ==  TEMP,
+  OUTPUT INTERVAL ==    7200.000
+END OUTPUT
+OUTPUT == POINTS
+  OUTPUT POINTS FILE == ..\Geo\output_points_epa.csv
+  VERTICAL AVERAGING == DEPTH-RANGE   0.000000     to    5.000000
+  SUFFIX == depth_surf_TOT_TN
+  OUTPUT PARAMETERS ==  WQ_DIAG_TOT_TN,
+  OUTPUT INTERVAL ==    7200.000
+END OUTPUT
+OUTPUT == POINTS
+  OUTPUT POINTS FILE == ..\Geo\output_points_epa.csv
+  VERTICAL AVERAGING == DEPTH-RANGE   0.000000     to    5.000000
+  SUFFIX == depth_surf_PHY_EDIAT_fPho
+  OUTPUT PARAMETERS ==  WQ_DIAG_PHY_EDIAT_FPHO,
+  OUTPUT INTERVAL ==    7200.000
+END OUTPUT
+WRITE RESTART DT ==    86400.00
+Closing file unit: 101
+Finished echoing input file.
+
+
+
+Successfully processed input control files.
+
+Initialising TUFLOW-FV engine license:
+
+Searching for a BMT WIBU Hardware Licence...
+
+TUFLOW FV Engine            Dongle 3793274  Expiry 2023/08/09  Local   1 of    1 (0 remaining)
+Successfully found WIBU TUFLOW-FV engine licence
+
+Initialising TUFLOW-FV simulation threads:
+TUFLOW FV Threads (1)       Dongle 3793274  Expiry 2023/08/09  Local   1 of    4 (3 remaining)
+Successfully initialised 1 threads.
+
+Initialising requested TUFLOW-FV module license/s:
+TUFLOW FV 3D Module         Dongle 3793274  Expiry 2023/08/09  Local   1 of    1 (0 remaining)
+TUFLOW FV AD Module         Dongle 3793274  Expiry 2023/08/09  Local   1 of    1 (0 remaining)
+TUFLOW FV WQ Module         Dongle 3793274  Expiry 2023/08/09  Local   1 of    1 (0 remaining)
+TUFLOW FV GPU Cards (1)     Dongle 3793274  Expiry 2023/08/09  Local   1 of    1 (0 remaining)
+Successful.
+
+GIS Projection being extracted from ..\GIS\Projection.prj
+Trying to open file: ..\GIS\Projection.prj ... OK. File unit: 101
+Closing file unit: 101
+Opening GIS Layer: log\erie_12_a_messages.shp
+GIS Layer assigned ID of 1
+Attempting to build model domain object/s:
+
+Processing mesh geometry file/s:
+Reading 2dm mesh file...
+Trying to open file: ..\Geo\Erie_V12.2dm ... OK. File unit: 101
+Closing file unit: 101
+Finished reading 2dm mesh file.
+
+Processing mesh face connections...
+Finished processing mesh face connections.
+
+Opening GIS Layer: ..\GIS\LE_CGM_Substrate_RV.shp
+GIS Layer assigned ID of 2
+3 DBF Fields (Name [#/Type/Length]): Material [1/N/10]  Shape_Leng [2/F/19]  Shape_Area [3/F/19]  
+
+Closing GIS Layer 2 [..\GIS\LE_CGM_Substrate_RV.shp]...
+Processing cell elevations files...
+Cell elevation file/command 1.
+File/Value = ..\Geo\Erie_V12_elev_0m.csv. Type = CELL_ID.
+Trying to open file: ..\Geo\Erie_V12_elev_0m.csv ... OK. File unit: 101
+ ID, Z columns read from csvfile. 17692 lines successfully read.
+Closing file unit: 101
+Cell elevation file/command 1 is OK.
+
+Finished processing cell elevations files.
+
+Reading 3D layer specification file...
+Trying to open file: ..\Geo\layers.csv ... OK. File unit: 101
+Closing file unit: 101
+Trying to open file: ..\Geo\layers.csv ... OK. File unit: 101
+ Z columns read from csvfile. 35 lines successfully read.
+Closing file unit: 101
+Finished reading 3D layer specification file.
+
+Found 13455 nodes.
+Found 17693 2D cells.
+Found 6 nodestrings.
+Mesh geometry file/s succesfully processed.
+
+Constructing domain, comprising:
+ 17693 2D cells.
+ 280374 3D cells.
+ 525452 3D faces.
+Constructing node object...OK
+Constructing cell object...OK
+Constructing face object...OK
+Constructing gridmap object/s...
+  Extracting grid definition from ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+Trying to open file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc ...OK
+Closing file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+    Constructing grid to mesh-cells map
+  Extracting grid definition from ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+Trying to open file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc ...OK
+Closing file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+    Constructing grid to mesh-cells map
+  Extracting grid definition from ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+Trying to open file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc ...OK
+Closing file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+    Constructing grid to mesh-cells map
+  Extracting grid definition from ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
+Closing file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+    Constructing grid to mesh-cells map
+OK
+Constructing external mode objects...OK
+
+Successfully built model domain object/s.
+
+Attempting to initialise atmospheric module:
+WARNING: Cloud cover not defined by the user. Clear skies assumed for long wave radiation heat transfer model
+Successfully initialised atmospheric module.
+
+Attempting to initialise external turbulence model:
+Initialising "GOTM" external turbulence module:
+Succesfully initialised external turbulence model.
+
+Attempting to initialise model structural configurations:
+Constructing struct object...
+Finished constructing struct object
+Successfully initialised model structural configurations.
+
+Attempting to initialise model boundary conditions:
+Constructing fvbc object...
+
+BC 1, Type=W10_GRID
+Update dt=   3600.000    s
+BC grid label = WIND_GRID
+BC grid id = 1
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =   0.00E+00  0.00E+00
+BC variable scale/s =   1.12E+00  1.12E+00
+BC default value/s =   NaN  NaN
+BC variable name/s =  TIME, W10_X, W10_Y,
+BC file header/s =  TIME, U, V,
+Trying to open file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc ...OK
+TIME,U,V, variables found in netcdf file. 21313 timesteps successfully read.
+BC 1 is OK
+
+BC 2, Type=AIR_TEMP_GRID
+Update dt=   3600.000    s
+BC grid label = TEMP_GRID
+BC grid id = 2
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =   0.00E+00
+BC variable scale/s =   1.00E+00
+BC default value/s =   NaN
+BC variable name/s =  TIME, AIR_TEMP,
+BC file header/s =  TIME, TEMP,
+Trying to open file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc ...OK
+TIME,TEMP, variables found in netcdf file. 21313 timesteps successfully read.
+BC 2 is OK
+
+BC 3, Type=REL_HUM_GRID
+Update dt=   3600.000    s
+BC grid label = RHUM_GRID
+BC grid id = 3
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =   0.00E+00
+BC variable scale/s =   1.00E+00
+BC default value/s =   NaN
+BC variable name/s =  TIME, REL_HUM,
+BC file header/s =  TIME, RHUM,
+Trying to open file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc ...OK
+TIME,RHUM, variables found in netcdf file. 21313 timesteps successfully read.
+BC 3 is OK
+
+BC 4, Type=SW_RAD_GRID
+Update dt=   3600.000    s
+BC grid label = RAD_GRID
+BC grid id = 4
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =   0.00E+00
+BC variable scale/s =   1.00E+00
+BC default value/s =   NaN
+BC variable name/s =  TIME, SW_RAD,
+BC file header/s =  TIME, DSWR,
+Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
+TIME,DSWR, variables found in netcdf file. 21313 timesteps successfully read.
+BC 4 is OK
+
+BC 5, Type=LW_RAD_GRID
+Update dt=   3600.000    s
+BC grid label = RAD_GRID
+BC grid id = 4
+BC reference time = 01/01/1990 00:00:00
+BC time units = HOURS
+BC variable offset/s =   0.00E+00
+BC variable scale/s =   1.00E+00
+BC default value/s =   NaN
+BC variable name/s =  TIME, LW_RAD,
+BC file header/s =  TIME, DLWR,
+Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
+TIME,DLWR, variables found in netcdf file. 21313 timesteps successfully read.
+BC 5 is OK
+
+BC 6, Type=Q
+Subtype=1
+BC Nodestring id = 1
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, FLOW, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =  -1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwo_Nia_v02.csv ... OK. File unit: 101
+WARNING: SAL column not found in csv file. Assigning a value of             NaN
+WARNING: TEMP column not found in csv file. Assigning a value of             NaN
+WARNING: TRACE_1 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_1 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_2 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_3 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_4 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_5 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_6 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_7 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_8 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_9 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_10 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_11 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_12 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_13 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_14 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_15 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_16 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_17 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_18 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_19 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_20 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_21 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_22 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_23 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_24 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_25 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_26 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_27 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_28 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_29 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_30 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_31 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_32 column not found in csv file. Assigning a value of             NaN
+WARNING: WQ_33 column not found in csv file. Assigning a value of             NaN
+TIME, FLOW columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 6 is OK
+
+BC 7, Type=Q
+Subtype=1
+BC Nodestring id = 2
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =   1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 6.00E-01, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwi_Det_v02.csv ... OK. File unit: 101
+TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 7 is OK
+
+BC 8, Type=Q
+Subtype=1
+BC Nodestring id = 3
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =   1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwi_Gra_ON-WQ_v02.csv ... OK. File unit: 101
+TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF columns read from csvfile. 4748 lines successfully read.
+Closing file unit: 101
+BC 8 is OK
+
+BC 9, Type=QC
+Subtype=1
+Cell id=17605
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =   1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 6.00E-01, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwi_Mau-WQ_v02.csv ... OK. File unit: 101
+TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF columns read from csvfile. 6937 lines successfully read.
+Closing file unit: 101
+BC 9 is OK
+
+BC 10, Type=QC
+Subtype=1
+Cell id=16130
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =   1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 6.00E-01, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwi_Snd-WQ_v02.csv ... OK. File unit: 101
+TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF columns read from csvfile. 7417 lines successfully read.
+Closing file unit: 101
+BC 10 is OK
+
+BC 11, Type=QC
+Subtype=1
+Cell id=14116
+BC variable name/s = TIME, Q, SAL, TEMP, TRACE_1, WQ_1, WQ_2, WQ_3, WQ_4, WQ_5, WQ_6, WQ_7, WQ_8, WQ_9, WQ_10, WQ_11, WQ_12, WQ_13, WQ_14, WQ_15, WQ_16, WQ_17, WQ_18, WQ_19, WQ_20, WQ_21, WQ_22, WQ_23, WQ_24, WQ_25, WQ_26
+BC file header/s = TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF
+BC reference time = 01/01/2001 00:00:00
+BC time units = ISOTIME
+BC variable offset/s =   0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00, 0.00E+00
+BC variable scale/s =   1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 6.00E-01, 1.00E+00, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 1.00E+00, 6.00E-01, 1.00E+00, 6.00E-01, 1.00E+00
+BC variable default/s =   NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN
+Trying to open file: ..\BCs\Inflows\2002-14_flwi_Cuy-WQ_v02.csv ... OK. File unit: 101
+TIME, Q, SAL, TEMP, T1, SS1, AGE, OXY, SIL, AMM, NIT, FRP, FRP_ADS, DOC, POC, DON, PON, DOP, POP, CY, CYr, CYin, CYip, CH, CHin, CHip, CR, CRin, CRip, ED, EDin, EDip, LD, LDin, LDip, CGM, CGMip, BIVF columns read from csvfile. 6845 lines successfully read.
+Closing file unit: 101
+BC 11 is OK
+
+Finished constructing fvbc object.
+
+Initialising ghost cell boundary conditions...
+Finished initialising ghost cell boundary conditions.
+
+Initialising face object boundary conditions...
+Finished initialising face object boundary conditions.
+
+Successfully initialised model boundary conditions.
+
+Attempting to intitialise external water quality model:
+
+**************************************************************************
+WATER QUALITY MODEL INITIALISATION
+**************************************************************************
+
+33 water quality variables to be simulated:
+  1 NCS_ss1
+  2 TRC_age
+  3 OXY_oxy
+  4 SIL_rsi
+  5 NIT_amm
+  6 NIT_nit
+  7 PHS_frp
+  8 PHS_frp_ads
+  9 OGM_doc
+  10 OGM_poc
+  11 OGM_don
+  12 OGM_pon
+  13 OGM_dop
+  14 OGM_pop
+  15 PHY_CYANO
+  16 PHY_CYANO_rho
+  17 PHY_CYANO_IN
+  18 PHY_CYANO_IP
+  19 PHY_CHLOR
+  20 PHY_CHLOR_IN
+  21 PHY_CHLOR_IP
+  22 PHY_CRYPT
+  23 PHY_CRYPT_IN
+  24 PHY_CRYPT_IP
+  25 PHY_EDIAT
+  26 PHY_EDIAT_IN
+  27 PHY_EDIAT_IP
+  28 PHY_LDIAT
+  29 PHY_LDIAT_IN
+  30 PHY_LDIAT_IP
+  31 MAG_cgm
+  32 MAG_cgm_IP
+  33 BIV_filtfrac
+5 benthic variables to be simulated:
+  1 NCS_ss1_sed
+  2 PHY_mpb
+  3 MAG_cgm_ben
+  4 MAG_cgm_IP_ben
+  5 BIV_zebra
+264 diagnostic variables to be reported:
+  1 SDF_Fsed_oxy
+  2 SDF_Fsed_rsi
+  3 SDF_Fsed_amm
+  4 SDF_Fsed_nit
+  5 SDF_Fsed_frp
+  6 SDF_Fsed_doc
+  7 SDF_Fsed_don
+  8 SDF_Fsed_dop
+  9 NCS_ss1_vvel
+  10 NCS_ss1_set
+  11 NCS_ss_sed
+  12 NCS_set
+  13 NCS_swi
+  14 NCS_swi_dz
+  15 OXY_sat
+  16 OXY_oxy_dsf
+  17 OXY_oxy_atm
+  18 OXY_oxy_dsfv
+  19 OXY_oxy_atmv
+  20 SIL_dsf_rsi
+  21 NIT_amm_dsf
+  22 NIT_nit_dsf
+  23 NIT_nitrif
+  24 NIT_denit
+  25 NIT_anammox
+  26 NIT_dnra
+  27 PHS_frp_ads_set
+  28 PHS_frp_ads_res
+  29 PHS_frp_ads_swi
+  30 PHS_frp_srp
+  31 PHS_frp_dsf
+  32 OGM_poc_set
+  33 OGM_pon_set
+  34 OGM_pop_set
+  35 OGM_cdom
+  36 OGM_toc_sed
+  37 OGM_ton_sed
+  38 OGM_top_sed
+  39 OGM_poc_swi
+  40 OGM_doc_swi
+  41 OGM_pon_swi
+  42 OGM_don_swi
+  43 OGM_pop_swi
+  44 OGM_dop_swi
+  45 OGM_poc_res
+  46 OGM_pon_res
+  47 OGM_pop_res
+  48 OGM_poc_hyd
+  49 OGM_pon_hyd
+  50 OGM_pop_hyd
+  51 OGM_doc_min
+  52 OGM_don_min
+  53 OGM_dop_min
+  54 OGM_doc_anaerobic
+  55 OGM_doc_denit
+  56 OGM_bod5
+  57 OGM_pom_vvel
+  58 PHY_CYANO_NtoP
+  59 PHY_CYANO_fI
+  60 PHY_CYANO_fNit
+  61 PHY_CYANO_fPho
+  62 PHY_CYANO_fSil
+  63 PHY_CYANO_fT
+  64 PHY_CYANO_fSal
+  65 PHY_CYANO_gpp_c
+  66 PHY_CYANO_rsp_c
+  67 PHY_CYANO_exc_c
+  68 PHY_CYANO_mor_c
+  69 PHY_CYANO_set_c
+  70 PHY_CYANO_gpp_n
+  71 PHY_CYANO_rsp_n
+  72 PHY_CYANO_exc_n
+  73 PHY_CYANO_mor_n
+  74 PHY_CYANO_set_n
+  75 PHY_CYANO_gpp_p
+  76 PHY_CYANO_rsp_p
+  77 PHY_CYANO_exc_p
+  78 PHY_CYANO_mor_p
+  79 PHY_CYANO_set_p
+  80 PHY_CYANO_vvel
+  81 PHY_CHLOR_NtoP
+  82 PHY_CHLOR_fI
+  83 PHY_CHLOR_fNit
+  84 PHY_CHLOR_fPho
+  85 PHY_CHLOR_fSil
+  86 PHY_CHLOR_fT
+  87 PHY_CHLOR_fSal
+  88 PHY_CHLOR_gpp_c
+  89 PHY_CHLOR_rsp_c
+  90 PHY_CHLOR_exc_c
+  91 PHY_CHLOR_mor_c
+  92 PHY_CHLOR_set_c
+  93 PHY_CHLOR_gpp_n
+  94 PHY_CHLOR_rsp_n
+  95 PHY_CHLOR_exc_n
+  96 PHY_CHLOR_mor_n
+  97 PHY_CHLOR_set_n
+  98 PHY_CHLOR_gpp_p
+  99 PHY_CHLOR_rsp_p
+  100 PHY_CHLOR_exc_p
+  101 PHY_CHLOR_mor_p
+  102 PHY_CHLOR_set_p
+  103 PHY_CRYPT_NtoP
+  104 PHY_CRYPT_fI
+  105 PHY_CRYPT_fNit
+  106 PHY_CRYPT_fPho
+  107 PHY_CRYPT_fSil
+  108 PHY_CRYPT_fT
+  109 PHY_CRYPT_fSal
+  110 PHY_CRYPT_gpp_c
+  111 PHY_CRYPT_rsp_c
+  112 PHY_CRYPT_exc_c
+  113 PHY_CRYPT_mor_c
+  114 PHY_CRYPT_set_c
+  115 PHY_CRYPT_gpp_n
+  116 PHY_CRYPT_rsp_n
+  117 PHY_CRYPT_exc_n
+  118 PHY_CRYPT_mor_n
+  119 PHY_CRYPT_set_n
+  120 PHY_CRYPT_gpp_p
+  121 PHY_CRYPT_rsp_p
+  122 PHY_CRYPT_exc_p
+  123 PHY_CRYPT_mor_p
+  124 PHY_CRYPT_set_p
+  125 PHY_EDIAT_NtoP
+  126 PHY_EDIAT_fI
+  127 PHY_EDIAT_fNit
+  128 PHY_EDIAT_fPho
+  129 PHY_EDIAT_fSil
+  130 PHY_EDIAT_fT
+  131 PHY_EDIAT_fSal
+  132 PHY_EDIAT_gpp_c
+  133 PHY_EDIAT_rsp_c
+  134 PHY_EDIAT_exc_c
+  135 PHY_EDIAT_mor_c
+  136 PHY_EDIAT_set_c
+  137 PHY_EDIAT_gpp_n
+  138 PHY_EDIAT_rsp_n
+  139 PHY_EDIAT_exc_n
+  140 PHY_EDIAT_mor_n
+  141 PHY_EDIAT_set_n
+  142 PHY_EDIAT_gpp_p
+  143 PHY_EDIAT_rsp_p
+  144 PHY_EDIAT_exc_p
+  145 PHY_EDIAT_mor_p
+  146 PHY_EDIAT_set_p
+  147 PHY_LDIAT_NtoP
+  148 PHY_LDIAT_fI
+  149 PHY_LDIAT_fNit
+  150 PHY_LDIAT_fPho
+  151 PHY_LDIAT_fSil
+  152 PHY_LDIAT_fT
+  153 PHY_LDIAT_fSal
+  154 PHY_LDIAT_gpp_c
+  155 PHY_LDIAT_rsp_c
+  156 PHY_LDIAT_exc_c
+  157 PHY_LDIAT_mor_c
+  158 PHY_LDIAT_set_c
+  159 PHY_LDIAT_gpp_n
+  160 PHY_LDIAT_rsp_n
+  161 PHY_LDIAT_exc_n
+  162 PHY_LDIAT_mor_n
+  163 PHY_LDIAT_set_n
+  164 PHY_LDIAT_gpp_p
+  165 PHY_LDIAT_rsp_p
+  166 PHY_LDIAT_exc_p
+  167 PHY_LDIAT_mor_p
+  168 PHY_LDIAT_set_p
+  169 PHY_tphy
+  170 PHY_tchla
+  171 PHY_in
+  172 PHY_ip
+  173 PHY_gpp
+  174 PHY_ncp
+  175 PHY_upt_no3
+  176 PHY_upt_nh4
+  177 PHY_upt_n2
+  178 PHY_upt_po4
+  179 PHY_upt_dic
+  180 PHY_set
+  181 PHY_par
+  182 PHY_mpb_ben
+  183 PHY_mpb_gpp
+  184 PHY_mpb_rsp
+  185 PHY_mpb_xnc
+  186 PHY_mpb_xpc
+  187 PHY_mpb_res
+  188 PHY_phy_swi_c
+  189 PHY_phy_swi_n
+  190 PHY_phy_swi_p
+  191 MAG_cgm_fI
+  192 MAG_cgm_fNit
+  193 MAG_cgm_fPho
+  194 MAG_cgm_fT
+  195 MAG_cgm_fSal
+  196 MAG_cgm_c2p
+  197 MAG_cgm_c2n
+  198 MAG_cgm_n2p
+  199 MAG_cgm_fI_ben
+  200 MAG_cgm_fT_ben
+  201 MAG_cgm_fNit_ben
+  202 MAG_cgm_fPho_ben
+  203 MAG_cgm_fSal_ben
+  204 MAG_cgm_c2p_ben
+  205 MAG_cgm_c2n_ben
+  206 MAG_cgm_n2p_ben
+  207 MAG_cgm_dw_ben
+  208 MAG_tmalg
+  209 MAG_in
+  210 MAG_ip
+  211 MAG_mag_ben
+  212 MAG_in_ben
+  213 MAG_ip_ben
+  214 MAG_gpp
+  215 MAG_pup
+  216 MAG_nup
+  217 MAG_nmp
+  218 MAG_gpp_ben
+  219 MAG_rsp_ben
+  220 MAG_pup_ben
+  221 MAG_nup_ben
+  222 MAG_nmp_ben
+  223 MAG_slg_ben
+  224 MAG_mag_swi_c
+  225 MAG_mag_swi_n
+  226 MAG_mag_swi_p
+  227 MAG_cgm_sltg
+  228 MAG_cgm_tavg
+  229 MAG_cgm_lavg
+  230 MAG_cgm_savg
+  231 MAG_extc
+  232 MAG_parc
+  233 MAG_hgtc
+  234 BIV_num
+  235 BIV_X_c
+  236 BIV_tbiv
+  237 BIV_nmp
+  238 BIV_resp
+  239 BIV_net_c
+  240 BIV_net_n
+  241 BIV_net_p
+  242 BIV_FR
+  243 BIV_fT
+  244 BIV_fD
+  245 BIV_fG
+  246 BIV_pf
+  247 BIV_grz
+  248 BIV_mort
+  249 BIV_egst
+  250 BIV_excr
+  251 BIV_excr_n
+  252 BIV_excr_p
+  253 BIV_egst_n
+  254 BIV_egst_p
+  255 BIV_grz_n
+  256 BIV_grz_p
+  257 TOT_tn
+  258 TOT_tp
+  259 TOT_toc
+  260 TOT_tss
+  261 TOT_light
+  262 TOT_par
+  263 TOT_uv
+  264 TOT_extc
+
+**************************************************************************
+END OF WATER QUALITY MODEL INITIALISATION
+**************************************************************************
+
+Attempting to generate model initial conditions:
+Trying to open file: ..\BCs\IC\IC_LE_AED2_2013_DD_RV_UWA_rev0.csv ... OK. File unit: 101
+WARNING: SAL column not found in csv file. Assigning a value of    0.000000
+WARNING: TEMP column not found in csv file. Assigning a value of    0.000000
+WARNING: TRACE_1 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_1 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_2 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_3 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_4 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_5 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_6 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_7 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_8 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_9 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_10 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_11 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_12 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_13 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_14 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_15 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_16 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_17 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_18 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_19 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_20 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_21 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_22 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_23 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_24 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_25 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_26 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_27 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_28 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_29 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_30 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_31 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_32 column not found in csv file. Assigning a value of    0.000000
+WARNING: WQ_33 column not found in csv file. Assigning a value of    0.000000
+ ID, WL, U, V columns read from csvfile. 17693 lines successfully read.
+Closing file unit: 101
+Successfully generated model initial conditions.
+
+Attempting to initialise model output:
+
+Allocating output object memory:
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+WARNING: VERT_MIN column not found in csv file. Assigning a value of             NaN
+WARNING: VERT_MAX column not found in csv file. Assigning a value of             NaN
+ X, Y, ID columns read from csvfile. 20 lines successfully read.
+Closing file unit: 101
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+Closing file unit: 101
+Depth-Averaging for PT_1                           :    0.000000     to    5.000000
+Depth-Averaging for PT_2                           :    0.000000     to    5.000000
+Depth-Averaging for PT_3                           :    0.000000     to    5.000000
+Depth-Averaging for PT_4                           :    0.000000     to    5.000000
+Depth-Averaging for PT_5                           :    0.000000     to    5.000000
+Depth-Averaging for PT_6                           :    0.000000     to    5.000000
+Depth-Averaging for PT_7                           :    0.000000     to    5.000000
+Depth-Averaging for PT_8                           :    0.000000     to    5.000000
+Depth-Averaging for PT_9                           :    0.000000     to    5.000000
+Depth-Averaging for PT_10                          :    0.000000     to    5.000000
+Depth-Averaging for PT_11                          :    0.000000     to    5.000000
+Depth-Averaging for PT_12                          :    0.000000     to    5.000000
+Depth-Averaging for PT_13                          :    0.000000     to    5.000000
+Depth-Averaging for PT_14                          :    0.000000     to    5.000000
+Depth-Averaging for PT_15                          :    0.000000     to    5.000000
+Depth-Averaging for PT_16                          :    0.000000     to    5.000000
+Depth-Averaging for PT_17                          :    0.000000     to    5.000000
+Depth-Averaging for PT_18                          :    0.000000     to    5.000000
+Depth-Averaging for PT_19                          :    0.000000     to    5.000000
+Depth-Averaging for PT_20                          :    0.000000     to    5.000000
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+WARNING: VERT_MIN column not found in csv file. Assigning a value of             NaN
+WARNING: VERT_MAX column not found in csv file. Assigning a value of             NaN
+ X, Y, ID columns read from csvfile. 20 lines successfully read.
+Closing file unit: 101
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+Closing file unit: 101
+Depth-Averaging for PT_1                           :    0.000000     to    5.000000
+Depth-Averaging for PT_2                           :    0.000000     to    5.000000
+Depth-Averaging for PT_3                           :    0.000000     to    5.000000
+Depth-Averaging for PT_4                           :    0.000000     to    5.000000
+Depth-Averaging for PT_5                           :    0.000000     to    5.000000
+Depth-Averaging for PT_6                           :    0.000000     to    5.000000
+Depth-Averaging for PT_7                           :    0.000000     to    5.000000
+Depth-Averaging for PT_8                           :    0.000000     to    5.000000
+Depth-Averaging for PT_9                           :    0.000000     to    5.000000
+Depth-Averaging for PT_10                          :    0.000000     to    5.000000
+Depth-Averaging for PT_11                          :    0.000000     to    5.000000
+Depth-Averaging for PT_12                          :    0.000000     to    5.000000
+Depth-Averaging for PT_13                          :    0.000000     to    5.000000
+Depth-Averaging for PT_14                          :    0.000000     to    5.000000
+Depth-Averaging for PT_15                          :    0.000000     to    5.000000
+Depth-Averaging for PT_16                          :    0.000000     to    5.000000
+Depth-Averaging for PT_17                          :    0.000000     to    5.000000
+Depth-Averaging for PT_18                          :    0.000000     to    5.000000
+Depth-Averaging for PT_19                          :    0.000000     to    5.000000
+Depth-Averaging for PT_20                          :    0.000000     to    5.000000
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+WARNING: VERT_MIN column not found in csv file. Assigning a value of             NaN
+WARNING: VERT_MAX column not found in csv file. Assigning a value of             NaN
+ X, Y, ID columns read from csvfile. 20 lines successfully read.
+Closing file unit: 101
+Trying to open file: ..\Geo\output_points_epa.csv ... OK. File unit: 101
+Closing file unit: 101
+Depth-Averaging for PT_1                           :    0.000000     to    5.000000
+Depth-Averaging for PT_2                           :    0.000000     to    5.000000
+Depth-Averaging for PT_3                           :    0.000000     to    5.000000
+Depth-Averaging for PT_4                           :    0.000000     to    5.000000
+Depth-Averaging for PT_5                           :    0.000000     to    5.000000
+Depth-Averaging for PT_6                           :    0.000000     to    5.000000
+Depth-Averaging for PT_7                           :    0.000000     to    5.000000
+Depth-Averaging for PT_8                           :    0.000000     to    5.000000
+Depth-Averaging for PT_9                           :    0.000000     to    5.000000
+Depth-Averaging for PT_10                          :    0.000000     to    5.000000
+Depth-Averaging for PT_11                          :    0.000000     to    5.000000
+Depth-Averaging for PT_12                          :    0.000000     to    5.000000
+Depth-Averaging for PT_13                          :    0.000000     to    5.000000
+Depth-Averaging for PT_14                          :    0.000000     to    5.000000
+Depth-Averaging for PT_15                          :    0.000000     to    5.000000
+Depth-Averaging for PT_16                          :    0.000000     to    5.000000
+Depth-Averaging for PT_17                          :    0.000000     to    5.000000
+Depth-Averaging for PT_18                          :    0.000000     to    5.000000
+Depth-Averaging for PT_19                          :    0.000000     to    5.000000
+Depth-Averaging for PT_20                          :    0.000000     to    5.000000
+Memory allocation OK.
+
+Processing output requests:
+Processing request 1 is...
+OK.
+Processing request 2 is...
+OK.
+Processing request 3 is...
+OK.
+Processing request 4 is...
+Output point 1 is inside cell 4163.
+Output point 2 is inside cell 4270.
+Output point 3 is inside cell 5517.
+Output point 4 is inside cell 5447.
+Output point 5 is inside cell 11131.
+Output point 6 is inside cell 10697.
+Output point 7 is inside cell 10461.
+Output point 8 is inside cell 11961.
+Output point 9 is inside cell 12224.
+Output point 10 is inside cell 12551.
+Output point 11 is inside cell 13887.
+Output point 12 is inside cell 13616.
+Output point 13 is inside cell 12850.
+Output point 14 is inside cell 11074.
+Output point 15 is inside cell 15229.
+Output point 16 is inside cell 17171.
+Output point 17 is inside cell 17135.
+Output point 18 is inside cell 16867.
+Output point 19 is inside cell 16472.
+Output point 20 is inside cell 15826.
+OK.
+Processing request 5 is...
+Output point 1 is inside cell 4163.
+Output point 2 is inside cell 4270.
+Output point 3 is inside cell 5517.
+Output point 4 is inside cell 5447.
+Output point 5 is inside cell 11131.
+Output point 6 is inside cell 10697.
+Output point 7 is inside cell 10461.
+Output point 8 is inside cell 11961.
+Output point 9 is inside cell 12224.
+Output point 10 is inside cell 12551.
+Output point 11 is inside cell 13887.
+Output point 12 is inside cell 13616.
+Output point 13 is inside cell 12850.
+Output point 14 is inside cell 11074.
+Output point 15 is inside cell 15229.
+Output point 16 is inside cell 17171.
+Output point 17 is inside cell 17135.
+Output point 18 is inside cell 16867.
+Output point 19 is inside cell 16472.
+Output point 20 is inside cell 15826.
+OK.
+Processing request 6 is...
+Output point 1 is inside cell 4163.
+Output point 2 is inside cell 4270.
+Output point 3 is inside cell 5517.
+Output point 4 is inside cell 5447.
+Output point 5 is inside cell 11131.
+Output point 6 is inside cell 10697.
+Output point 7 is inside cell 10461.
+Output point 8 is inside cell 11961.
+Output point 9 is inside cell 12224.
+Output point 10 is inside cell 12551.
+Output point 11 is inside cell 13887.
+Output point 12 is inside cell 13616.
+Output point 13 is inside cell 12850.
+Output point 14 is inside cell 11074.
+Output point 15 is inside cell 15229.
+Output point 16 is inside cell 17171.
+Output point 17 is inside cell 17135.
+Output point 18 is inside cell 16867.
+Output point 19 is inside cell 16472.
+Output point 20 is inside cell 15826.
+OK.
+
+Opening output files...
+Trying to open file: ..\Output\erie_12_a_TFV.nc ...OK
+Trying to open file: ..\Output\erie_12_a_AED.nc ...OK
+Trying to open file: ..\Output\erie_12_a_AED_diag.nc ...OK
+Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_temp.csv ... OK. File unit: 101
+Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_TOT_TN.csv ... OK. File unit: 102
+Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_PHY_EDIAT_fPho.csv ... OK. File unit: 103
+
+Successfully initialised model output.
+
+Opening GIS Layer: ..\Check\erie_12_a_mesh_check.shp
+GIS Layer assigned ID of 2
+
+Closing GIS Layer 2 [..\Check\erie_12_a_mesh_check.shp]...
+Opening GIS Layer: ..\Check\erie_12_a_bc_check.shp
+GIS Layer assigned ID of 2
+Opening GIS Layer: ..\Check\erie_12_a_sa_check.shp
+GIS Layer assigned ID of 3
+
+Closing GIS Layer 2 [..\Check\erie_12_a_bc_check.shp]...
+
+Closing GIS Layer 3 [..\Check\erie_12_a_sa_check.shp]...
+Opening GIS Layer: ..\Check\erie_12_a_ns_check.shp
+GIS Layer assigned ID of 2
+
+Closing GIS Layer 2 [..\Check\erie_12_a_ns_check.shp]...
+
+Closing GIS Layer 1 [log\erie_12_a_messages.shp]...
+FVC[0]: TUFLOW FVC version 0.4.1 (Jul 28 2021 17:07:52) - single precision - win64
+FVC[0]: Interrogating CUDA enabled GPUs
+FVC[0]: CUDA driver version = 11040
+FVC[0]: Found 1 CUDA enabled device(s)
+FVC[0]: Device 0, NVIDIA GeForce RTX 3060, has compute capability = 8.6
+FVC[0]: Adding device 0 to list of available CUDA devices
+FVC[0]: Hardware option = GPU
+FVC[0]: Requested device 0 found in available device list
+FVC[0]: incl_mslp = 0
+FVC[0]: vert_mesh_typ = 1
+FVC[0]: limiter3 = 2
+FVC[0]: nSed = 0
+FVC[0]: jSed1 = 0
+FVC[0]: nTrace = 1
+FVC[0]: jTrace1 = 6
+FVC[0]: bot_drag_model = 2
+FVC[0]: g = 9.810000
+FVC[0]: rho0 = 1000.000000
+FVC[0]: sal0 = 35.000000
+FVC[0]: temp0 = 18.000000
+FVC[0]: hDry = 0.100000
+FVC[0]: hWet = 0.100000
+FVC[0]: h3d = 0.500000
+FVC[0]: theta_bar = 0.100000
+FVC[0]: theta_M = 1.000000
+FVC[0]: theta_S = 0.500000
+FVC[0]: kappa = 0.410000
+FVC[0]: fcor_ = 0.000098
+FVC[0]: mslpa = 101325.000000
+FVC[0]: dZmin = 0.100000
+FVC[0]: alphaR12 = 1.000000
+FVC[0]: alphaR22 = 1.000000
+FVC[0]: alphaR32 = 1.000000
+FVC[0]: alphaR23 = 1.000000
+FVC[0]: alphaR33 = 1.000000
+FVC[0]: sedMin = 0.000000
+FVC[0]: sedMax = 100000.000000
+FVC[0]: hTransp = 0.100000
+FVC[0]: prandtl_0 = 0.740000
+FVC[0]: vert_mix_par_c1 = 0.000000
+FVC[0]: vert_mix_par_c2 = 0.000000
+FVC[0]: nuw = 0.000001
+FVC[0]: wave_par_hmin = 0.010000
+FVC[0]: Device 0 total GPU memory = 12288 Mb, free memory = 11282 Mb
+FVC[0]: Loading module FVC_kernels.ptx
+FVC[0]: Full module path: C:\Users\00065525\Github\Lake-Erie\models\bin4\FVC_kernels.ptx
+Running simulation
+Number of OpenMP threads=1
+Thread stacksize=4194304
+
+Entering timestep loop
+t = 07/05/2013 00:00:00.  dt =   0.000 /  0.000 s.  elapsed time =       0.0 s.
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+    Writing point timeseries output. t = 07/05/2013 00:00:00.
+    Writing point timeseries output. t = 07/05/2013 00:00:00.
+    Writing point timeseries output. t = 07/05/2013 00:00:00.
+t = 07/05/2013 00:15:06.  dt =   5.732 /  5.732 s.  elapsed time =       7.0 s.

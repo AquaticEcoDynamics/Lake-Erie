@@ -2,8 +2,8 @@ function create_cell_elevation_from_2dm
 
 
 
-gridfile = 'Erie_V6_A2.2dm';
-outfile = 'Erie_V6_A2_elev_0m.csv';
+gridfile = 'Erie_V7.2dm';
+outfile = 'Erie_V7_elev_0m.csv';
 
 
 

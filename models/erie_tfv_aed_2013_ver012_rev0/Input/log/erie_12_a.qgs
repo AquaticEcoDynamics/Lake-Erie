@@ -1,0 +1,270 @@
+<qgis projectname="TUFLOW" version="1.8.0-Lisboa">
+    <title>log\erie_12_a</title>
+    <projectlayers layercount="?">
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>00000000000000002</id>
+            <datasource>..\..\GIS\LE_CGM_Substrate_RV.shp</datasource>
+            <layername>LE_CGM_Substrate_RV (R) {2}</layername>
+            <provider encoding="UTF-8">ogr</provider>
+            <srs>
+                <spatialrefsys>
+                    <proj4>PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</proj4>
+                </spatialrefsys>
+            </srs>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="0.5" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="color" v="50,55,122,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="vertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="firstvertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@1">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="50,55,122,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="rectangle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@2">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="50,55,122,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="rectangle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Polygon" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>00000000000000003</id>
+            <datasource>..\..\Check\erie_12_a_mesh_check_R.shp</datasource>
+            <layername>erie_12_a_mesh_check (R) {3}</layername>
+            <provider encoding="UTF-8">ogr</provider>
+            <srs>
+                <spatialrefsys>
+                    <proj4>PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</proj4>
+                </spatialrefsys>
+            </srs>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="0.5" type="fill" name="0">
+                        <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="color" v="187,247,222,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="style" v="solid"/>
+                            <prop k="style_border" v="solid"/>
+                            <prop k="width_border" v="0.26"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="vertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="firstvertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@1">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="187,247,222,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="rectangle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@2">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="187,247,222,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="rectangle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>00000000000000004</id>
+            <datasource>..\..\Check\erie_12_a_bc_check_L.shp</datasource>
+            <layername>erie_12_a_bc_check (L) {4}</layername>
+            <provider encoding="UTF-8">ogr</provider>
+            <srs>
+                <spatialrefsys>
+                    <proj4>PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</proj4>
+                </spatialrefsys>
+            </srs>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                   <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                       <layer pass="0" class="SimpleLine" locked="0">
+                            <prop k="capstyle" v="flat"/>
+                            <prop k="color" v="42,114,99,255"/>
+                            <prop k="customdash" v="5;2"/>
+                            <prop k="joinstyle" v="round"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="penstyle" v="solid"/>
+                            <prop k="use_custom_dash" v="0"/>
+                            <prop k="width" v="0.5"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="lastvertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@1">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="42,114,99,255"/>
+                            <prop k="color_border" v="255,255,255,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>00000000000000005</id>
+            <datasource>..\..\Check\erie_12_a_sa_check_P.shp</datasource>
+            <layername>erie_12_a_sa_check (P) {5}</layername>
+            <provider encoding="UTF-8">ogr</provider>
+            <srs>
+                <spatialrefsys>
+                    <proj4>PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</proj4>
+                </spatialrefsys>
+            </srs>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="221,121,229,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>00000000000000006</id>
+            <datasource>..\..\Check\erie_12_a_ns_check_L.shp</datasource>
+            <layername>erie_12_a_ns_check (L) {6}</layername>
+            <provider encoding="UTF-8">ogr</provider>
+            <srs>
+                <spatialrefsys>
+                    <proj4>PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</proj4>
+                </spatialrefsys>
+            </srs>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                   <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                       <layer pass="0" class="SimpleLine" locked="0">
+                            <prop k="capstyle" v="flat"/>
+                            <prop k="color" v="11,111,88,255"/>
+                            <prop k="customdash" v="5;2"/>
+                            <prop k="joinstyle" v="round"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="penstyle" v="solid"/>
+                            <prop k="use_custom_dash" v="0"/>
+                            <prop k="width" v="0.5"/>
+                        </layer>
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="lastvertex"/>
+                            <prop k="rotate" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@1">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="11,111,88,255"/>
+                            <prop k="color_border" v="255,255,255,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+        </maplayer>
+    </projectlayers>
+    <legend>
+        <legendgroup open="true" checked="Qt::Unchecked" name="Input Layers">
+			        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked">
+			            <filegroup open="true" hidden="false">
+			                <legendlayerfile isInOverview="0" layerid="00000000000000002" visible="0"/>
+			            </filegroup>
+			        </legendlayer>
+        </legendgroup>
+        <legendgroup open="true" checked="Qt::Unchecked" name="Output Layers">
+			        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked">
+			            <filegroup open="true" hidden="false">
+			                <legendlayerfile isInOverview="0" layerid="00000000000000003" visible="0"/>
+			            </filegroup>
+			        </legendlayer>
+			        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked">
+			            <filegroup open="true" hidden="false">
+			                <legendlayerfile isInOverview="0" layerid="00000000000000004" visible="0"/>
+			            </filegroup>
+			        </legendlayer>
+			        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked">
+			            <filegroup open="true" hidden="false">
+			                <legendlayerfile isInOverview="0" layerid="00000000000000005" visible="0"/>
+			            </filegroup>
+			        </legendlayer>
+			        <legendlayer drawingOrder="-1" open="true" checked="Qt::Unchecked">
+			            <filegroup open="true" hidden="false">
+			                <legendlayerfile isInOverview="0" layerid="00000000000000006" visible="0"/>
+			            </filegroup>
+			        </legendlayer>
+        </legendgroup>
+    </legend>
+    <Paths>
+        <Absolute type="bool">false</Absolute>
+    </Paths>
+    <properties>
+        <SpatialRefSys>
+            <ProjectCRSProj4String type="QString">PROJCS["WGS_1984_UTM_ZONE_17N",GEOGCS["GCS_WGS_1984",DATUM["D_WGS_1984",SPHEROID["WGS_1984",6378137.0,298.257223563]],PRIMEM["GREENWICH",0.0],UNIT["DEGREE",0.0174532925199433]],PROJECTION["TRANSVERSE_MERCATOR"],PARAMETER["FALSE_EASTING",500000.0],PARAMETER["FALSE_NORTHING",0.0],PARAMETER["CENTRAL_MERIDIAN",-81.0],PARAMETER["SCALE_FACTOR",0.9996],PARAMETER["LATITUDE_OF_ORIGIN",0.0],UNIT["METER",1.0]]</ProjectCRSProj4String>
+            <ProjectionsEnabled type="int">1</ProjectionsEnabled>
+        </SpatialRefSys>
+    </properties>
+</qgis>
