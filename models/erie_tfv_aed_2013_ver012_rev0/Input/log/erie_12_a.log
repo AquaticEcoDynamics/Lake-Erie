@@ -14,7 +14,7 @@ GIS Module Version: 2020-07-PD
 
 Computer name: DEP64896
 User name: 00065525
-Execution timestamp: 25/08/2022 07:45:04
+Execution timestamp: 29/08/2022 08:03:56
 
 
 Initialising TUFLOW Licence Settings...
@@ -234,14 +234,20 @@ OUTPUT == POINTS
   OUTPUT INTERVAL ==    7200.000
 END OUTPUT
 OUTPUT == NETCDF
+  OUTPUT PARAMETERS ==  TEMP, WQ_OXY_OXY,
+  SUFFIX == surface
+  OUTPUT INTERVAL ==    14400.00
+  VERTICAL AVERAGING == DEPTH-RANGE  0.9000000     to    1.100000
+END OUTPUT
+OUTPUT == NETCDF
   SUFFIX == bottom
-  OUTPUT PARAMETERS ==  WQ_ALL,
+  OUTPUT PARAMETERS ==  TEMP, WQ_OXY_OXY,
   OUTPUT INTERVAL ==    14400.00
   VERTICAL AVERAGING == HEIGHT-RANGE  0.9000000     to    1.100000
 END OUTPUT
 OUTPUT == NETCDF
   SUFFIX == average
-  OUTPUT PARAMETERS ==  WQ_ALL,
+  OUTPUT PARAMETERS ==  TEMP, WQ_OXY_OXY,
   OUTPUT INTERVAL ==    14400.00
   VERTICAL AVERAGING == DEPTH-ALL
 END OUTPUT
@@ -1056,6 +1062,8 @@ Processing request 7 is...
 OK.
 Processing request 8 is...
 OK.
+Processing request 9 is...
+OK.
 
 Opening output files...
 Trying to open file: ..\Output\erie_12_a_TFV.nc ...OK
@@ -1064,6 +1072,7 @@ Trying to open file: ..\Output\erie_12_a_AED_diag.nc ...OK
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_temp.csv ... OK. File unit: 101
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_TOT_TN.csv ... OK. File unit: 102
 Trying to open file: ..\Output\erie_12_a_POINTS_depth_surf_PHY_EDIAT_fPho.csv ... OK. File unit: 103
+Trying to open file: ..\Output\erie_12_a_surface.nc ...OK
 Trying to open file: ..\Output\erie_12_a_bottom.nc ...OK
 Trying to open file: ..\Output\erie_12_a_average.nc ...OK
 
@@ -1147,33 +1156,7 @@ t = 07/05/2013 00:00:00.  dt =   0.000 /  0.000 s.  elapsed time =       0.0 s.
     Writing point timeseries output. t = 07/05/2013 00:00:00.
     Writing NETCDF output. t = 07/05/2013 00:00:00.
     Writing NETCDF output. t = 07/05/2013 00:00:00.
-
-ERROR: Error invoking nf90_put_var. Netcdf status value is -57. NetCDF: Start+count exceeds dimension bound.
-
-ERROR-STACK:fvdomain_run:fvdomain_run_timestep:fvout_wrtout:fvout_wrtnetcdf:write_variables:CheckNCStatus:Error invoking nf90_put_var. Netcdf status value is -57. NetCDF: Start+count exceeds dimension bound.
-
-
-Simulation Summary:
-
-Input File: C:\Users\00065525\Github\Lake-Erie\models\erie_tfv_aed_2013_ver012_rev0\Input\erie_12_a.fvc
-Log File: C:\Users\00065525\Github\Lake-Erie\models\erie_tfv_aed_2013_ver012_rev0\Input\log\erie_12_a.log
-
-Computer name: DEP64896
-User name: 00065525
-Execution Timestamp: 25/08/2022 07:45:04
-Execution Completed: 25/08/2022 07:45:41
-
-Number of warnings = 44
-
-Closing file unit: 101
-Fatal Error Encountered!
-
-Releasing TUFLOW FV Licence...Done.
-Releasing 1 TUFLOW FV Threads...Done.
-Releasing TUFLOW FV 3D Licence...Done.
-Releasing TUFLOW FV AD Licence...Done.
-Releasing TUFLOW FV WQ Licence...Done.
-Releasing 1 TUFLOW FV GPU Cards...Done.
-
-Exiting TUFLOWFV
-
+    Writing NETCDF output. t = 07/05/2013 00:00:00.
+t = 07/05/2013 00:15:06.  dt =   5.731 /  5.731 s.  elapsed time =       7.3 s.
+t = 07/05/2013 00:30:05.  dt =   5.732 /  5.732 s.  elapsed time =      13.2 s.
+    Calling AED. t = 07/05/2013 00:30:05.
