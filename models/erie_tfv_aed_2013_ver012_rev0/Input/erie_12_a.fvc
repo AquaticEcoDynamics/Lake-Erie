@@ -144,12 +144,12 @@ INITIAL CONDITION 2D == ..\BCs\IC\IC_LE_AED2_2013_DD_RV_UWA_rev0.csv
 ! Met______________________________________________________________
 
 ! 3 Zone netcdf Met set-up
-grid definition file == ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+grid definition file == ..\BCs\Met\Wind_utm_new_rev01.nc
 grid definition variables == X, Y
 grid definition label == WIND_GRID
 ENDGRID
 
-bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+bc == W10_GRID,WIND_GRID, ..\BCs\Met\Wind_utm_new_rev01.nc
 bc header == time,u,v
 bc reference time == 01/01/1990 00:00
 bc time units == hours
@@ -157,43 +157,43 @@ bc update dt == 3600
 bc scale == 1.125,1.125
 end bc
 
-grid definition file == ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+grid definition file == ..\BCs\Met\Air_Temperature_utm_new.nc
 grid definition variables == X, Y
 grid definition label == TEMP_GRID
 ENDGRID
 
-bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+bc == AIR_TEMP_GRID,TEMP_GRID, ..\BCs\Met\Air_Temperature_utm_new.nc
 bc header == time,temp
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-grid definition file == ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+grid definition file == ..\BCs\Met\RH_utm_new.nc
 grid definition variables == X, Y
 grid definition label == RHUM_GRID
 ENDGRID
 
-bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+bc == REL_HUM_GRID,RHUM_GRID, ..\BCs\Met\RH_utm_new.nc
 bc header == time,rhum
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-grid definition file == ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+grid definition file == ..\BCs\Met\Radiation_utm_new.nc
 grid definition variables == X, Y
 grid definition label == RAD_GRID
 ENDGRID
 
-bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+bc == SW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_new.nc
 bc header == time,dswr
 bc reference time == 01/01/1990 00:00
 bc time units == hours
 bc update dt == 3600
 end bc
 
-bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+bc == LW_RAD_GRID,RAD_GRID, ..\BCs\Met\Radiation_utm_new.nc
 bc header == time,dlwr
 bc reference time == 01/01/1990 00:00
 bc time units == hours
