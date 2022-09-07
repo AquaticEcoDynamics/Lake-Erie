@@ -14,7 +14,7 @@ GIS Module Version: 2020-07-PD
 
 Computer name: DEP64896
 User name: 00065525
-Execution timestamp: 29/08/2022 08:03:56
+Execution timestamp: 01/09/2022 12:25:57
 
 
 Initialising TUFLOW Licence Settings...
@@ -123,48 +123,48 @@ MATERIAL == 12
 END MATERIAL
 NTRACER == 1
 INITIAL CONDITION 2D == ..\BCs\IC\IC_LE_AED2_2013_DD_RV_UWA_rev0.csv
-GRID DEFINITION FILE == ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+GRID DEFINITION FILE == ..\BCs\Met\Wind_utm_new_rev01.nc
 GRID DEFINITION VARIABLES ==  X, Y
 GRID DEFINITION LABEL == WIND_GRID
 END GRID
-BC == W10_GRID, WIND_GRID, ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+BC == W10_GRID, WIND_GRID, ..\BCs\Met\Wind_utm_new_rev01.nc
   BC HEADER ==  time, u, v
 BC REFERENCE TIME == 01/01/1990 00:00:00
   BC TIME UNITS == HOURS
   UPDATE DT ==    3600.000
   BC SCALE ==    1.125000,   1.125000
 END BC
-GRID DEFINITION FILE == ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+GRID DEFINITION FILE == ..\BCs\Met\Air_Temperature_utm_new.nc
 GRID DEFINITION VARIABLES ==  X, Y
 GRID DEFINITION LABEL == TEMP_GRID
 END GRID
-BC == AIR_TEMP_GRID, TEMP_GRID, ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+BC == AIR_TEMP_GRID, TEMP_GRID, ..\BCs\Met\Air_Temperature_utm_new.nc
   BC HEADER ==  time, temp
 BC REFERENCE TIME == 01/01/1990 00:00:00
   BC TIME UNITS == HOURS
   UPDATE DT ==    3600.000
 END BC
-GRID DEFINITION FILE == ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+GRID DEFINITION FILE == ..\BCs\Met\RH_utm_new.nc
 GRID DEFINITION VARIABLES ==  X, Y
 GRID DEFINITION LABEL == RHUM_GRID
 END GRID
-BC == REL_HUM_GRID, RHUM_GRID, ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+BC == REL_HUM_GRID, RHUM_GRID, ..\BCs\Met\RH_utm_new.nc
   BC HEADER ==  time, rhum
 BC REFERENCE TIME == 01/01/1990 00:00:00
   BC TIME UNITS == HOURS
   UPDATE DT ==    3600.000
 END BC
-GRID DEFINITION FILE == ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+GRID DEFINITION FILE == ..\BCs\Met\Radiation_utm_new.nc
 GRID DEFINITION VARIABLES ==  X, Y
 GRID DEFINITION LABEL == RAD_GRID
 END GRID
-BC == SW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+BC == SW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_new.nc
   BC HEADER ==  time, dswr
 BC REFERENCE TIME == 01/01/1990 00:00:00
   BC TIME UNITS == HOURS
   UPDATE DT ==    3600.000
 END BC
-BC == LW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+BC == LW_RAD_GRID, RAD_GRID, ..\BCs\Met\Radiation_utm_new.nc
   BC HEADER ==  time, dlwr
 BC REFERENCE TIME == 01/01/1990 00:00:00
   BC TIME UNITS == HOURS
@@ -329,21 +329,21 @@ Constructing node object...OK
 Constructing cell object...OK
 Constructing face object...OK
 Constructing gridmap object/s...
-  Extracting grid definition from ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
-Trying to open file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc ...OK
-Closing file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc
+  Extracting grid definition from ..\BCs\Met\Wind_utm_new_rev01.nc
+Trying to open file: ..\BCs\Met\Wind_utm_new_rev01.nc ...OK
+Closing file: ..\BCs\Met\Wind_utm_new_rev01.nc
     Constructing grid to mesh-cells map
-  Extracting grid definition from ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
-Trying to open file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc ...OK
-Closing file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc
+  Extracting grid definition from ..\BCs\Met\Air_Temperature_utm_new.nc
+Trying to open file: ..\BCs\Met\Air_Temperature_utm_new.nc ...OK
+Closing file: ..\BCs\Met\Air_Temperature_utm_new.nc
     Constructing grid to mesh-cells map
-  Extracting grid definition from ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
-Trying to open file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc ...OK
-Closing file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc
+  Extracting grid definition from ..\BCs\Met\RH_utm_new.nc
+Trying to open file: ..\BCs\Met\RH_utm_new.nc ...OK
+Closing file: ..\BCs\Met\RH_utm_new.nc
     Constructing grid to mesh-cells map
-  Extracting grid definition from ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
-Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
-Closing file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc
+  Extracting grid definition from ..\BCs\Met\Radiation_utm_new.nc
+Trying to open file: ..\BCs\Met\Radiation_utm_new.nc ...OK
+Closing file: ..\BCs\Met\Radiation_utm_new.nc
     Constructing grid to mesh-cells map
 OK
 Constructing external mode objects...OK
@@ -377,7 +377,7 @@ BC variable scale/s =   1.12E+00  1.12E+00
 BC default value/s =   NaN  NaN
 BC variable name/s =  TIME, W10_X, W10_Y,
 BC file header/s =  TIME, U, V,
-Trying to open file: ..\BCs\Met\Wind_utm_20130507_20151001_2.nc ...OK
+Trying to open file: ..\BCs\Met\Wind_utm_new_rev01.nc ...OK
 TIME,U,V, variables found in netcdf file. 21313 timesteps successfully read.
 BC 1 is OK
 
@@ -392,7 +392,7 @@ BC variable scale/s =   1.00E+00
 BC default value/s =   NaN
 BC variable name/s =  TIME, AIR_TEMP,
 BC file header/s =  TIME, TEMP,
-Trying to open file: ..\BCs\Met\Temperature_utm_20130507_20151001_2.nc ...OK
+Trying to open file: ..\BCs\Met\Air_Temperature_utm_new.nc ...OK
 TIME,TEMP, variables found in netcdf file. 21313 timesteps successfully read.
 BC 2 is OK
 
@@ -407,7 +407,7 @@ BC variable scale/s =   1.00E+00
 BC default value/s =   NaN
 BC variable name/s =  TIME, REL_HUM,
 BC file header/s =  TIME, RHUM,
-Trying to open file: ..\BCs\Met\RelHum_utm_20130507_20151001_2.nc ...OK
+Trying to open file: ..\BCs\Met\RH_utm_new.nc ...OK
 TIME,RHUM, variables found in netcdf file. 21313 timesteps successfully read.
 BC 3 is OK
 
@@ -422,7 +422,7 @@ BC variable scale/s =   1.00E+00
 BC default value/s =   NaN
 BC variable name/s =  TIME, SW_RAD,
 BC file header/s =  TIME, DSWR,
-Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
+Trying to open file: ..\BCs\Met\Radiation_utm_new.nc ...OK
 TIME,DSWR, variables found in netcdf file. 21313 timesteps successfully read.
 BC 4 is OK
 
@@ -437,7 +437,7 @@ BC variable scale/s =   1.00E+00
 BC default value/s =   NaN
 BC variable name/s =  TIME, LW_RAD,
 BC file header/s =  TIME, DLWR,
-Trying to open file: ..\BCs\Met\Radiation_utm_20130507_20150930_2.nc ...OK
+Trying to open file: ..\BCs\Met\Radiation_utm_new.nc ...OK
 TIME,DLWR, variables found in netcdf file. 21313 timesteps successfully read.
 BC 5 is OK
 
@@ -1157,6 +1157,4 @@ t = 07/05/2013 00:00:00.  dt =   0.000 /  0.000 s.  elapsed time =       0.0 s.
     Writing NETCDF output. t = 07/05/2013 00:00:00.
     Writing NETCDF output. t = 07/05/2013 00:00:00.
     Writing NETCDF output. t = 07/05/2013 00:00:00.
-t = 07/05/2013 00:15:06.  dt =   5.731 /  5.731 s.  elapsed time =       7.3 s.
-t = 07/05/2013 00:30:05.  dt =   5.732 /  5.732 s.  elapsed time =      13.2 s.
-    Calling AED. t = 07/05/2013 00:30:05.
+t = 07/05/2013 00:15:06.  dt =   5.731 /  5.731 s.  elapsed time =       7.4 s.
