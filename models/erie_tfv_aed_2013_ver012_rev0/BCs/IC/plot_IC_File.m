@@ -42,6 +42,10 @@ for b = 3:length(headers)
     
     cdata = data.(headers{b}) * conv(b);
     
+%     theval = 1/0.00025;
+%     
+%     cdata = round(cdata * theval)/theval;
+    
     txtheader = [newheader{b},' (',units{b},')'];
     
     fig.ax = patch('faces',faces','vertices',vert,'FaceVertexCData',cdata);shading flat;hold on
